@@ -1,0 +1,70 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+% !TeX root = ../../Diplomarbeit_Thomas_Weigner.tex
+% set lentghs
+\newcommand{\levelLength}{7.0}
+\newcommand{\levelLengthLong}{3.0}
+\newcommand{\levelConnect}{0.8}
+\newcommand{\levelGap}{1.3}
+\newcommand{\excitedStateHigh}{21.0}
+\newcommand{\excitedStateLow}{11.5}
+\newcommand{\labelLength}{2.0}
+\newcommand{\arrowGap}{0.5}
+
+% ground state
+\draw[level] (0,0) node[left]{$5^2\text{S}_{1/2}$} -- (\levelLength,0);
+% F=1
+\draw[connect] (\levelLength,0)  -- (\levelLength + \levelConnect,-4.3*\levelGap);
+\draw[level]   (\levelLength + \levelConnect, -4.3*\levelGap)  -- (\levelLength + \levelLengthLong + \levelConnect, -4.3*\levelGap) 
+node[right, scale=0.9]{$F=1 \quad g_\mathrm{F}=-\frac{1}{2} \quad \left(\SI{-0.70}{\mega \hertz \per \gauss}\right)$}; 
+% F=2
+\draw[connect] (\levelLength,0) -- (\levelLength + \levelConnect, 2.6*\levelGap);
+\draw[level]   (\levelLength + \levelConnect, 2.6*\levelGap)  -- (\levelLength + \levelLengthLong + \levelConnect, 2.6*\levelGap) 
+node[right, scale=0.9]{$F=2 \quad g_\mathrm{F}=\frac{1}{2} \quad \left(\SI{0.70}{\mega \hertz \per \gauss}\right)$}; 
+
+% excited state J=1/2
+\draw[level] (4.0,\excitedStateLow) node[left]{$5^2\text{P}_{1/2}$} -- (\levelLength,\excitedStateLow);
+% F=1
+\draw[connect] (\levelLength,\excitedStateLow) -- (\levelLength + \levelConnect, \excitedStateLow - 5.1*\levelGap);
+\draw[level]   (\levelLength + \levelConnect, \excitedStateLow - 5.1*\levelGap) 
+-- (\levelLength + \levelLengthLong + \levelConnect, \excitedStateLow - 5.1*\levelGap) 
+node[right, scale=0.9]{$F=1 \quad g_\mathrm{F}=-\frac{1}{6} \quad \left(\SI{-0.23}{\mega \hertz \per \gauss}\right)$};
+% F=2
+\draw[connect] (\levelLength,\excitedStateLow) -- (\levelLength + \levelConnect, \excitedStateLow + 3.1*\levelGap);
+\draw[level]   (\levelLength + \levelConnect, \excitedStateLow + 3.1*\levelGap) 
+-- (\levelLength + \levelLengthLong + \levelConnect, \excitedStateLow + 3.1*\levelGap) 
+node[right, scale=0.9]{$F=2 \quad g_\mathrm{F}=\frac{1}{6} \quad \left(\SI{0.23}{\mega \hertz \per \gauss}\right)$};
+
+% excited state J=3/2
+\draw[level] (0,\excitedStateHigh) node[left]{$5^2\text{P}_{3/2}$} -- (\levelLength,\excitedStateHigh);
+% F=0
+\draw[connect] (\levelLength,\excitedStateHigh)  -- (\levelLength + \levelConnect, \excitedStateHigh - 3.0*\levelGap);
+\draw[level]   (\levelLength + \levelConnect, \excitedStateHigh - 3.0*\levelGap) 
+-- (\levelLength + \levelLengthLong + \levelConnect, \excitedStateHigh - 3.0*\levelGap) node[right, scale=0.9]{$F=0$};
+% F=1
+\draw[connect] (\levelLength,\excitedStateHigh)  -- (\levelLength + \levelConnect, \excitedStateHigh - 2.3*\levelGap);
+\draw[level]   (\levelLength + \levelConnect, \excitedStateHigh - 2.3*\levelGap) 
+-- (\levelLength + \levelLengthLong + \levelConnect, \excitedStateHigh - 2.3*\levelGap) 
+node[right, scale=0.9]{$F=1 \quad g_\mathrm{F}=\frac{2}{3} \quad \left(\SI{0.93}{\mega \hertz \per \gauss}\right)$};
+% F=2
+\draw[connect] (\levelLength,\excitedStateHigh)  -- (\levelLength + \levelConnect, \excitedStateHigh - 0.7*\levelGap);
+\draw[level]   (\levelLength + \levelConnect, \excitedStateHigh - 0.7*\levelGap) 
+-- (\levelLength + \levelLengthLong + \levelConnect, \excitedStateHigh - 0.7*\levelGap) 
+node[right, scale=0.9]{$F=2 \quad g_\mathrm{F}=\frac{2}{3} \quad \left(\SI{0.93}{\mega \hertz \per \gauss}\right)$};
+% F=3
+\draw[connect] (\levelLength,\excitedStateHigh)  -- (\levelLength + \levelConnect, \excitedStateHigh + 1.9*\levelGap);
+\draw[level]   (\levelLength + \levelConnect, \excitedStateHigh + 1.9*\levelGap) 
+-- (\levelLength + \levelLengthLong + \levelConnect, \excitedStateHigh + 1.9*\levelGap) 
+node[right, scale=0.9]{$F=3 \quad g_\mathrm{F}=\frac{2}{3} \quad \left(\SI{0.93}{\mega \hertz \per \gauss}\right)$};
+
+% D1 line
+\draw[thick, black, decoration={discontinuity, amplitude=0.2cm, segment length=0.15cm,	meta-segment length=0.5cm}, decorate] (0.8*\levelLength,0) 
+-- node[right, scale=0.8, label={[rotate=-45]left:{$\SI{794.979}{\nano \meter}$\ \ }}]{} (0.8*\levelLength, \excitedStateLow);
+\draw[thick, black, <-, >=stealth',shorten >=1pt] (0.8*\levelLength, 0) -- (0.8*\levelLength, 3,0);
+\draw[thick, black, ->, >=stealth',shorten >=1pt] (0.8*\levelLength, \excitedStateLow - 3.0) -- (0.8*\levelLength, \excitedStateLow);
+
+% D2 line
+\draw[thick, black, decoration={discontinuity, amplitude=0.2cm, segment length=0.15cm,	meta-segment length=0.5cm}, decorate] (0.1*\levelLength,0) 
+-- node[left, scale=0.8, label={[rotate=-45]left:{$\SI{780.241}{\nano \meter}$}}]{} (0.1*\levelLength, \excitedStateHigh);
+\draw[thick, black, <-, >=stealth',shorten >=1pt] (0.1*\levelLength, 0) -- (0.1*\levelLength, 3,0);
+\draw[thick, black, ->, >=stealth',shorten >=1pt] (0.1*\levelLength, \excitedStateHigh - 3.0) -- (0.1*\levelLength, \excitedStateHigh);

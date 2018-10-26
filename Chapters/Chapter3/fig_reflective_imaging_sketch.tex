@@ -1,0 +1,26 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_GB
+% !TeX root = ../../Diplomarbeit_Thomas_Weigner.tex
+\node[generic sensor, anchor=aperture west, rotate=-12] (OutCop) at (0, 0) {};
+\node[mirror, Ggreen, rotate=185, object height=1.2cm] (M1) at (-5,1.0) {};
+\node[mirror, rotate=5, object height=1.2cm] (M2) at (1.5,2) {};
+%chip mount
+\begin{scope}[scale =0.5, shift={(-18,4.5)}]
+	\draw[fill=ChipMountColor, ChipMountColor] (-2, 4) rectangle (2,3);
+	\draw[fill=ChipMountColor, ChipMountColor] (-0.8, 3) rectangle (0.8,1);
+	\draw[fill=ChipMountColor, ChipMountColor] (-2, 1) rectangle (2,0);
+	\draw[fill=rubidiumColor, rubidiumColor] (0,-0.5) circle (0.2);
+	\coordinate (cloud) at (0,-0.5);
+%	\node[black] at (0,3.5) {\small chip mount};
+%	\foreach \i in {1,...,10}{
+%		\draw[black, thick] (-2.4+0.4*\i,4) --(-2.5+0.4*\i,4.4);	
+%	}
+%	\draw[black, ultra thick] (-2,4) -- (2,4);
+\end{scope}
+%beam paths
+\draw[DirectImgColor, ->-]  ($(OutCop)+(-0.5,-0.1)$) -- ($(M1)+(0,-0.1)$);
+\draw[DirectImgColor, ->-]  ($(M1)+(0,-0.1)$) -- (M2);
+\draw[DirectImgColor, ->-]  (M2) -- (cloud);
+\draw[ReflectImgColor, ->-]  ($(OutCop) + (-0.5,+0.1)$) -- (cloud);
+\draw[DirectImgColor, ->-]  (cloud) -- +(-1.5,0);
+\draw[ReflectImgColor, ->-]  (cloud) -- +(-1.5,-0.5);

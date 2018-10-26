@@ -1,0 +1,42 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+% !TeX root = ../../Diplomarbeit_Thomas_Weigner.tex
+%---coordinate system
+% (y,z,x) to be according to right hand rule
+% (x,z,y) in the drawing
+\begin{scope}[scale = 0.8, shift ={(-5.5, -4.6, 0)}]
+	\draw[ ->]  (0, 0, 0) -- (1, 0, 0);
+	\node[label=right:y] at (1, 0, 0) {};
+	\draw[->]  (0, 0, 0) -- (0, 1, 0);
+	\node[label=above:z] at (0, 1, 0) {};
+	\draw[->]  (0, 0, 0) -- (0, 0, 1);
+	\node[label=below:x] at (0, 0, 1) {};
+\end{scope}
+
+\draw[Gred, ultra thick, ->]  (3, 0, 0) -- (1.5, 0, 0);
+\node[label=above:{$\sigma^-$}] at (1.5, 0, 0) {};
+\draw[Gred, ultra thick, ->]  (0, 3, 0) -- (0, 1.5, 0);
+\node[label=left:{$\sigma^-$}] at (0, 1.5, 0) {};
+\draw[Gred, ultra thick, ->]  (0, 0, 4) -- (0, 0, 1.5);
+\node[label=left:{$\sigma^-$}] at (0, 0, 1.5) {};
+\draw[Gred, ultra thick, ->]  (-3, 0, 0) -- (-1.5, 0, 0);
+\node[label=above:{$\sigma^+$}] at (-1.5, 0, 0) {};
+\draw[Gred, ultra thick, ->]  (0, -3, 0) -- (0, -1.5, 0);
+\node[label=right:{$\sigma^+$}] at (0, -1.5, 0) {};
+\draw[Gred, ultra thick, ->]  (0, 0, -4) -- (0, 0, -1.5);
+\node[label=above:{$\sigma^+$}] at (0, 0, -1.5) {};
+\draw[dashed, thin]  (-1.5, 0, 0) -- (1.5, 0, 0);
+\draw[dashed, thin]  (0, -1.5, 0) -- (0, 1.5, 0);
+\draw[dashed, thin]  (0, 0, -1.5) -- (0, 0, 1.5);
+
+\shade[ball color = rubidiumColor] (0,0) circle (0.3);
+
+\begin{scope}[canvas is xz plane at y=2.35]
+	\draw[very thick, decoration={markings, mark=at position 1 with {\arrow{<}}}, postaction={decorate}] (0, 0) circle (3);
+	\node[label=right:I] at (3,0) {};
+\end{scope}
+
+\begin{scope}[canvas is xz plane at y=-2.35]
+	\draw[very thick, decoration={markings, mark=at position 1 with {\arrow{>}}}, postaction={decorate}] (0, 0) circle (3);
+	\node[label=right:I] at (3,0) {};
+\end{scope}

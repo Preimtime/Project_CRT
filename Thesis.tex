@@ -1,0 +1,158 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_GB
+% !TeX root = Thesis.tex
+%---Document Class---------------------------------------------------------------
+\documentclass[
+%---scrbook options
+	toc=listof,			% add list of tables and list of figures to table of contents
+	toc=bibliography,	% add bibliography to table of contents
+	toc=index,			% add index to table of contents
+%---Thesis options
+	a4paper,			% Din A4
+%	a5paper,			% Din A5
+%	letterpaper,		% letter paper
+%	custommargin,		% custom typarea set in header
+	times,				% `Times New Roman` font
+%	fourier,			% `Fourier` font
+%	customfont,			% custom font set in header
+	biblatex,			% use package biblatex backend Biber for citations (default natbib backend BibTeX)
+%	bibtex,				% use BibTeX as backend for BibLaTeX to sort references instead of Biber
+%	bibtex8,			% use BibTeX8 (UTF-8 support) as backend for BibLaTeX to sort references instead of Biber
+%	authoryear,			% reference style [author,year]
+	numbered,			% reference style [#]
+%	custombib,			% custom reference style set in header
+%	bibsections,		% list references by sections (delete auxilliary files when switched on)
+%	index,				% add index
+	titlepage2,			% use alternaitve title page design
+%	abstract,			% just print abstract and titlepage (must not delete auxilliary files when used)
+% 	chapter,			% only compile given chapter with references (must not delete auxilliary files when used)
+%	draft,				% fancy draft with linenumbers and date; options below
+%	draftclassic,		% standard draft mode
+%	nolinenumbers,		% no line numbres in draft mode
+%	todonotesoff,		% disable todo notes and margignshift in draft mode has to be loaded after draft options
+%	bibdebug,			% bibliography debug mode, overrules other styles (only in combination with biblatex)
+%	print,				% twosided print version
+%	signed,				% adds lines to sign
+%	declaration,		% adds a page with a decleration after the title page
+	place,				% add place and date on the title page
+	final,				% finalized document option
+	12pt				% fontsize
+]{./Class_Packages_and_Styles/Thesis}% set document class
+
+%---load preamble----------------------------------------------------------------
+%BEGIN_FOLD
+%\pdfoutput=1						% required by ArXiv?
+\input{./Preamble/thesis-info}		% add thesis information like author, supervisor, title, etc. should be loaded before header
+\input{./Preamble/header}			% add header which includes used settings, Packages and defines
+\input{./Preamble/userColors.tex}	% define all colors used
+%END_FOLD
+
+%---Configure Draft Mode and Debugging-------------------------------------------
+%BEGIN_FOLD
+% !!!When nolinenumbres is toggled clean auxiliary files
+% these options set up the watermark in the draft mode
+\ifdefineDraft
+	\setkeys{Gin}{draft=false} 			% set draft to false to enable figures in draft mode
+	\SetDraftVersion{v1.0}				% draft version - default is v1.0
+	\SetDraftText{draft}				% default text is "Draft"
+	\SetDraftWMPosition{bottom}			% default watermark location is top. Location (top/bottom)
+	\SetDraftGrayScale{0.7}				% draft text grayscale value (should be between 0-black and 1-white) default value is 0.75
+\fi
+
+% show package versions loaded in log file
+%\listfiles
+
+% uncomment to show type area and margings with frames
+%\usepackage{showframe}
+
+% supress unnecesarry warnings in PdfLaTeX mode
+%\pdfsuppresswarningpagegroup=1
+%END_FOLD
+
+%---Abstract Separate------------------------------------------------------------
+%BEGIN_FOLD
+% To printout only the titlepage and the abstract with the PhD title and the
+% author name for submission to the Student Registry, use the `abstract' option in
+% the document class.
+\ifabstractMode
+	\pagestyle{empty}
+	\includeonly{./Chapters/Abstract/abstract}
+\fi
+%END_FOLD
+
+%---Chapter Mode-----------------------------------------------------------------
+%BEGIN_FOLD
+% The chapter mode allows user to only print particular chapters with references
+% Title, Contents, Frontmatter are disabled by default
+% Useful option to review a particular chapter or to send it to supervisior.
+% To use choose `chapter' option in the document class
+\ifchapterMode
+	\include{./Chapters/Chapter1/chapter_1}
+%	\include{./Chapters/Chapter2/chapter_2}
+%	\include{./Chapters/Chapter3/chapter_3}
+\fi
+%END_FOLD
+
+\begin{document}
+%---Front matter------------------------------------------------------------------
+\ifsetBibLaTeX\begin{refsegment}\fi		% catch possible citations otside of any chapter (needed when bibsections is used)
+\maketitle								% add titel page; for changes edit titlepage.tex
+\ifdeclaration \include{./Chapters/Declaration/declaration} \else \cleardoublepage \fi
+\include{./Chapters/Dedication/dedication}
+\frontmatter
+\include{./Chapters/Abstract/abstract}
+\include{./Chapters/Abstract/zusammenfassung}
+\ifsetBibLaTeX\end{refsegment}\fi
+
+%---Tables of content------------------------------------------------------------
+\tableofcontents
+
+%---Main part--------------------------------------------------------------------
+\mainmatter
+\include{./Chapters/Chapter1/chapter_1}
+\include{./Chapters/Chapter2/chapter_2}
+\include{./Chapters/Chapter3/chapter_3}
+
+%---backmatter-------------------------------------------------------------------
+\backmatter
+%---Appendix
+\appendix
+\renewcommand\thesection{\Alph{section}}			% lable sections with capital letters
+\include{./Chapters/Appendix/appendix_A}
+%---Index
+\setindexpreamble{}							% expaletory text at the beginning of the index
+\printthesisindex 							% list of todo in draft mode and index if index option is set
+%---Lists
+\listoffigures								% print list of figures
+\listoftables								% print list of tables
+%---Nomenclature
+\renewcommand{\nomname}{List of Symbols}	% set nomenclature heading
+\renewcommand{\nompreamble}{}				% set nomenclature preamble
+\printnomencl{1ex}							% command for custom style nomenclature
+%---Acknowledgement
+\include{./Chapters/Acknowledgement/acknowledgement}
+
+%---References-------------------------------------------------------------------
+\begin{spacing}{0.9}						% adapt to change "density"
+	\ifsetBibLaTeX
+		\ifBibSections
+			\printbibheading[heading=bibintoc, title={References}]
+			\bibbysegment[heading=subbibliography]
+		\else
+			\printbibliography[heading=bibintoc, title={References}]
+		\fi
+	\fi
+	\ifsetNatBib
+	%---reference styles compatibel with natbib (choose one from the default folder or add one with relative path manually)
+%		\bibliographystyle{naturemag} 		% nature magazine styled refernces
+%		\bibliographystyle{newapa}			% improved American Psychological Assosiaction (apa) style
+%		\bibliographystyle{apalike}			% similar to American Psychological Assosiaction (apa) styles
+%		\bibliographystyle{abbrvnat}		% author abbreviations (natbib version of abbr)
+%		\bibliographystyle{plainnat}		% numberical only (natbib version of plain)
+		\bibliographystyle{unsrtnat}		% unsorted reference style (natbib version of unsrt)
+	%---print bilbiography here
+		\bibliography{./References/references.bib}
+	\fi
+\end{spacing}
+%\include{./Chapters/Appendix/appendix_current_histroy_paper}
+\end{document}

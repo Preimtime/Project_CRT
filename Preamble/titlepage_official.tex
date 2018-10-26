@@ -1,0 +1,78 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_GB
+% !TeX root = ../Thesis.tex
+\renewcommand{\maketitle}{
+	\begingroup % Create the command for including the title page in the document
+		\thispagestyle{empty}
+		\newgeometry{bottom=3cm, top=1.8cm, left=2.5cm+\bindingOffset, right=2.5cm}
+		\begin{center}
+			\begin{figure}[h]
+				\begin{subfigure}[h]{0.459\textwidth}
+					\flushleft
+					\includegraphics[width=0.8\textwidth]{\universityLogo}
+				\end{subfigure}
+				\ifBOOL@instituteLogo
+					\begin{subfigure}[h]{0.39\textwidth}
+						\flushright
+						\includegraphics[width=0.5\textwidth]{\instituteLogo}
+					\end{subfigure}
+				\fi
+			\end{figure}
+
+			\vspace{\stretch{0.01}}
+			\begin{LARGE}	
+				\par\noindent%
+%				{\large DIPLOMARBEIT}\\
+				{\large DISSERTATION}\\
+				\vspace{\stretch{0.03}}
+				\textbf{\huge \title}\\
+				\ifBOOL@subtitle
+					\subtitle \\
+				\fi
+			\end{LARGE}
+			
+			\vspace{\stretch{0.05}}
+			zur Erlangugn des akademischen Grades\\
+			\vspace{\stretch{0.01}}
+			\textbf{\large Diplom-Ingenieur}\\
+			\vspace{\stretch{0.01}}
+			im Rahmen des Studiums\\
+			\vspace{\stretch{0.01}}
+%			\textbf{\large Masterstudium Technische Physik}\\
+			\textbf{\large Doktor der technischen Wissenschaften}\\
+			\vspace{\stretch{0.05}}
+			eingereicht von\\
+			\vspace{\stretch{0.01}}
+			\textbf{\author} \\
+			\vspace{\stretch{0.01}}
+			Matrikelnummer: \authorMatriculationNumber \\
+			\vspace{\stretch{0.005}}
+			\authorAdress
+			\vspace{\stretch{0.01}}
+		\end{center}
+		
+		\begin{center}
+			ausgeführt am \institute \\
+			der Fakultät für Physik der Technishen Universität Wien\\
+			\vspace{\stretch{0.02}}
+			unter der Anleitung von \\
+			\textbf{\supervisor} \\
+			\ifBOOL@advisors
+				und \\
+				\textbf{\advisors}
+			\fi
+			\vspace{\stretch{0.05}} \\
+		\end{center}
+		
+		\ifsigned
+			\authorSign \\
+			\vspace{\stretch{0.05}} \\
+			\supervisorSign
+		\fi
+		
+		\ifplace
+			\placeSign
+		\fi
+		\restoregeometry
+	\endgroup
+}

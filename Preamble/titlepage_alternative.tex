@@ -1,0 +1,67 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_GB
+% !TeX root = ../Thesis.tex
+\renewcommand{\maketitle}{
+	\begingroup % Create the command for including the title page in the document
+		\thispagestyle{empty}
+		\newgeometry{bottom=3cm, top=3cm, left=2.5cm+\bindingOffset, right=2.5cm}
+		\begin{center}
+			\begin{figure}[h]
+				\centering
+				\includegraphics[width=0.5\textwidth]{\universityLogo}
+			\end{figure}
+
+			\vspace{\stretch{0.1}}
+			\begin{LARGE}	
+				\par\noindent%
+%				{\Large DIPLOMARBEIT}\\
+				{\large DISSERTATION}\\
+				\vspace{\stretch{0.1}}
+				\textbf{\huge \title} \\
+				\ifBOOL@subtitle
+					\subtitle
+				\fi
+			\end{LARGE}
+			
+			\vspace{\stretch{0.3}}
+				ausgeführt am \institute \\
+				\ifBOOL@instituteLogo
+					\begin{figure}[h]
+						\centering
+						\includegraphics[width=0.17\textwidth]{\instituteLogo}
+					\end{figure}
+				\fi
+				der \university\\
+				Fakultät für Physik
+				
+				\vspace{\stretch{0.3}}
+				unter der Anleitung von \\
+				\textbf{\large \supervisor} \\
+				\ifBOOL@advisors
+					und \\
+					\textbf{\large \advisors} \\
+				\fi
+
+				\vspace{\stretch{0.1}}
+				durch \\
+				\vspace{\stretch{0.1}}
+				\textbf{\Large \author} \\
+				\vspace{\stretch{0.05}}
+				Matrikelnummer: \authorMatriculationNumber \\
+				\vspace{\stretch{0.02}}
+				\authorAdress
+				\vspace{\stretch{0.1}}
+		\end{center}
+		
+		\ifsigned
+			\authorSign \\
+			\vspace{\stretch{0.3}} \\
+			\supervisorSign
+		\fi
+		
+		\ifplace
+			\placeSign
+		\fi
+		\restoregeometry
+	\endgroup	
+}

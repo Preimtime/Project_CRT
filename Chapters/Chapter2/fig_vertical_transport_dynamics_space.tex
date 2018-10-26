@@ -1,0 +1,84 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+% !TeX root = ../../Diplomarbeit_Thomas_Weigner.tex
+\begin{axis}[
+		name=vertical transport dynamics s(t),
+		width=\axisdefaultwidth,
+		grid=major,
+		xlabel=vertical transport time (\si{\milli \second}),
+		ylabel=$s\left( t \right) \ (\si{\milli \meter})$,
+		ylabel style={rotate=270, at={(axis cs:0,225)}},
+		xmin=0,
+		xmax=1500,
+		ymin=0,ymax=220,
+		width=0.7\textwidth,
+		every axis plot/.append style={very thick},
+		legend style={legend cell align=left, align=left, fill=white, draw=white!15!black, anchor=west, at={(axis cs:245,0)}},
+]
+	\addplot[mark=none, Ggreen, CoilCurrent] table [x=t, y=s, col sep=comma]{./Chapters/Atomic_Recombination/data_vertical_transport_dynamics.csv};
+	%---spy inset 1
+	\grenewcommand{\xStartZoom}{0}
+	\grenewcommand{\xEndZoom}{60}
+	\grenewcommand{\yStartZoom}{0}
+	\grenewcommand{\yEndZoom}{4}
+%	\coordinate (spypoint1) at (axis cs:\xStartZoom, \yStartZoom);
+%	\coordinate (spypoint2) at (axis cs:\xEndZoom, \yEndZoom);
+	\coordinate (spypoint1) at (axis cs:-4,-4);
+	\coordinate (spypoint2) at (axis cs:50,3);
+	\coordinate (magnifyglass1) at (axis cs:350,140);
+	%---spy inset 1
+	\grenewcommand{\xStartZoomTwo}{1440}
+	\grenewcommand{\xEndZoomTwo}{1500}
+	\grenewcommand{\yStartZoomTwo}{211}
+	\grenewcommand{\yEndZoomTwo}{215}
+%	\coordinate (spypoint1) at (axis cs:\xStartZoom, \yStartZoom);
+%	\coordinate (spypoint2) at (axis cs:\xEndZoom, \yEndZoom);
+	\coordinate (spypoint3) at (axis cs:1250,180);
+	\coordinate (spypoint4) at (axis cs:1314,189);
+	\coordinate (magnifyglass2) at (axis cs:1000,46);
+\end{axis}
+%---magnified plot 1
+\begin{axis}[
+	name=zoomedView1,
+	width=\axisdefaultwidth,
+%	height=\axisdefaulheight * (\yEndZoom - \yStartZoom) / (\xEndZoom - \xStartZoom),
+	scale=0.5,
+	at=(magnifyglass1),
+	anchor=center,
+	xmajorgrids,
+	ymajorgrids,
+	xlabel={},
+	ylabel={},
+%	extra x ticks={\xStartZoom, \xEndZoom},
+%	extra y ticks={\yStartZoom, \yEndZoom},
+	xmin=\xStartZoom, xmax=\xEndZoom,
+	ymin=\yStartZoom, ymax=\yEndZoom,
+	axis background/.style={fill=white}
+]
+	\addplot[mark=none, Ggreen, CoilCurrent] table [x=t, y=s, col sep=comma]{./Chapters/Atomic_Recombination/data_vertical_transport_dynamics.csv};
+\end{axis}
+\draw[spyColor, dashed] (spypoint1) rectangle (spypoint2);
+\draw[spyColor, dashed] (spypoint1) -- (zoomedView1.south west);
+\draw[spyColor, dashed] (spypoint2) -- (zoomedView1.south east);
+%---magnified plot
+\begin{axis}[
+	name=zoomedView2,
+	width=\axisdefaultwidth,
+%	height=\axisdefaulheight * (\yEndZoom - \yStartZoom) / (\xEndZoom - \xStartZoom),
+	scale=0.5,
+	at=(magnifyglass2),
+	anchor=center,
+	xmajorgrids,
+	ymajorgrids,
+	xlabel={},
+	ylabel={},
+	ytick={212,213,214,215},
+	xmin=\xStartZoomTwo, xmax=\xEndZoomTwo,
+	ymin=\yStartZoomTwo, ymax=\yEndZoomTwo,
+	axis background/.style={fill=white}
+]
+	\addplot[mark=none, Ggreen, CoilCurrent] table [x=t, y=s, col sep=comma]{./Chapters/Atomic_Recombination/data_vertical_transport_dynamics.csv};
+\end{axis}
+\draw[spyColor, dashed] (spypoint3) rectangle (spypoint4);
+\draw[spyColor, dashed] (spypoint3) -- (zoomedView2.north west);
+\draw[spyColor, dashed] (spypoint4) -- (zoomedView2.north east);

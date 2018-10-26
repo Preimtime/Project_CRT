@@ -1,0 +1,242 @@
+\documentclass[tikz]{standalone}
+
+\input{./Preamble/userColors.tex}	% define all colors used
+
+% ********************************* Colors ************************************
+%BEGIN_FOLD
+\usepackage{xcolor}
+%END_FOLD
+
+% ********************************** TikZ *************************************
+%BEGIN_FOLD
+\usepackage{tikz}
+%\include{./Class_Packages_and_Styles/tikzlibraryoptics}
+\usepackage[siunitx]{circuitikz}	% Loading circuitikz with siunitx option
+\usetikzlibrary{positioning, arrows, calc, 3d, decorations.pathreplacing ,decorations.markings, spy, fit, shapes, external} % fadings, shapes
+
+%---custom styles
+\tikzset{
+	%---term schemes
+	level/.style   			= { ultra thick, black},
+	virtualLevel/.style		= { ultra thick, dashed, black},
+	virtualLevel2/.style	= { ultra thick, dashed, gray},
+	connect/.style 			= { ultra thin, black},
+	transition/.style		= { thick, black,->,>=stealth',shorten >=1pt},
+	transition2/.style		= { very thick, Cornflowerblue,->,>=stealth',shorten >=1pt},
+	transitionBoth/.style 	= { thick, black,<->,>=stealth',shorten >=1pt},
+	transitionLaser/.style 	= { thick, ->, >=stealth'},
+	energyGap/.style		= { thick, black,<->,>=stealth',shorten >=1pt},
+	%---dimensioning
+	body/.style				= {inner sep=0pt,outer sep=0pt,shape=rectangle,draw,thick,pattern=north east lines wide},
+	dimen/.style			= {<->,>=latex,thin,every rectangle node/.style={fill=white,midway,font=\sffamily}},
+	symmetry/.style			= {dashed,thin}
+}						
+\tikzset{>={latex}}					% change default arrows
+
+%---spy setup
+\tikzset{
+	spy style/.style={#1},
+	spy/.style={
+		spy scope={
+			every spy on node/.style={draw},
+			every spy in node/.style={draw},
+			spy style
+		}
+	}
+}
+\definecolor{spyColor}{HTML}{3949AB}
+
+%---term scheme variables
+\newcommand{\levelLength}{}
+\newcommand{\levelLengthLong}{}
+\newcommand{\levelConnect}{}
+\newcommand{\levelGap}{}
+\newcommand{\virtualLevel}{}
+\newcommand{\excitedState}{}
+\newcommand{\excitedStateHigh}{}
+\newcommand{\excitedStateLow}{}
+\newcommand{\labelLength}{}
+\newcommand{\arrowGap}{}
+
+%---optics variables
+\newcommand{\freeLaserShort}{}
+\newcommand{\freeLaser}{}
+\newcommand{\freeLaserLong}{}
+\newcommand{\increment}{}
+
+%---sphereical lens (by Mohammadamin Tajik)
+\newcommand\LensSph{} 				% just for safety
+\def\LensSph[#1](#2,#3,#4,#5){%
+	\pgfmathsetmacro\Tho{asin(0.5*#4/#5)}
+	\filldraw[#1]  (#2- .5*#3,.5*#4) arc(-\Tho: \Tho: -#5)-- ++(-#2,0)-- ++(0,#4)--cycle;
+}
+
+%Define block styles
+\tikzstyle{decision} = [diamond, draw, fill=blue!20, text width=4.5em, text badly centered, node distance=3cm, inner sep=0pt]
+\tikzstyle{block} = [rectangle, draw, fill=blue!20, text width=5em, text centered, rounded corners, minimum height=4em]
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{cloud} = [draw, ellipse,fill=purple!20, node distance=3cm,minimum height=2em]
+
+%---additional pin anchors
+%BEGIN_FOLD
+%\makeatletter
+%\newcommand*\ifStrInTF[2]{%
+%	\edef\tikz@temp{{#1}{#2}}%
+%	\expandafter\pgfutil@in@\tikz@temp
+%	\ifpgfutil@in@\expandafter\pgfutil@firstoftwo\else\expandafter\pgfutil@secondoftwo\fi}
+%\newcommand*\ifStrEmptyTF[1]{%
+%	\def\tikz@temp{#1}\ifx\tikz@temp\pgfutil@empty
+%	\expandafter\pgfutil@firstoftwo\else\expandafter\pgfutil@secondoftwo\fi}
+%
+%\def\tikz@swapanchor#1.#2\tikz@stop#3#4{#1#4#3}
+%\newcommand*\tikzAddAnchor[2]{%
+%	\ifStrInTF{.}{#1}{%
+%		\ifStrEmptyTF{#2}
+%		{\edef#1{\expandafter\tikz@swapanchor#1\tikz@stop{}{}}}
+%		{\edef#1{\expandafter\tikz@swapanchor#1\tikz@stop{#2}{.}}}%
+%	}{%
+%	\ifStrEmptyTF{#2}{}% no true
+%	{\edef#1{#1.#2}}%
+%}}
+%\tikzset{
+%	pin anchor/.style={tikz@pin@post/.append style={anchor=#1}},
+%	label anchor/.style={tikz@label@post/.append style={anchor=#1}},
+%	pin edge pin anchor/.style={
+%		append after command={\pgfextra\tikzAddAnchor{\tikzlastnode}{#1}\endpgfextra}%
+%	},
+%	pin edge parent anchor/.style={
+%		append after command={\pgfextra\tikzAddAnchor{\tikz@save@last@node}{#1}\endpgfextra}%
+%	}
+%}
+%\makeatother
+%END_FOLD
+%END_FOLD
+
+% *********************************** PGF *************************************
+%BEGIN_FOLD
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.8}
+
+%TODO this doesn't fucking work
+%---externalize plots for speed up
+%\usepgfplotslibrary{external}					% externally do the jobs (shell escape needs to be enabled)
+%\tikzexternalize[prefix=./Figures/]				% externalize and save figures in Figures				
+%%\tikzset{external/force remake}
+%
+%%---exclude todo pictures from externalize
+%\usepackage{letltxmacro}
+%\LetLtxMacro{\oldmissingfigure}{\missingfigure}
+%\renewcommand{\missingfigure}[2][]{\tikzexternaldisable\oldmissingfigure[{#1}]{#2}\tikzexternalenable}
+%\LetLtxMacro{\oldtodo}{\todo}
+%\renewcommand{\todo}[2][]{\tikzexternaldisable\oldtodo[#1]{#2}\tikzexternalenable}
+
+%---global plots settings
+\pgfplotsset{legend style={overlay}, 			% set legends etc. as overlay to horizontaly align accoording to the axes
+	ylabel style={overlay},
+	yticklabel style={overlay}}
+\newcommand{\marksSize}{3.5pt}					% size for marks in plots
+\pgfplotsset{									% set san serif font for labels, axes, etc.
+	tick label style = {font=\sansmath\sffamily},
+	every axis label = {font=\sansmath\sffamily},
+	legend style = {font=\sansmath\sffamily},
+	label style = {font=\sansmath\sffamily}
+}
+
+%---zoom area variables for plot zooms with secound axis environment
+\newcommand{\xStartZoom}{0.0}
+\newcommand{\xEndZoom}{0.0}
+\newcommand{\yStartZoom}{0.0}
+\newcommand{\yEndZoom}{0.0}
+\newcommand{\xStartZoomTwo}{0.0}
+\newcommand{\xEndZoomTwo}{0.0}
+\newcommand{\yStartZoomTwo}{0.0}
+\newcommand{\yEndZoomTwo}{0.0}
+
+%---pgf styles
+\pgfplotsset{
+	CoilCurrent/.style={line width=1.0pt, thick, y filter/.expression={y==0 ? nan : y},
+		filter discard warning=false}
+}
+\pgfplotsset{
+	x axis color/.style={
+		xticklabel style=#1,
+		xlabel style=#1,
+		x axis line style=#1,
+		xtick style=#1
+	}
+}
+\pgfplotsset{
+	y axis color/.style={
+		yticklabel style=#1,
+		ylabel style=#1,
+		y axis line style=#1,
+		ytick style=#1
+	}
+}
+
+%---add custom plot marks
+\pgfdeclareplotmark{xo}{%
+	\pgfpathcircle{\pgfpointorigin}{\pgfplotmarksize}%
+	\pgfpathmoveto{\pgfqpoint{-1.2\pgfplotmarksize}{-1.2\pgfplotmarksize}}%
+	\pgfpathlineto{\pgfqpoint{1.2\pgfplotmarksize}{1.2\pgfplotmarksize}}%
+	\pgfpathmoveto{\pgfqpoint{-1.2\pgfplotmarksize}{1.2\pgfplotmarksize}}%
+	\pgfpathlineto{\pgfqpoint{1.2\pgfplotmarksize}{-1.2\pgfplotmarksize}}%
+	\pgfusepathqstroke%
+}
+\pgfdeclareplotmark{Y}{%
+	\pgfpathmoveto{\pgfpointorigin}%
+	\pgfpathlineto{\pgfqpoint{0.0\pgfplotmarksize}{-1.0\pgfplotmarksize}}%
+	\pgfpathmoveto{\pgfpointorigin}%
+	\pgfpathlineto{\pgfqpoint{-1.0\pgfplotmarksize}{1.0\pgfplotmarksize}}%
+	\pgfpathmoveto{\pgfpointorigin}%
+	\pgfpathlineto{\pgfqpoint{1.0\pgfplotmarksize}{1.0\pgfplotmarksize}}%
+	\pgfusepathqstroke
+}
+
+%---discontinuity
+\pgfdeclaredecoration{discontinuity}{start}{
+	\state{start}[width=0.5\pgfdecoratedinputsegmentremainingdistance-0.5\pgfdecorationsegmentlength,next state=first wave]{}
+	\state{first wave}[width=\pgfdecorationsegmentlength, next state=second wave]{
+		\pgfpathlineto{\pgfpointorigin}
+		\pgfpathmoveto{\pgfqpoint{0pt}{\pgfdecorationsegmentamplitude}}
+		\pgfpathcurveto
+		{\pgfpoint{-0.25*\pgfmetadecorationsegmentlength}{0.75\pgfdecorationsegmentamplitude}}
+		{\pgfpoint{-0.25*\pgfmetadecorationsegmentlength}{0.25\pgfdecorationsegmentamplitude}}
+		{\pgfpoint{0pt}{0pt}}
+		\pgfpathcurveto
+		{\pgfpoint{0.25*\pgfmetadecorationsegmentlength}{-0.25\pgfdecorationsegmentamplitude}}
+		{\pgfpoint{0.25*\pgfmetadecorationsegmentlength}{-0.75\pgfdecorationsegmentamplitude}}
+		{\pgfpoint{0pt}{-\pgfdecorationsegmentamplitude}}
+	}
+	\state{second wave}[width=0pt, next state=do nothing]{
+		\pgfpathmoveto{\pgfqpoint{0pt}{\pgfdecorationsegmentamplitude}}
+		\pgfpathcurveto
+		{\pgfpoint{-0.25*\pgfmetadecorationsegmentlength}{0.75\pgfdecorationsegmentamplitude}}
+		{\pgfpoint{-0.25*\pgfmetadecorationsegmentlength}{0.25\pgfdecorationsegmentamplitude}}
+		{\pgfpoint{0pt}{0pt}}
+		\pgfpathcurveto
+		{\pgfpoint{0.25*\pgfmetadecorationsegmentlength}{-0.25\pgfdecorationsegmentamplitude}}
+		{\pgfpoint{0.25*\pgfmetadecorationsegmentlength}{-0.75\pgfdecorationsegmentamplitude}}
+		{\pgfpoint{0pt}{-\pgfdecorationsegmentamplitude}}
+		\pgfpathmoveto{\pgfpointorigin}
+	}
+	\state{do nothing}[width=\pgfdecorationsegmentlength,next state=do nothing]{
+		\pgfpathlineto{\pgfpointdecoratedinputsegmentlast}
+	}
+	\state{final}{
+		\pgfpathlineto{\pgfpointdecoratedpathlast}
+	}
+}
+%END_FOLD
+
+\begin{document}
+	test
+\begin{figure}[htb]
+	\centering
+	\begin{tikzpicture}[scale=0.7]
+		\input{./Chapters/Experiment_Setup/fig_cryostat_overview.tex}
+	\end{tikzpicture}
+	\caption[test]{Testing a figure}
+	\label{fig:test}
+\end{figure}
+\end{document}

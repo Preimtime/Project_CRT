@@ -1,0 +1,47 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+% !TeX root = ../../Diplomarbeit_Thomas_Weigner.tex
+% set lentghs
+\newcommand{\freeLaserShort}{0.5}
+\newcommand{\freeLaser}{0.8}
+\newcommand{\freeLaserLong}{1.2}
+\newcommand{\increment}{=\freeLaserShort of}
+\newcommand{\cellHeight}{1.5cm}
+\newcommand{\cellRatio}{2.6}
+\newcommand{\cellLength}{\cellHeight * \cellRatio}
+
+\node[laser] (LASER) at (0, 0) {Laser};
+\draw[red, ->-]  (LASER.aperture east) -- +(\freeLaserShort, 0);
+\node[thick optics element, right=\freeLaserShort of LASER.aperture east, object height=1.2cm, object aspect ratio=2.0, label=center:OIso] (OIso) {};
+\draw[red, ->-] (OIso.east) -- +(\freeLaserShort, 0);
+\node[polarizer, right=\freeLaserShort of OIso.east, label=above:$\frac{\lambda}{2}$] (POL1) {};
+\draw[red, ->-]  (POL1.east) -- +(\freeLaserShort, 0);
+\node[beam splitter, right=\freeLaserShort of POL1.east, label=above:PBS] (PBS) {};
+\draw[red, ->-]  (PBS.south) -- +(0, -\freeLaserLong);
+\draw[red, ->-={at=0.35}] (PBS.east) -- +(\freeLaser, 0);
+\draw[red, -<-={at=0.65}] (PBS.east) -- +(\freeLaser, 0);
+\node[lens, lens type=diverging, right=\freeLaser of PBS.east] (L1) {};
+\node[lens, lens type=converging, right=\freeLaserLong of L1] (L2) {};
+\draw[red, ->-]  (L1) -- ($(L2.lens north)+(0,-0.2)$) coordinate (upperBeam1);
+\draw[red, ->-]  (L1) -- ($(L2.lens south)+(0,+0.2)$) coordinate (lowerBeam1);
+\draw[red, ->-={at=0.6}]  (upperBeam1) -- +(\freeLaserShort, 0);
+\draw[red, ->-={at=0.6}]  (lowerBeam1) -- +(\freeLaserShort, 0);
+\node[thick optics element, right=\freeLaserShort of L2, object height=\cellHeight, object aspect ratio=\cellRatio, label=above:{Vapor Cell}] (VAPCELL) {};
+\draw[red] ($(lowerBeam1) + (\freeLaserShort, 0)$) -- +(\cellLength, 0);
+\draw[red] ($(upperBeam1) + (\freeLaserShort, 0)$) -- +(\cellLength, 0);
+\draw[red, ->-] ($(lowerBeam1) + (\freeLaserShort, 0) + (\cellLength, 0)$) -- +(\freeLaserShort,0) coordinate (lowerBeam2);
+\draw[red, ->-] ($(upperBeam1) + (\freeLaserShort, 0) + (\cellLength, 0)$) -- +(\freeLaserShort,0) coordinate (upperBeam2);
+\node[diaphragm, right=\freeLaserShort of VAPCELL, slit height = 0.36, object height=2.2cm, label=below:Aperture] (APER) {};
+\draw[red, ->-] (APER.slit north) -- +(\freeLaserShort, 0) coordinate (lowerBeam4);
+\draw[red, ->-] (APER.slit south) -- +(\freeLaserShort, 0) coordinate (upperBeam4);
+\draw[red, ->-] (APER.slit north) -- ($(APER.slit north) + (-2*\freeLaserShort, 0) + (-\cellLength, 0)$) coordinate (upperBeam3);
+\draw[red, ->-] (APER.slit south) -- ($(APER.slit south) + (-2*\freeLaserShort, 0) + (-\cellLength, 0)$) coordinate (lowerBeam3);
+\draw[red, ->-={at=0.25}] (lowerBeam3) -- (L1);
+\draw[red, ->-={at=0.25}] (upperBeam3) -- (L1);
+\node[polarizer, right=\freeLaserShort of APER, label=above:$\frac{\lambda}{2}$] (POL2) {};
+\draw[red, ->-={at=0.35}]  ($(lowerBeam4) + (POL2.east) - (POL2.west)$) -- +(\freeLaser, 0);
+\draw[red, -<-={at=0.65}]  ($(lowerBeam4) + (POL2.east) - (POL2.west)$) -- +(\freeLaser, 0);
+\draw[red, ->-={at=0.35}]  ($(upperBeam4) + (POL2.east) - (POL2.west)$) -- +(\freeLaser, 0);
+\draw[red, -<-={at=0.65}]  ($(upperBeam4) + (POL2.east) - (POL2.west)$) -- +(\freeLaser, 0);
+\node[mirror, right=\freeLaser of POL2] (MIRROR) {};
+\node[generic sensor, below=\freeLaserLong of PBS, rotate=-90, right, label=center:{PD}] (PHOTOD) {};

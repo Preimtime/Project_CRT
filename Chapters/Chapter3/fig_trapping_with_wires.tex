@@ -1,0 +1,61 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_GB
+% !TeX root = ../../Diplomarbeit_Thomas_Weigner.tex
+%---coordinate system
+% (y,z,x) to be according to right hand rule
+% (x,z,y) in the drawing
+\begin{scope}[scale = 0.8, shift ={(-3.5,0,-3)}]
+	\draw[ ->]  (0, 0, 0) -- (1,0,0);
+	\node[label=right:y] at (1,0,0) {};
+	\draw[->]  (0, 0, 0) -- (0,1,0);
+	\node[label=above:z] at (0,1,0) {};
+	\draw[->]  (0, 0, 0) -- (0,0,1);
+	\node[label=below:x] at (0,0,1) {};
+\end{scope}
+
+%field back
+\begin{scope}[canvas is xy plane at z=-2.8]
+	\draw[very thick, ChipFieldColor, decoration={markings, mark=at position 1 with {\arrow{<}}}, postaction={decorate}] (1, 0) circle (0.4);
+\end{scope}
+\begin{scope}[canvas is xy plane at z=-2.8]
+	\draw[very thick, ChipFieldColor, decoration={markings, mark=at position 1 with {\arrow{<}}}, postaction={decorate}] (1, 0) circle (0.6);
+\end{scope}
+\begin{scope}[canvas is xy plane at z=-2.8]
+	\draw[very thick,ChipFieldColor, decoration={markings, mark=at position 1 with {\arrow{<}}}, postaction={decorate}] (1, 0) circle (0.8);
+	\node[ChipFieldColor, label=right:$B(r)$] at (1,1) {};
+\end{scope}
+
+%field middle
+\begin{scope}[canvas is zy plane at x=0]
+	\draw[very thick, ChipFieldColor, decoration={markings, mark=at position 1 with {\arrow{<}}}, postaction={decorate}] (0, 0) circle (0.4);
+\end{scope}
+\begin{scope}[canvas is zy plane at x=0]
+	\draw[very thick, ChipFieldColor, decoration={markings, mark=at position 1 with {\arrow{<}}}, postaction={decorate}] (0, 0) circle (0.6);
+\end{scope}
+\begin{scope}[canvas is zy plane at x=0]
+	\draw[very thick,ChipFieldColor, decoration={markings, mark=at position 1 with {\arrow{<}}}, postaction={decorate}] (0, 0) circle (0.8);
+	\node[ChipFieldColor, label=right:$B(r)$] at (0.4,1.0) {};
+\end{scope}
+
+%field front
+\begin{scope}[canvas is xy plane at z=2.8]
+	\draw[very thick, ChipFieldColor, decoration={markings, mark=at position 1 with {\arrow{<}}}, postaction={decorate}] (-1, 0) circle (0.4);
+\end{scope}
+\begin{scope}[canvas is xy plane at z=2.8]
+	\draw[very thick, ChipFieldColor, decoration={markings, mark=at position 1 with {\arrow{<}}}, postaction={decorate}] (-1, 0) circle (0.6);
+\end{scope}
+\begin{scope}[canvas is xy plane at z=2.8]
+	\draw[very thick,ChipFieldColor, decoration={markings, mark=at position 1 with {\arrow{<}}}, postaction={decorate}] (-1, 0) circle (0.8);
+	\node[ChipFieldColor, label=right:$B(r)$] at (-1,-1) {};
+\end{scope}
+
+%chip wire
+\draw[ChipWireColor, ultra thick, -<-]  (1,0,-4) -- (1,0,0);
+\draw[ChipWireColor, ultra thick, -<-]  (1,0,0) -- (-1,0,0);
+\draw[ChipWireColor, ultra thick, -<-]  (-1,0,0) -- (-1,0,4);
+
+%bias field
+\foreach \i in {1,...,5}{
+	\draw[sketchColorBiasField,->, very thick] (2.2-0.4*\i,0.5,5) -- (2.2-0.4*\i,0.5,2.5);	
+}
+\node[sketchColorBiasField, anchor=west, at={(1.8,0.5,2.5)}] {$\bm{B_\mathrm{bias}}$};

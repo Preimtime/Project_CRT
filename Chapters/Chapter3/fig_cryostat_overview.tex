@@ -1,0 +1,52 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_GB
+% !TeX root = ../../Diplomarbeit_Thomas_Weigner.tex
+%ceiling
+\draw[black, thick] (-4.55,12) -- (11,12);
+\foreach \i in {1,...,40}{
+	\draw[black, thick] (-4.95+0.4*\i,12) --(-5+0.4*\i,12.4);	
+}
+\coordinate (PivotPoint) at (0,10.6);
+\draw ($(PivotPoint) + (0,-0.2)$) -- (-0.4, 10) coordinate (PivotPointBase) -- (0.4, 10) -- cycle;
+\draw ($(PivotPoint) + (0,-0.1)$) circle (0.1);
+\draw[black, dashed, ultra thick] (0,10.6) --(0,12);
+%cryohead
+\draw[fill=CryoHeadColor, CryoHeadColor] (-2.2,5) rectangle (2.2,10);
+\node[black] at (0,7.5) {cryo head};
+\draw[fill=HighPresssureLinesColor, HighPresssureLinesColor] (-2.2,9) rectangle (-4,9.3);
+\draw[fill=HighPresssureLinesColor, HighPresssureLinesColor] (-2.2,7.7) rectangle (-4,8);
+\node[black] at (-5,8.5) {high pressure lines};
+%bellow
+\draw[fill=BellowColor, BellowColor] (-2.4,5) rectangle (2.4,3);
+\node[black] at (0,4) {Bellow};
+\draw[BellowColor] (-2.6,-10.2) rectangle (2.6,3);
+%valve
+\draw[fill=PipeColor, PipeColor] (2.6,1.5) rectangle (5,1);
+\draw[fill=PipeColor, PipeColor] (3.75,1) rectangle (4.25,0.5);
+\node[black, pin={[pin distance=0.2cm]80:valve}] at (4.5,1.5) {};
+%turbo pump
+\draw[fill=TurboPumpColor, TurboPumpColor] (3.2,0.5) rectangle (4.8,-2.5);
+\node[black, pin={[pin distance=0.5cm]-60:turbo pump}] at (3.8,-1.5) {};
+%pipe
+\draw[fill=PipeColor, PipeColor] (4.8,-2) rectangle (8,-1.5);
+\draw[fill=PipeColor, PipeColor] (7.5,-1.5) rectangle (8,4);
+%roughening pump
+\draw[fill=RougheningPumpColor, RougheningPumpColor] (7,4) rectangle (12,6.5);
+\node[black, text width=2cm] at (9.5,5.25) {rough vacuum pump};
+\draw[black, dashed, ultra thick] (8,6.5) -- (9.5,12) -- (11,6.5);
+%50K
+\draw[fill=Cold50KColor, Cold50KColor] (-1.8,3) rectangle (1.8,1);
+\node[black] at (0,2) {$\SI{50}{\kelvin}$};
+\draw[thick, fill=Cold50KColor, Cold50KColor] (-0.6,1) rectangle (0.6,-5);
+\draw[Cold50KColor] (-2.2,-10) rectangle (2.2,1);
+%4K
+\draw[fill=Cold4KColor, Cold4KColor] (-1.9,-4.5) rectangle (1.9,-5.5);
+\draw[fill=Cold4KColor, Cold4KColor] (-0.4,-5.5) rectangle (0.4,-5.8);
+\draw[Cold4KColor] (-1.9,-5.5) rectangle (1.9,-9.8);
+\node[black] at (0,-5) {$\SI{4}{\kelvin}$};
+\node[black, pin={[pin distance=1cm]0:base plate}] at (1,-5) {};
+%science chamber
+\draw[fill=ScienceChamberColor, ScienceChamberColor] (-1,-5.8) rectangle (1,-7.5);
+\node[black, pin={[pin distance=1.5cm]-25:experimental chamber}] at (0,-6.75) {};
+%atom transport
+\draw[->, ultra thick, rubidiumColor] (0,-12) -- node[pos=0.23, black, anchor=west]{atom transport} (0,-8);

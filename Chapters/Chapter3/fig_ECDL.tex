@@ -1,0 +1,64 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+% !TeX root = ../../Diplomarbeit_Thomas_Weigner.tex
+% set lentghs
+\renewcommand{\freeLaserShort}{0.5}
+\renewcommand{\freeLaser}{0.8}
+\renewcommand{\freeLaserLong}{2}
+\renewcommand{\increment}{=\freeLaserShort of}
+
+%\node[laser, scale=1.5] (laserDiode) at (0, 0) {\footnotesize LD};
+%\draw[rubidiumColor, thick, ->-]   ($(laserDiode.aperture east) + (0,-0.09)$) -- +(\freeLaserLong, 0);
+%\draw[rubidiumColor, thick, -<-]   ($(laserDiode.aperture east) + (0,0.09)$) -- +(\freeLaserLong, 0);
+
+%\draw[](-2.8,-1) rectangle (-0.2,1);
+%---laser diode
+\draw[fill=PdopedColor, PdopedColor](-3,1) rectangle (0,0.15);
+\node[black] at (-1.5,0.6) {P-doped};
+\draw[fill=NdopedColor, NdopedColor](-3,-1) rectangle (0,-0.15);
+\node[black] at (-1.5,-0.6) {N-doped};
+\draw[fill=ActiveZoneColor, ActiveZoneColor] (-3,-0.15) rectangle (0,0.15);
+\node[black] at (-1.5,0) {Active zone};
+\draw[<-, very thick] (-1.5,1) -- (-1.5,1.4) node[right] {I};
+\draw[->, very thick] (-1.5,-1) -- (-1.5,-1.4);
+%\draw[](0.2,-1) rectangle (0,1);
+%\draw[](-3,-1) rectangle (-3.2,1);
+
+%\draw[rubidiumColor, thick, ->-]   (0, 0.09) -- +(\freeLaserLong, 0);
+%\draw[rubidiumColor, thick, -<-]   (0, -0.09) -- +(\freeLaserLong, 0);
+\draw[rubidiumColor, thick, -<-]   (0, 0) -- +(1.5, 0);
+\draw[rubidiumColor, thick, ->-]   (0.5, 0) -- +(1.5, 0);
+\draw[rubidiumColor, thick, ->-]   (2, 0) -- +(0, 2);
+
+%---diffrafction grating in Littrow configuration
+\coordinate (Grating) at (1.47,-1.2);
+\begin{scope}[rotate=63, scale=0.6]
+	\foreach \i in {0,...,7}{
+		\coordinate (A) at ($(Grating) + (0.5*\i,0)$);
+		\coordinate (B) at ($(Grating) + (0.5*\i+0.4,0.2)$);
+		\coordinate (C) at ($(Grating) + (0.5*\i+0.5,0)$);
+		\draw[fill=DiffractionGratingColor, DiffractionGratingColor] (A) -- (B) -- (C) -- cycle;
+	}
+	\draw[fill=DiffractionGratingColor, DiffractionGratingColor] (Grating) -- +(0,-0.3) -- ($(Grating) + (8*0.5,-0.3)$) -- +(0,0.3);
+	\draw[fill=PiezoColor, PiezoColor] ($(Grating) + (2*0.5,-0.8)$) coordinate (Piezo) rectangle ($(Grating) + (6*0.5,-0.3)$);
+%	\foreach \i in {0,...,5}{
+%		\draw[thin] ($(Piezo) + (0.2*\i,0)$) -- +(0.08, -0.2);	
+%	}
+	\draw[fill=DiffractionGratingHandleColor] ($(Grating) + (-0.5,-0.8)$) coordinate (Handle) rectangle ($(Grating) + (8*0.5,-1.2)$);
+	\draw[thin] (B) -- +(1.4,0.7)  coordinate (angleLabel1);
+	\draw[thin] (C) -- +(1.4,0) coordinate (angleLabel2);
+	\draw[thin] (angleLabel1)-- +(0.3,0.15);
+	\draw[thin] (angleLabel2) -- +(0.3,0);
+	\draw[thin, <->] (angleLabel1) to[bend left] node [pos=0.5] (ThetaLabel) {} (angleLabel2);
+	\coordinate (PivotPoint) at ($(Handle) + (0,-0.2)$);
+	\coordinate (PiezoLabel) at ($(Piezo) + (1,0.3)$);
+\end{scope}
+\node[at=(PiezoLabel), inner sep=0.1pt, pin={[pin edge={black, <-}, inner sep=1pt]-60:Piezo}] {};
+\node[at=(ThetaLabel), anchor=south, above] {$\Theta_\mathrm{B}$};
+
+%---pivot point
+\draw ($(PivotPoint) + (0,-0.1)$) -- +(-0.2, -0.2) coordinate (PivotPointBase)-- +(0.2, -0.2) -- cycle;
+\draw ($(PivotPoint) + (0,-0.05)$) circle (0.05);
+\foreach \i in {0,...,5}{
+	\draw[thin] ($(PivotPointBase) + (0.08*\i,0)$) -- +(-0.03, -0.1);	
+}

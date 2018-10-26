@@ -1,0 +1,21 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+% !TeX root = ../../Diplomarbeit_Thomas_Weigner.tex
+\begin{axis}[
+		name=vertical transport dynamics v(t),
+		height=\axisdefaultheight*0.7,
+		width=\axisdefaultwidth,
+		grid=major,
+		xlabel=vertical transport time (\si{\milli \second}),
+		ylabel=$v\left( t \right) \ (\si{\meter \per \second})$,
+		ylabel style={rotate=270, at={(axis cs:0,0.18)}},
+		xmin=0,
+		xmax=1500,
+		ymin=0,ymax=0.16,
+		ytick={0,0.05,0.1,0.15},
+		width=0.7\textwidth,
+		every axis plot/.append style={very thick},
+		legend style={legend cell align=left, align=left, fill=white, draw=white!15!black, anchor=west, at={(axis cs:245,0)}},
+]
+	\addplot[mark=none, Gorange, CoilCurrent] table [x=t, y=v, col sep=comma]{./Chapters/Atomic_Recombination/data_vertical_transport_dynamics.csv};
+\end{axis}

@@ -1,0 +1,28 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_GB
+% !TeX root = ../../Thesis.tex
+\chapter{Appendix}\label{chap:appendix}
+\section{Appendix A}\label{sec:appendix_a}
+
+Here is some source code added with the lstlisting package. With \begin{verbatim}$£\vdots£$\end{verbatim} you can insert vertical dots to truncate code.
+\subsection{main.cpp}\label{sec:main.cpp}
+\begin{lstlisting}[basicstyle=\footnotesize, escapeinside={$£}{£$}]
+/*++++++++++++++++++++++++++++++++++
++                   Awesome source code                    +
++                       TU Wien 2018                       +
++                      Thomas Weigner                      +
++                weigner.thomas@gmail.com                  +
++                         main.cpp                         +
++                         vers 3.4.1                       +
+++++++++++++++++++++++++++++++++++*/
+
+#include <header.h>
+//---main program
+int main(){
+//---declare stuff and initialize things
+$£\vdots£$
+//------generating polynom for vertical transport
+Poly polArray[5];           //Creating a polynom object array with the default constructor
+double vMax = 2.0;          //maximal velocity
+$£\vdots£$
+\end{lstlisting}

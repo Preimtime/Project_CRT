@@ -1,0 +1,605 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_GB
+% !TeX root = ../Thesis.tex
+% *****************************************************************************
+% ******************************** Settings ***********************************
+% *****************************************************************************
+%BEGIN_FOLD
+% ****************************** Miscallaneous ********************************
+%BEGIN_FOLD
+
+%END_FOLD
+
+% ************ Custom Fonts (like different typewriter fonts etc.) ************
+%BEGIN_FOLD
+% Add `customfont' in the document class option to use this section
+\ifsetCustomFont
+% Set your custom font here and use `customfont' in options. Leave empty to
+% load computer modern font (default LaTeX font).
+	\RequirePackage{helvet}
+
+%TODO what does this?
+%---For use with XeLaTeX
+  \setmainfont[
+    Path              = ./libertine/opentype/,
+    Extension         = .otf,
+    UprightFont = LinLibertine_R,
+    BoldFont = LinLibertine_RZ, % Linux Libertine O Regular Semibold
+    ItalicFont = LinLibertine_RI,
+    BoldItalicFont = LinLibertine_RZI, % Linux Libertine O Regular Semibold Italic
+  ]
+  {libertine}
+  % load font from system font
+  \newfontfamily\libertinesystemfont{Linux Libertine O}
+\fi
+%END_FOLD
+
+% ******************************** Formatting *********************************
+%BEGIN_FOLD
+%---Set margins
+\ifsetCustomMargin		% add `custommargin' in the document class options to set options for geometry package here or load different package
+	\geometry{paper=\papersize, hmarginratio=1:1, vmarginratio=1:2, scale=0.7, bindingoffset=\bindingOffset}	% uses geometry package
+% 	\geometry{left=37mm,right=30mm,top=35mm,bottom=30mm}														% uses geometry package
+\else
+%TODO change format when notes are present
+%	\ifenabledTodonotes	% set layout compatible with todonotes			
+%		\geometry{paper=\papersize,left=15mm,right=45mm,top=30mm,bottom=50mm}	% more margin on the side for notes
+%	\else			% set layout via Koma script class as default
+		\KOMAoptions{headinclude=true}											% include header into text body
+		\KOMAoptions{footinclude=false}											% include footnotes into text body
+		\KOMAoptions{BCOR=\bindingOffset}										% pass binding correction
+		\KOMAoptions{DIV=12}													% calculated or # of div per page to calculate typearea with package typearea
+%	\fi
+\fi
+
+%---Build header after typearea is defined
+\setHeaderandFooter						% customization can be done in file header_and_footer_style.tex	
+
+%---Set how the last line of a page is aligned 
+%\flushbottom							% at the bottom
+\raggedbottom							% where ever the last line 'falls'
+
+%---Add spaces between paragraphs
+\setlength{\parskip}{0.5em}
+
+%---To remove the excess top spacing for enumeration, list and description
+\usepackage{enumitem}
+\setlist[enumerate,itemize,description]{topsep=0em}
+
+%---Don't break enumeration (etc.) across pages in an ugly manner (default 10000)
+\clubpenalty=500
+\widowpenalty=500
+\usepackage[perpage]{footmisc}			% Range of footnote options
+
+%---define lengths
+\newlength{\Afour}
+\setlength{\Afour}{210cm}
+%END_FOLD
+
+% ******************************* Bibliography ********************************
+%BEGIN_FOLD
+% add `custombib' in the document class option to use this section
+% load one bibligaraphy LaTeX package (natbib, BibTeX,...)
+\ifuseCustomBib
+%	\RequirePackage[square, sort, numbers, authoryear]{natbib}
+%	\setNatBibtrue \makeatletter\let\chapter\@undefined\makeatother		% set natbib true and natbib fix for todonotes list
+	\usepackage[backend=\BibBackend, style=numeric, citestyle=numeric, sorting=none, natbib=true]{biblatex} \setBibLaTeXtrue
+\fi
+
+%---if loaded tell biblatex where the .bib file is (has to be in the preamble)
+\ifsetBibLaTeX
+	\bibliography{\bibliographyPath}
+\else
+	\newcommand{\autocite}{\cite}		% replace autocite with cite if BibLaTeX is not used
+\fi
+
+%---further BibLaTeX setup
+\ifsetBibLaTeX
+	%---set additional keys
+	\ExecuteBibliographyOptions{
+		bibencoding=utf8,
+		maxcitenames=1,
+		mincitenames=1,
+		maxbibnames=5,
+		minbibnames=3,
+		uniquename=full,
+		ibidtracker=strict,
+		uniquelist=minyear,
+		labeldate=true,
+		clearlang=true,
+%		indexing=bib,
+%		block=nbpar,
+		hyperref=true,
+		isbn=false,
+		eprint=false,
+		url=false,
+		arxiv=pdf
+	}
+	%---define subbibliographies headings
+	\ifBibSections
+		\ExecuteBibliographyOptions{refsegment=chapter, citereset=none}	% part/chapter/section wise references, reset cite label for each segment
+		\defbibheading{subbibliography}{\section*{%
+				\ifnumgreater{\therefsegment}{0}
+				{\nameref{refsegment:\therefsection\therefsegment}}
+				{}
+			}
+		}
+	\fi
+\fi
+%TODO
+% possible bugfix for \autocite{} inside of \footnote{text}
+%\makeatletter
+%\patchcmd\@footnotetext{#1}
+%	{\toggletrue{blx@footnote}#1}
+%	{\togglefalse{blx@tempa}}{}
+%\makeatother
+
+%END_FOLD
+
+% ******************************* Line Spacing ********************************
+%BEGIN_FOLD
+%---set line spacing with various commands
+%\singlespacing
+%\onehalfspacing
+%\doublespacing
+
+\linespread{1.05}						% factor for  for line spacing
+
+%\setstrech{1.5}						% if setspace package is loaded
+%END_FOLD
+
+% ***************************** Table of content ******************************
+%BEGIN_FOLD
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{2}
+
+%---change the name of toc entries
+\renewcommand{\contentsname}{Table of contents}
+\renewcommand{\listfigurename}{List of figures}
+\renewcommand{\listtablename}{List of tables}
+\renewcommand{\nomname}{Nomenclature}
+\renewcommand{\bibname}{References}
+%END_FOLD
+%END_FOLD
+
+% *****************************************************************************
+% ******************************** Packages ***********************************
+% *****************************************************************************
+%BEGIN_FOLD
+% ********************************* Fonts **************************************
+%BEGIN_FOLD
+\usepackage[eulergreek]{sansmath}		% to offer sans-serif in mathematics environment in the absence of proper sans maths fonts	
+%END_FOLD
+
+% ****************************** Extenstions **********************************
+%BEGIN_FOLD
+%\usepackage{algpseudocode}
+%\usepackage{etex}			% extends Tex towarsd NTS only necesarry for LaTeX distribution older than 2015
+\usepackage{import}			% adds \import{full path}{file} used for .pdf_tex files
+\usepackage{scrhack}		% solves problems of various packages with KOMA-script; may cause problems when package versions change
+\usepackage[utf8]{inputenc}	% set UTF-8 as input 
+%\usepackage[utf8]{luainputenc}
+\usepackage[T1]{fontenc}	% select font encoding
+
+%END_FOLD
+
+% ******************************* Languages ***********************************
+%BEGIN_FOLD
+\usepackage[ngerman, english]{babel}	% language support for english and german
+\selectlanguage{english}				% select language
+\usepackage{csquotes}					% recomended with BibLatTeX for proper quotes
+%\usepackage{polyglossia}				% should be used when compiled with XeLatex or LuaTex
+%\setmainlanguage{english}
+%\setotherlanguage{german}
+%END_FOLD
+
+% *************************** Graphics and figures ****************************
+%BEGIN_FOLD
+%---captions
+\setcapindent{0em}									% set caption indent
+\setkomafont{captionlabel}{\sffamily\bfseries}		% set caption label sans serif and bold
+\addtokomafont{caption}{\small}						% set caption text size
+\usepackage{subcaption}								% subcaptions (a), (b), ...
+
+%---float positioning
+\usepackage{float}									% fixed float positions with [H] option
+\usepackage[section]{placeins}					% force floats to be placed within their respective section
+% sets subsections as float barries					
+%\makeatletter
+%\AtBeginDocument{%
+%	\expandafter\renewcommand\expandafter\subsection\expandafter{%
+%		\expandafter\@fb@secFB\subsection
+%	}%
+%}
+\makeatother
+
+\usepackage{rotating}								% provies the rotate environment
+\usepackage{wrapfig}								% enables figures surounded by text
+\usepackage[final]{pdfpages}
+%\expandafter\def\csname ver@subfig.sty\endcsname{}	% prevent error when svg and subcaption is loaded
+%\usepackage{svg}									% including of .svg files
+%TODO svg what for?
+%END_FOLD
+
+% ********************************* Colors ************************************
+%BEGIN_FOLD
+\usepackage{xcolor}
+%END_FOLD
+
+% ********************************** TikZ *************************************
+%BEGIN_FOLD
+\usepackage{tikz}
+\include{./Class_Packages_and_Styles/tikzlibraryoptics}
+\usepackage[siunitx]{circuitikz}	% Loading circuitikz with siunitx option
+\usetikzlibrary{positioning, arrows, calc, 3d, decorations.pathreplacing ,decorations.markings, spy, fit, shapes, external} % fadings, shapes
+
+%---custom styles
+\tikzset{
+	%---term schemes
+	level/.style   			= { ultra thick, black},
+	virtualLevel/.style		= { ultra thick, dashed, black},
+	virtualLevel2/.style	= { ultra thick, dashed, gray},
+	connect/.style 			= { ultra thin, black},
+	transition/.style		= { thick, black,->,>=stealth',shorten >=1pt},
+	transition2/.style		= { very thick, Cornflowerblue,->,>=stealth',shorten >=1pt},
+	transitionBoth/.style 	= { thick, black,<->,>=stealth',shorten >=1pt},
+	transitionLaser/.style 	= { thick, ->, >=stealth'},
+	energyGap/.style		= { thick, black,<->,>=stealth',shorten >=1pt},
+	%---dimensioning
+	body/.style				= {inner sep=0pt,outer sep=0pt,shape=rectangle,draw,thick,pattern=north east lines wide},
+	dimen/.style			= {<->,>=latex,thin,every rectangle node/.style={fill=white,midway,font=\sffamily}},
+	symmetry/.style			= {dashed,thin}
+}						
+\tikzset{>={latex}}					% change default arrows
+
+%---spy setup
+\tikzset{
+	spy style/.style={#1},
+	spy/.style={
+		spy scope={
+			every spy on node/.style={draw},
+			every spy in node/.style={draw},
+			spy style
+		}
+	}
+}
+\definecolor{spyColor}{HTML}{3949AB}
+
+%---sphereical lens (by Mohammadamin Tajik)
+\newcommand\LensSph{} 				% just for safety
+\def\LensSph[#1](#2,#3,#4,#5){%
+	\pgfmathsetmacro\Tho{asin(0.5*#4/#5)}
+	\filldraw[#1]  (#2- .5*#3,.5*#4) arc(-\Tho: \Tho: -#5)-- ++(-#2,0)-- ++(0,#4)--cycle;
+}
+
+%Define block styles
+\tikzstyle{decision} = [diamond, draw, fill=blue!20, text width=4.5em, text badly centered, node distance=3cm, inner sep=0pt]
+\tikzstyle{block} = [rectangle, draw, fill=blue!20, text width=5em, text centered, rounded corners, minimum height=4em]
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{cloud} = [draw, ellipse,fill=purple!20, node distance=3cm,minimum height=2em]
+
+%---additional pin anchors
+%BEGIN_FOLD
+%\makeatletter
+%\newcommand*\ifStrInTF[2]{%
+%	\edef\tikz@temp{{#1}{#2}}%
+%	\expandafter\pgfutil@in@\tikz@temp
+%	\ifpgfutil@in@\expandafter\pgfutil@firstoftwo\else\expandafter\pgfutil@secondoftwo\fi}
+%\newcommand*\ifStrEmptyTF[1]{%
+%	\def\tikz@temp{#1}\ifx\tikz@temp\pgfutil@empty
+%	\expandafter\pgfutil@firstoftwo\else\expandafter\pgfutil@secondoftwo\fi}
+%
+%\def\tikz@swapanchor#1.#2\tikz@stop#3#4{#1#4#3}
+%\newcommand*\tikzAddAnchor[2]{%
+%	\ifStrInTF{.}{#1}{%
+%		\ifStrEmptyTF{#2}
+%		{\edef#1{\expandafter\tikz@swapanchor#1\tikz@stop{}{}}}
+%		{\edef#1{\expandafter\tikz@swapanchor#1\tikz@stop{#2}{.}}}%
+%	}{%
+%	\ifStrEmptyTF{#2}{}% no true
+%	{\edef#1{#1.#2}}%
+%}}
+%\tikzset{
+%	pin anchor/.style={tikz@pin@post/.append style={anchor=#1}},
+%	label anchor/.style={tikz@label@post/.append style={anchor=#1}},
+%	pin edge pin anchor/.style={
+%		append after command={\pgfextra\tikzAddAnchor{\tikzlastnode}{#1}\endpgfextra}%
+%	},
+%	pin edge parent anchor/.style={
+%		append after command={\pgfextra\tikzAddAnchor{\tikz@save@last@node}{#1}\endpgfextra}%
+%	}
+%}
+%\makeatother
+%END_FOLD
+%END_FOLD
+
+% *********************************** PGF *************************************
+%BEGIN_FOLD
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.8}
+
+%TODO this doesn't fucking work
+%---externalize plots for speed up
+\usepgfplotslibrary{external}					% externally do the jobs (shell escape needs to be enabled)
+\tikzexternalize[prefix=./Figures/]				% externalize and save figures in Figures				
+%\tikzset{external/force remake}
+
+%---exclude todo pictures from externalize
+\usepackage{letltxmacro}
+\LetLtxMacro{\oldmissingfigure}{\missingfigure}
+\renewcommand{\missingfigure}[2][]{\tikzexternaldisable\oldmissingfigure[{#1}]{#2}\tikzexternalenable}
+\LetLtxMacro{\oldtodo}{\todo}
+\renewcommand{\todo}[2][]{\tikzexternaldisable\oldtodo[#1]{#2}\tikzexternalenable}
+
+%---global plots settings
+\pgfplotsset{legend style={overlay}, 			% set legends etc. as overlay to horizontaly align accoording to the axes
+			 ylabel style={overlay},
+			 yticklabel style={overlay}}
+\newcommand{\marksSize}{3.5pt}					% size for marks in plots
+\pgfplotsset{									% set san serif font for labels, axes, etc.
+	tick label style = {font=\sansmath\sffamily},
+	every axis label = {font=\sansmath\sffamily},
+	legend style = {font=\sansmath\sffamily},
+	label style = {font=\sansmath\sffamily}
+}
+
+%---zoom area variables for plot zooms with secound axis environment
+\newcommand{\xStartZoom}{0.0}
+\newcommand{\xEndZoom}{0.0}
+\newcommand{\yStartZoom}{0.0}
+\newcommand{\yEndZoom}{0.0}
+\newcommand{\xStartZoomTwo}{0.0}
+\newcommand{\xEndZoomTwo}{0.0}
+\newcommand{\yStartZoomTwo}{0.0}
+\newcommand{\yEndZoomTwo}{0.0}
+
+%---pgf styles
+\pgfplotsset{
+	CoilCurrent/.style={line width=1.0pt, thick, y filter/.expression={y==0 ? nan : y},
+	filter discard warning=false}
+}
+\pgfplotsset{
+	x axis color/.style={
+		xticklabel style=#1,
+		xlabel style=#1,
+		x axis line style=#1,
+		xtick style=#1
+	}
+}
+\pgfplotsset{
+	y axis color/.style={
+		yticklabel style=#1,
+		ylabel style=#1,
+		y axis line style=#1,
+		ytick style=#1
+	}
+}
+
+%---add custom plot marks
+\pgfdeclareplotmark{xo}{%
+	\pgfpathcircle{\pgfpointorigin}{\pgfplotmarksize}%
+	\pgfpathmoveto{\pgfqpoint{-1.2\pgfplotmarksize}{-1.2\pgfplotmarksize}}%
+	\pgfpathlineto{\pgfqpoint{1.2\pgfplotmarksize}{1.2\pgfplotmarksize}}%
+	\pgfpathmoveto{\pgfqpoint{-1.2\pgfplotmarksize}{1.2\pgfplotmarksize}}%
+	\pgfpathlineto{\pgfqpoint{1.2\pgfplotmarksize}{-1.2\pgfplotmarksize}}%
+	\pgfusepathqstroke%
+}
+\pgfdeclareplotmark{Y}{%
+	\pgfpathmoveto{\pgfpointorigin}%
+	\pgfpathlineto{\pgfqpoint{0.0\pgfplotmarksize}{-1.0\pgfplotmarksize}}%
+	\pgfpathmoveto{\pgfpointorigin}%
+	\pgfpathlineto{\pgfqpoint{-1.0\pgfplotmarksize}{1.0\pgfplotmarksize}}%
+	\pgfpathmoveto{\pgfpointorigin}%
+	\pgfpathlineto{\pgfqpoint{1.0\pgfplotmarksize}{1.0\pgfplotmarksize}}%
+	\pgfusepathqstroke
+}
+
+%---discontinuity
+\pgfdeclaredecoration{discontinuity}{start}{
+	\state{start}[width=0.5\pgfdecoratedinputsegmentremainingdistance-0.5\pgfdecorationsegmentlength,next state=first wave]{}
+	\state{first wave}[width=\pgfdecorationsegmentlength, next state=second wave]{
+		\pgfpathlineto{\pgfpointorigin}
+		\pgfpathmoveto{\pgfqpoint{0pt}{\pgfdecorationsegmentamplitude}}
+		\pgfpathcurveto
+		{\pgfpoint{-0.25*\pgfmetadecorationsegmentlength}{0.75\pgfdecorationsegmentamplitude}}
+		{\pgfpoint{-0.25*\pgfmetadecorationsegmentlength}{0.25\pgfdecorationsegmentamplitude}}
+		{\pgfpoint{0pt}{0pt}}
+		\pgfpathcurveto
+		{\pgfpoint{0.25*\pgfmetadecorationsegmentlength}{-0.25\pgfdecorationsegmentamplitude}}
+		{\pgfpoint{0.25*\pgfmetadecorationsegmentlength}{-0.75\pgfdecorationsegmentamplitude}}
+		{\pgfpoint{0pt}{-\pgfdecorationsegmentamplitude}}
+	}
+	\state{second wave}[width=0pt, next state=do nothing]{
+		\pgfpathmoveto{\pgfqpoint{0pt}{\pgfdecorationsegmentamplitude}}
+		\pgfpathcurveto
+		{\pgfpoint{-0.25*\pgfmetadecorationsegmentlength}{0.75\pgfdecorationsegmentamplitude}}
+		{\pgfpoint{-0.25*\pgfmetadecorationsegmentlength}{0.25\pgfdecorationsegmentamplitude}}
+		{\pgfpoint{0pt}{0pt}}
+		\pgfpathcurveto
+		{\pgfpoint{0.25*\pgfmetadecorationsegmentlength}{-0.25\pgfdecorationsegmentamplitude}}
+		{\pgfpoint{0.25*\pgfmetadecorationsegmentlength}{-0.75\pgfdecorationsegmentamplitude}}
+		{\pgfpoint{0pt}{-\pgfdecorationsegmentamplitude}}
+		\pgfpathmoveto{\pgfpointorigin}
+	}
+	\state{do nothing}[width=\pgfdecorationsegmentlength,next state=do nothing]{
+		\pgfpathlineto{\pgfpointdecoratedinputsegmentlast}
+	}
+	\state{final}{
+		\pgfpathlineto{\pgfpointdecoratedpathlast}
+	}
+}
+%END_FOLD
+
+% ************************* Maths and Physics Symbols **************************
+%BEGIN_FOLD
+\usepackage{textcomp}					% registered and copyright symbols \textregistered \textcopyright
+
+%---mathematic packages
+\usepackage{amsmath}					% mathematical facileties
+\usepackage{amsfonts}					% mathematical fonts
+\usepackage{amssymb}					% mathematical symbols
+\usepackage{bm}							% bold symbols in maths environment	(not ideal with times)
+\usepackage{braket}						% bracket notation
+
+%---units
+\usepackage{siunitx} 					% use this package module for SI units
+\sisetup{detect-all}					% always used currently set font
+\DeclareSIUnit{\gauss}{G}				% Gauss
+\DeclareSIUnit{\year}{yr}				% year
+\DeclareSIUnit{\eV}{eV}					% electron Volt
+\DeclareSIUnit{\atoms}{atoms}			% atom count
+\DeclareSIUnit{\mm}{\milli \meter}
+%\sisetup{inter-unit-product =$\cdot$}	% for dots as inner product (danger!!! produces Texstudio crash)
+%END_FOLD
+
+% ********************************** Tables ************************************
+%BEGIN_FOLD
+\usepackage{booktabs} 		% For professional looking tables,
+\usepackage{multirow}		% to merge cells in Tabular,
+%\usepackage{multicol}
+%\usepackage{longtable}
+%\usepackage{tabularx}
+%END_FOLD
+
+% ******************************* Miscallaneous ********************************
+%BEGIN_FOLD
+\usepackage{comment}		% For \begin{comment} ... \end{comment}
+\usepackage{menukeys}		% to display keys strokes or context menu enteries
+%END_FOLD
+
+% ******************************** Referencing *********************************
+%BEGIN_FOLD
+\usepackage{cleveref}				% cleveref for fully dynamic referencing
+%\KOMAoptions{footnotes=multiple}
+
+%END_FOLD
+
+% *********************************** Code *************************************
+%BEGIN_FOLD
+\usepackage{listings}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{NumberColor}{HTML}{EF9A9A}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\definecolor{CodeBackgroundColor}{HTML}{FAFAFA}
+
+\lstset{frame=tb,
+	language=C++,
+	aboveskip=3mm,
+	belowskip=3mm,
+	showstringspaces=false,
+	columns=flexible,
+	basicstyle={\small\ttfamily},
+	numbers=none,
+	numberstyle=\tiny\color{NumberColor},
+	keywordstyle=\color{blue},
+	commentstyle=\color{dkgreen},
+	stringstyle=\color{mauve},
+	breaklines=true,
+	breakatwhitespace=true,
+	tabsize=3,
+	stepnumber=2,
+	backgroundcolor=\color{CodeBackgroundColor}
+}
+%END_FOLD
+
+%END_FOLD
+
+% ******************************************************************************
+% ************************* User Defined Commands ******************************
+% ******************************************************************************
+%BEGIN_FOLD
+% ********************************* styling ************************************
+%BEGIN_FOLD
+%---fix for float bug of unwanted indents after floats
+\makeatletter
+\renewcommand\float@endH{
+	\@endfloatbox\vskip\intextsep
+	\if@flstyle
+		\setbox\@currbox\float@makebox\columnwidth
+	\fi
+	\box\@currbox\vskip\intextsep\relax\@doendpe
+}
+\makeatother
+
+%---emphasize names
+\newcommand{\person}[1]{{\fontfamily{cmr}\selectfont {\textsc{#1}}}}	% fontfamily for Small Caps
+
+%---for boxes equations
+\newlength\dlf															% frame for formulas
+\newcommand{\alignedbox}[2]{ 												
+	% #1 = before alignment
+	% #2 = after alignment
+	&\begingroup
+	\settowidth\dlf{$\displaystyle #1$}
+	\addtolength\dlf{\fboxsep+\fboxrule}
+	\hspace{-\dlf}
+	\fcolorbox{red}{yellow}{$\displaystyle #1 #2$}
+	\endgroup
+}
+
+%---fancy closed sqrt
+\usepackage{letltxmacro}
+\makeatletter
+\let\oldr@@t\r@@t
+\def\r@@t#1#2{%
+	\setbox0=\hbox{$\oldr@@t#1{#2\,}$}\dimen0=\ht0
+	\advance\dimen0-0.2\ht0
+	\setbox2=\hbox{\vrule height\ht0 depth -\dimen0}%
+	{\box0\lower0.4pt\box2}}
+\LetLtxMacro{\oldsqrt}{\sqrt}
+\renewcommand*{\sqrt}[2][\ ]{\oldsqrt[#1]{#2}}
+\makeatother
+
+%---space for - to aling positive and negative numbers
+\newcommand{\minusspace}{\hspace{0.82em}}
+%END_FOLD
+
+% ********************************* symbols ************************************
+%BEGIN_FOLD
+\newcommand{\ud}{\: \mathrm{d}}									% upright d for integrals and derivatives	\ud
+\newcommand{\ue}{\mathrm{e}}									% upright Exp e								\ue
+\newcommand{\expo}[1]{\mathrm{e}^{#1}}							% upright e for exponential function 		\expo{#1}
+\newcommand{\ui}{\mathrm{i}}									% upright imaginary i						\ui
+\newcommand{\de}[2]{\frac{\mathrm{d} #1}{\mathrm{d} #2}}		% for derivatives		  		 			\de{#1}{#2}
+\newcommand{\dd}[2]{\frac{\mathrm{d}^2 #1}{\mathrm{d} #2^2}}	% for double derivatives  	 	 			\dd{#1}{#2}
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}			% for partial derivatives 		 			\pd{#1}{#2}
+\newcommand{\pdd}[2]{\frac{\partial^2 #1}{\partial #2^2}}		% for double partial derivatives			\pdd{#1}{#2}
+\newcommand{\gv}[1]{\ensuremath{\mbox{\boldmath$ #1 $}}}		% for Greek vectors							\gv{#1}
+\newcommand{\uv}[1]{\ensuremath{\bm{\hat{#1}}}}					% for unit vector							\uv{#1}
+\newcommand{\abs}[1]{\left| #1 \right|}							% for absolute value						\abs{#1}
+\newcommand{\avg}[1]{\left< #1 \right>}							% for average								\avg{#1}
+\newcommand{\mean}[1]{\overline{#1}}							% for mean value							\mean{#1}
+\newcommand{\entspricht}{\ensuremath{\hat{=}}} 					% for =^									\entspricht
+\newcommand{\kf}{\dfrac{1}{4 \pi \epsilon_0}}					% for 1/4pi e0								\kf
+\newcommand{\au}{\; \text{(a.u.)}}								% for atomic units							\au
+\newcommand{\sollgelten}{\overset{!}{=}}						% for =!									\sollgelten
+\newcommand{\electron}{\text{e}^-}								% for e-									\electron
+\newcommand{\bohrmag}{\mu_\mathrm{B}}							% for bohr magneton mu_B					\bohrmag
+\newcommand{\boltzmann}{k_\mathrm{B}}							% for Boltzmann constant					\boltzmann
+\newcommand{\grad}{\vec{\nabla}}								% for vec-nabla sym.						\grad
+\newcommand{\Alpha}{\mathcal{L}}								% Lagrangian L								\Alpha
+\newcommand{\Beta}{\mathcal{B}}									% "beautiful" B								\Beta
+\newcommand{\Order}{\mathcal{O}}								% "beautiful" O								\Order
+\newcommand{\Op}[1]{\bm{\expandafter\widehat{#1}}}				% vectorial operator						\Op{#1}
+\newcommand{\op}[1]{\expandafter\widehat{#1}}					% operator									\op{#1}
+\newcommand{\expect}[1]{\left\langle #1 \right\rangle}			% expected value							\expect{#1}
+\newcommand{\nab}{\gv{\nabla}} 									% for nablasymbol							\nab
+\newcommand{\divg}[1]{{\mathop{\gv{\nabla}}\nolimits}\cdot #1}	% for divergence							\div{#1}
+\newcommand{\rot}[1]{{\mathop{\gv{\nabla}}\nolimits}\times #1}	% for curl									\rot{#1}
+\newcommand{\laplace}[1]{{\mathop{\gv{\Delta}}\nolimits} #1}	% for Laplace								\laplace{#1}
+\newcommand{\ham}{\op{H}}										% for Hamiltonian							\ham
+%END_FOLD
+
+% ***************************** Abbreviations **********************************
+%BEGIN_FOLD
+\newcommand{\Rb}{$^{87}$Rb }						% Rubidium 87
+\newcommand{\RB}{$^{85}$Rb }						% Rubidium 85
+%END_FOLD
+%END_FOLD
+
+% ******************************************************************************
+% ******************************* Definitions **********************************
+% ******************************************************************************
+%BEGIN_FOLD
+
+%END_FOLD

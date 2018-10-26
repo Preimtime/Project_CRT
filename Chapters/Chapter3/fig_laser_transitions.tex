@@ -1,0 +1,136 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+% !TeX root = ../../Diplomarbeit_Thomas_Weigner.tex
+% set lentghs
+\renewcommand{\levelLength}{2.0}
+\renewcommand{\levelLengthLong}{14.0}
+\renewcommand{\levelConnect}{0.8}
+\renewcommand{\levelGap}{3.5}
+\renewcommand{\excitedStateHigh}{16.8}
+\renewcommand{\labelLength}{2.0}
+\renewcommand{\arrowGap}{0.5}
+\newcommand{\offSet}{2}
+
+%scale excited state: \levelGap~100Mhz
+%scale ground state:  \levelGap~10Ghz
+
+% ground state
+\draw[level] (0,0) node[left]{$5^2\text{S}_{1/2}$} -- (\levelLength,0);
+% F=1
+\draw[connect] (\levelLength,0)  -- (\levelLength + \levelConnect,-0.43*\levelGap);
+\draw[level]   (\levelLength + \levelConnect, -0.43*\levelGap)  -- (\levelLength + \levelLengthLong + \levelConnect, -0.43*\levelGap) 
+node[right, scale=0.9]{$F=1$}; 
+% F=2
+\draw[connect] (\levelLength,0) -- (\levelLength + \levelConnect, 0.256*\levelGap);
+\draw[level]   (\levelLength + \levelConnect, 0.256*\levelGap)  -- (\levelLength + \levelLengthLong + \levelConnect, 0.256*\levelGap) 
+node[right, scale=0.9]{$F=2$}; 
+% gap 1-2 ground
+\draw[HelpLineColor, decoration={discontinuity, amplitude=0.2cm, segment length=0.15cm,	meta-segment length=0.5cm}, decorate] (\levelLength + \levelConnect + 0.98*\levelLengthLong, -0.43*\levelGap) -- node[right, HelpLineColor]{\footnotesize \quad $\SI{6.8346}{\giga \hertz}$} (\levelLength + \levelConnect + 0.98*\levelLengthLong, 0.256*\levelGap);
+\draw[HelpLineColor, <-, >=stealth',shorten >=1pt] (\levelLength + \levelConnect + 0.98*\levelLengthLong, -0.43*\levelGap) -- (\levelLength + \levelConnect + 0.98*\levelLengthLong, -0.43*\levelGap + 1.0);
+\draw[HelpLineColor, ->, >=stealth',shorten >=1pt] (\levelLength + \levelConnect + 0.98*\levelLengthLong, 0.256*\levelGap - 1.0) -- (\levelLength + \levelConnect + 0.98*\levelLengthLong, 0.256*\levelGap);
+
+% excited state J=3/2 
+\draw[level] (0,\excitedStateHigh) node[left]{$5^2\text{P}_{3/2}$} -- (\levelLength,\excitedStateHigh);
+% F=0
+\draw[connect] (\levelLength,\excitedStateHigh)  -- (\levelLength + \levelConnect, \excitedStateHigh - 3.0*\levelGap);
+\draw[level]   (\levelLength + \levelConnect, \excitedStateHigh - 3.0*\levelGap) 
+-- (\levelLength + \levelLengthLong + \levelConnect, \excitedStateHigh - 3.0*\levelGap) node[right, scale=0.9]{$F'=0$};
+% F=1
+\draw[connect] (\levelLength,\excitedStateHigh)  -- (\levelLength + \levelConnect, \excitedStateHigh - 2.3*\levelGap);
+\draw[level]   (\levelLength + \levelConnect, \excitedStateHigh - 2.3*\levelGap) 
+-- (\levelLength + \levelLengthLong + \levelConnect, \excitedStateHigh - 2.3*\levelGap) node[right, scale=0.9]{$F'=1$};
+% F=2
+\draw[connect] (\levelLength,\excitedStateHigh)  -- (\levelLength + \levelConnect, \excitedStateHigh - 0.7*\levelGap);
+\draw[level]   (\levelLength + \levelConnect, \excitedStateHigh - 0.7*\levelGap) 
+-- (\levelLength + \levelLengthLong + \levelConnect, \excitedStateHigh - 0.7*\levelGap) node[right, scale=0.9]{$F'=2$};
+% F=3
+\draw[connect] (\levelLength,\excitedStateHigh)  -- (\levelLength + \levelConnect, \excitedStateHigh + 1.94*\levelGap);
+\draw[level]   (\levelLength + \levelConnect, \excitedStateHigh + 1.94*\levelGap) 
+-- (\levelLength + \levelLengthLong + \levelConnect, \excitedStateHigh + 1.94*\levelGap) node[right, scale=0.9]{$F'=3$};
+% COF=1,3
+\draw[level, dashed, CrossOverColor, thick]   (\levelLength + \levelConnect, \excitedStateHigh  - 0.12*\levelGap) 
+-- (\levelLength + \levelLengthLong + \levelConnect, \excitedStateHigh - 0.12*\levelGap) node[right, CrossOverColor]{$COF'=1,3$};
+% COF=1,2
+\draw[level, dashed, CrossOverColor, thick]   (\levelLength + \levelConnect, \excitedStateHigh - 1.5*\levelGap) 
+-- (\levelLength + \levelLengthLong + \levelConnect, \excitedStateHigh - 1.5*\levelGap) node[right, CrossOverColor]{$COF'=1,2$};
+
+
+% gap 0-1 excited
+\draw[energyGap, HelpLineColor] (\levelLength + \levelConnect + 0.98*\levelLengthLong, \excitedStateHigh - 3.0*\levelGap) 
+-- node[right, HelpLineColor]{\footnotesize $\SI{72.2}{\mega \hertz}$} (\levelLength + \levelConnect + 0.98*\levelLengthLong, \excitedStateHigh - 2.3*\levelGap);
+% gap 1-2 excited
+\draw[energyGap, HelpLineColor] (\levelLength + \levelConnect + 0.98*\levelLengthLong, \excitedStateHigh - 2.3*\levelGap) 
+-- node[right, HelpLineColor, pos=0.25]{\footnotesize$\SI{157.0}{\mega \hertz}$} (\levelLength + \levelConnect + 0.98*\levelLengthLong, \excitedStateHigh - 0.7*\levelGap);
+% gap 2-3 excited
+\draw[energyGap, HelpLineColor] (\levelLength + \levelConnect + 0.98*\levelLengthLong, \excitedStateHigh - 0.7*\levelGap) -- 
+node[right, HelpLineColor]{\footnotesize$\SI{266.7}{\mega \hertz}$} (\levelLength + \levelConnect + 0.98*\levelLengthLong, \excitedStateHigh + 1.94*\levelGap);
+
+% master laser
+\draw[transitionLaser, MasterLaserColor, thick] (\levelLength + \levelConnect + 0.02*\levelLengthLong + \offSet,  0.256*\levelGap) 
+-- (\levelLength + \levelConnect + 0.02*\levelLengthLong + \offSet, \excitedStateHigh - 0.12*\levelGap);
+\node[right, MasterLaserColor, at={(\levelLength + \levelConnect + 0.02*\levelLengthLong + \offSet,  0.256*\levelGap)}, rotate=90, anchor=south west]{\footnotesize Master Laser};
+
+% FO Lock
+\draw[transitionLaser, FOLockColor] (\levelLength + \levelConnect + 0.02*\levelLengthLong + \offSet,  \excitedStateHigh - 0.12*\levelGap) 
+-- node[right, FOLockColor, pos=0.5, rotate=90, anchor= north, label={[rotate=90, anchor=south]above:{\scriptsize FO Lock}}]{\scriptsize  $\SI{+139}{\mega \hertz}$} (\levelLength + \levelConnect + 0.02*\levelLengthLong + \offSet, \excitedStateHigh + 1.27*\levelGap);
+\draw[level, dashed, FOLockColor, thick] (\levelLength + \levelConnect - 0.1*\levelLengthLong + \offSet, \excitedStateHigh + 1.27*\levelGap) 
+-- (\levelLength + \levelConnect + 0.35*\levelLengthLong + \offSet, \excitedStateHigh + 1.27*\levelGap);
+\draw[transitionLaser, FOShiftColor, thin] (\levelLength + \levelConnect - 0.08*\levelLengthLong + \offSet, \excitedStateHigh + 1.27*\levelGap) -- (\levelLength + \levelConnect - 0.08*\levelLengthLong + \offSet, \excitedStateHigh + 1.44*\levelGap);
+\draw[transitionLaser, FOShiftColor, thin] (\levelLength + \levelConnect - 0.08*\levelLengthLong + \offSet, \excitedStateHigh + 1.27*\levelGap) -- (\levelLength + \levelConnect - 0.08*\levelLengthLong + \offSet, \excitedStateHigh + 1.1*\levelGap);
+
+% Cooler AOM
+\draw[transitionLaser, AOMColor] (\levelLength + \levelConnect + 0.02*\levelLengthLong + \offSet, \excitedStateHigh + 1.27*\levelGap) 
+-- node[right, AOMColor, pos=0.5, rotate=90, label={[rotate=90, anchor=south]above:{\scriptsize Co. AOM}}, anchor= north]{\scriptsize  $+\SI{62.5}{\mega \hertz}$} (\levelLength + \levelConnect + 0.02*\levelLengthLong + \offSet, \excitedStateHigh + 1.8*\levelGap);
+\draw[level, dashed, AOMColor, thin] (\levelLength + \levelConnect + \offSet, \excitedStateHigh + 1.8*\levelGap) -- (\levelLength + \levelConnect + 0.5*\levelLengthLong + \offSet, \excitedStateHigh + 1.8*\levelGap);
+
+% Cooling
+\draw[transitionLaser, ->|, CoolingColor, thick] (\levelLength + \levelConnect + 0.1*\levelLengthLong + \offSet,  0.256*\levelGap) 
+-- (\levelLength + \levelConnect + 0.1*\levelLengthLong + \offSet, \excitedStateHigh + 1.75*\levelGap);
+\node[right, CoolingColor, at={(\levelLength + \levelConnect + 0.1*\levelLengthLong + \offSet,  0.256*\levelGap)}, rotate=90, anchor=south west]{\footnotesize Cooling};
+\draw[transitionLaser, FOShiftColor, thin] (\levelLength + \levelConnect + 0.1*\levelLengthLong + \offSet, \excitedStateHigh + 1.8*\levelGap) -- (\levelLength + \levelConnect + 0.1*\levelLengthLong + \offSet, \excitedStateHigh + 1.75*\levelGap);
+\draw[energyGap, DetuningColor ,thin] (\levelLength + \levelConnect + 0.115*\levelLengthLong + \offSet, \excitedStateHigh + 1.75*\levelGap) 
+-- (\levelLength + \levelConnect + 0.115*\levelLengthLong + \offSet, \excitedStateHigh + 1.94*\levelGap) node[above, DetuningColor, rotate=20, anchor=south west]{\footnotesize $\delta=-\SI{19}{\mega \hertz}$};
+
+% Molasses
+\draw[transitionLaser, ->|, MolassesColor, thick] (\levelLength + \levelConnect + 0.2*\levelLengthLong + \offSet,  0.256*\levelGap) 
+-- (\levelLength + \levelConnect + 0.2*\levelLengthLong + \offSet, \excitedStateHigh + 1.18*\levelGap);
+\node[right, MolassesColor, at={(\levelLength + \levelConnect + 0.2*\levelLengthLong + \offSet,  0.256*\levelGap)}, rotate=90, anchor=south west]{\footnotesize Molasses};
+\draw[transitionLaser, FOShiftColor, thin] (\levelLength + \levelConnect + 0.2*\levelLengthLong + \offSet, \excitedStateHigh + 1.8*\levelGap) -- (\levelLength + \levelConnect + 0.2*\levelLengthLong + \offSet, \excitedStateHigh + 1.18*\levelGap);
+\draw[energyGap, DetuningColor ,thin] (\levelLength + \levelConnect + 0.215*\levelLengthLong + \offSet, \excitedStateHigh + 1.18*\levelGap) 
+-- (\levelLength + \levelConnect + 0.215*\levelLengthLong + \offSet, \excitedStateHigh + 1.94*\levelGap) node[above, DetuningColor, rotate=20, anchor=south west]{\footnotesize $\delta=-\SI{76}{\mega \hertz}$};
+
+% Pumping AOM
+\draw[transitionLaser, AOMColor] (\levelLength + \levelConnect + 0.3*\levelLengthLong + \offSet, \excitedStateHigh + 1.27*\levelGap) 
+-- node[right, AOMColor, pos=0.5, rotate=90, label={[rotate=90, anchor=south]above:{\scriptsize Pump AOM}}, anchor= north]{\scriptsize  $2 \cdot +\SI{80}{\mega \hertz}$} (\levelLength + \levelConnect + 0.3*\levelLengthLong + \offSet, \excitedStateHigh - 0.33*\levelGap);
+
+% Pumping
+\draw[transitionLaser, ->|, PumpingColor, thick] (\levelLength + \levelConnect + 0.3*\levelLengthLong + \offSet,  0.256*\levelGap) 
+-- (\levelLength + \levelConnect + 0.3*\levelLengthLong + \offSet, \excitedStateHigh - 0.7*\levelGap);
+\node[right, PumpingColor, at={(\levelLength + \levelConnect + 0.3*\levelLengthLong + \offSet,  0.256*\levelGap)}, rotate=90, anchor=south west]{\footnotesize Optical Pumping};
+\draw[transitionLaser, FOShiftColor, thin] (\levelLength + \levelConnect + 0.3*\levelLengthLong + \offSet, \excitedStateHigh - 0.33*\levelGap) -- (\levelLength + \levelConnect + 0.3*\levelLengthLong + \offSet, \excitedStateHigh - 0.7*\levelGap);
+
+% Imaging
+\draw[transitionLaser, ->|, ImagingColor, thick] (\levelLength + \levelConnect + 0.4*\levelLengthLong + \offSet,  0.256*\levelGap) 
+-- (\levelLength + \levelConnect + 0.4*\levelLengthLong + \offSet, \excitedStateHigh + 1.94*\levelGap);
+\node[right, ImagingColor, at={(\levelLength + \levelConnect + 0.4*\levelLengthLong + \offSet,  0.256*\levelGap)}, rotate=90, anchor=south west]{\footnotesize Imaging};
+\draw[transitionLaser, FOShiftColor, thin] (\levelLength + \levelConnect + 0.42*\levelLengthLong + \offSet, \excitedStateHigh + 1.8*\levelGap) -- (\levelLength + \levelConnect + 0.42*\levelLengthLong + \offSet, \excitedStateHigh + 1.94*\levelGap);
+
+% Repump laser
+\draw[transitionLaser, RepumperLaserColor, thick] (\levelLength + \levelConnect + 0.8*\levelLengthLong,  -0.43*\levelGap) 
+-- (\levelLength + \levelConnect + 0.8*\levelLengthLong, \excitedStateHigh - 1.5*\levelGap);
+\node[right, RepumperLaserColor, at={(\levelLength + \levelConnect + 0.8*\levelLengthLong,  0.256*\levelGap)}, rotate=90, anchor=south west]{\footnotesize Repump Laser};
+
+% RepumperAOM
+\draw[transitionLaser, AOMColor] (\levelLength + \levelConnect + 0.8*\levelLengthLong,  \excitedStateHigh - 1.5*\levelGap) 
+-- node[right, AOMColor, pos=0.5, rotate=90, label={[rotate=90, anchor=south]above:{\scriptsize Rep. AOM}}, anchor= north]{\scriptsize  $+\SI{78.5}{\mega \hertz}$} (\levelLength + \levelConnect + 0.8*\levelLengthLong, \excitedStateHigh - 0.7*\levelGap);
+
+% Repumping
+\draw[transitionLaser, ->|, RepumperColor, thick] (\levelLength + \levelConnect + 0.9*\levelLengthLong,  -0.43*\levelGap) 
+-- (\levelLength + \levelConnect + 0.9*\levelLengthLong, \excitedStateHigh - 0.7*\levelGap);
+\node[right, RepumperColor, at={(\levelLength + \levelConnect + 0.9*\levelLengthLong,  0.256*\levelGap)}, rotate=90, anchor=south west]{\footnotesize Repump};
+
+% D2 line
+\draw[thick, black, decoration={discontinuity, amplitude=0.2cm, segment length=0.15cm,	meta-segment length=0.5cm}, decorate] (0.3*\levelLength,0) 
+-- node[left, scale=0.8, label=left:{$\SI{780.241}{\nano \meter}$}]{} (0.3*\levelLength, \excitedStateHigh);
+\draw[thick, black, <-, >=stealth',shorten >=1pt] (0.3*\levelLength, 0) -- (0.3*\levelLength, 3,0);
+\draw[thick, black, ->, >=stealth',shorten >=1pt] (0.3*\levelLength, \excitedStateHigh - 3.0) -- (0.3*\levelLength, \excitedStateHigh);

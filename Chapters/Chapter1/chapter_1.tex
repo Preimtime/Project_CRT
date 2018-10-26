@@ -1,0 +1,103 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_GB
+% !TeX root = ../../Thesis.tex
+\chapter{Chapter 1}\label{chap:chapter_1}
+List of class options:
+
+\quad ***************************** General settings *******************************
+\begin{enumerate}
+\item`a4paper' or `a5paper'
+
+\item`11pt', `12pt'(default) or '10pt' however font size 10pt is NOT recommended
+
+\item`print': Use `print' for print version with appropriate margins and page
+ layout. Leaving the options field blank will activate Online version.
+
+\item`signed': Use `signed' to add section on titlepage to be signed by the superviser.
+ Works only with the print option!
+
+\item`declaration`: adds a page with an declaration after the titlepage, to be signed by the author
+ Works only with the print option!
+
+\item`final`: option some packages might need for the finalized document
+
+\item`place`: insert place and date on the title page
+
+\item`index': For index at the end of the thesis
+
+\item`abstract': To generate only the title page and abstract page with
+ dissertation title and name for submission somewhere
+
+\item`chapter`: This option enables only the specified chapter and its references
+  Useful for review and corrections.
+
+\item`titlepage2`: This option loads the alternative titlepage titlepage\_alternative instead of titlepage\_official. This intended to have two designs available and quickly switch between them.
+
+ **************************** Draftmode settings ******************************
+\item`draftclassic': For draft mode without loading any images (same as draft in scrbook) and notes
+
+\item`draft': Special draft mode with line numbers, images, and water mark
+ with timestamp and custom text. Position of the text can also be modified.
+
+\item`nolinenumbers`: disable line numbers in draft mode
+ !!!When toggled auxiliary files must be deleted.
+
+\item`todonotesoff`: manualy disable todonotes (has to be loaded after draft options)
+ Add notes with follwing commands in the draft mode:
+ \begin{verbatim}
+	 \mynote{text} -> green note on the side pointing to the location
+	 \sidenote{text} -> blue note on the side
+	 \needref{text}	-> blue note on the side pointing to the location
+	 \urgentnote{text} -> red note on the side pointing to the location
+	 \inlinenote{text} -> orange inline note
+	 \missingfigure[figwidth=length]{text} -> dummy picture
+ \end{verbatim}
+ In the index section a list of todonotes is printed.
+ !!!You must not use underscore in the missingfigure argument.
+ !!!Line numbers and todo notes are not really compatible.
+
+\item'bibdebug': debug mode for BibLaTeX
+
+ ************************* Custom Page Margins ********************************
+\item`custommargin`: Use `custommargin' in options to activate custom page margins,
+ which can be defined in the preamble.tex. Custom margin will override
+ print/online margin setup.
+
+ *********************** Choosing the Fonts in Class Options ******************
+\item`times' : Times font with math support
+
+\item`fourier': Utopia Font with Fourier Math font (Font has to be installed)
+            It's a free font.
+
+\item`customfont': Use `customfont' option in the document class and load the
+ package in the preamble.tex
+
+ default or leave empty: `Latin Modern' font will be loaded.
+
+ *************************** Bibliography settings ****************************
+\item`biblatex`: use the package BibLaTex instead of natbib packages
+
+\item`bibsections`: list references by parts/chapters/sections (settings in header)
+
+\item`bibtex`: use BibTeX as backend for BibLaTeX to sort references from .bib file (by default Biber is used)
+
+\item`bibtex8`: use BibTeX8 (UTF-8 support) as backend for BibLaTeX to sort references from .bib file (by default Biber is used)
+
+ ********************** Choosing the Bibliography style ***********************
+\item`authoryear': For author-year citation eg., Krishna (2013)
+
+\item`numbered': (Default Option) For numbered and sorted citation e.g., [1,5,2]
+
+\item`custombib': Define your own bibliography style in the `preamble.tex' file.
+              \begin{verbatim}\RequirePackage}[square, sort, numbers, authoryear]{natbib} \end{verbatim}.
+              This can be also used to load biblatex instead of natbib
+              
+\end{enumerate}
+
+
+
+The equation from \autocite{Einstein1924, Einstein1925} and \autocite{deBroglie1929}
+\begin{equation}\label{eqn:bose_einstein_distribution}
+	\expect{n}_\mathrm{BE}=\frac{1}{\expo{\beta \left( \epsilon - \mu \right) } - 1},
+\end{equation}
+was inserted with by using the short-cut \keys{cmd + n}, which gives a labelled "eqn" environment.

@@ -1,0 +1,27 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+% !TeX root = ../../Diplomarbeit_Thomas_Weigner.tex
+\begin{scope}[scale = 0.8, shift ={(4.8, -3)}]
+	\draw[ ->]  (0, 0, 0) -- (1, 0);
+	\node[label=right:x] at (1, 0) {};
+	\draw[->]  (0, 0, 0) -- (0, 1);
+	\node[label=above:y] at (0, 1) {};
+\end{scope}
+
+\draw[fill=PdopedColor, PdopedColor](-3,2) rectangle (3,0.3);
+\node[black] at (0,1.6) {P-doped};
+\draw[fill=NdopedColor, NdopedColor](-3,-2) rectangle (3,-0.3);
+\node[black] at (0,-1.6) {N-doped};
+\draw[fill=ActiveZoneColor, ActiveZoneColor] (-3,-0.3) rectangle (3,0.3);
+\node[black] at (0,0) {Active zone};
+\draw[rubidiumColor, thick, ->-]  (3,0) -- +(2,0);
+%\draw[rubidiumColor, thick, put arrow={arrow’=stealth}] (3,0) -- +(2,0);
+\foreach \i in {1,...,12}{
+	\draw[fill=GratingColor, GratingColor] (-3.375+0.5*\i, 0.8) rectangle (-3.125+0.5*\i,1);	
+}
+\draw (-2.75, 0.8) to[dim arrow={label=$\Lambda$}] (-2.25, 0.8);
+\node[black, anchor=west] (gratingLabel) at (3.5, 1.2) {Grating};
+\draw[<-] (3,0.925) -- (gratingLabel.west);
+\draw[<-, very thick] (0,2) -- (0,2.5) node[right] {I};
+\draw[->, very thick] (0,-2) -- (0,-2.5);
+\node at (-3.5,0) {};

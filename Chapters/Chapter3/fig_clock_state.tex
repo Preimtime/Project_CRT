@@ -1,0 +1,61 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+% !TeX root = ../../Diplomarbeit_Thomas_Weigner.tex
+\renewcommand{\levelLength}{2.0}
+\renewcommand{\levelLengthLong}{3.0}
+\renewcommand{\levelConnect}{1.0}
+\renewcommand{\levelGap}{1.0}
+\renewcommand{\virtualLevel}{0.5}
+\newcommand{\zeemanSplit}{1.0}
+% ground state
+\draw[level] (0,0) node[left]{$5^2\text{S}_{1/2}$} -- (\levelLength,0);
+% F=1
+\draw[connect] (\levelLength,0)  -- (\levelLength + \levelConnect,-4.3*\levelGap);
+\draw[level]   (\levelLength + \levelConnect, -4.3*\levelGap)  -- node[above]{$F=1$} (2.0*\levelLength + \levelConnect, -4.3*\levelGap);
+% mF=-1
+\draw[connect] (2.0*\levelLength + \levelConnect, -4.3*\levelGap)  -- (2.0*\levelLength + 2.0*\levelConnect, -4.3*\levelGap + \zeemanSplit);
+\draw[level]   (2.0*\levelLength + 2.0*\levelConnect, -4.3*\levelGap + \zeemanSplit)
+-- (2.0*\levelLength + \levelLengthLong + 2.0*\levelConnect, -4.3*\levelGap + \zeemanSplit) node[right]{$m_\mathrm{F}=-1$\quad \large \textcolor{Skyblue}{$\ket{0}$}};
+% mF=0
+\draw[connect] (2.0*\levelLength + \levelConnect, -4.3*\levelGap)  -- (2.0*\levelLength + 2.0*\levelConnect, -4.3*\levelGap);
+\draw[level]   (2.0*\levelLength + 2.0*\levelConnect, -4.3*\levelGap)
+-- (2.0*\levelLength + \levelLengthLong + 2.0*\levelConnect, -4.3*\levelGap) node[right]{$m_\mathrm{F}=0$};
+% mF=1
+\draw[connect] (2.0*\levelLength + \levelConnect, -4.3*\levelGap)  -- (2.0*\levelLength + 2.0*\levelConnect, -4.3*\levelGap - \zeemanSplit);
+\draw[level]   (2.0*\levelLength + 2.0*\levelConnect, -4.3*\levelGap - \zeemanSplit)
+-- (2.0*\levelLength + \levelLengthLong + 2.0*\levelConnect, -4.3*\levelGap - \zeemanSplit) node[right]{$m_\mathrm{F}=+1$};
+% F=2
+\draw[connect] (\levelLength,0) -- (\levelLength + \levelConnect, 2.6*\levelGap);
+\draw[level]   (\levelLength + \levelConnect, 2.6*\levelGap)  -- node[above]{$F=2$} (2.0*\levelLength + \levelConnect, 2.6*\levelGap);
+% mF=-2
+\draw[connect] (2.0*\levelLength + \levelConnect, 2.6*\levelGap)  -- (2.0*\levelLength + 2.0*\levelConnect, 2.6*\levelGap - 2.0*\zeemanSplit);
+\draw[level]   (2.0*\levelLength + 2.0*\levelConnect, 2.6*\levelGap - 2.0*\zeemanSplit)
+-- (2.0*\levelLength + \levelLengthLong + 2.0*\levelConnect, 2.6*\levelGap - 2.0*\zeemanSplit) node[right]{$m_\mathrm{F}=-2$};
+% mF=-1
+\draw[connect] (2.0*\levelLength + \levelConnect, 2.6*\levelGap)  -- (2.0*\levelLength + 2.0*\levelConnect, 2.6*\levelGap - \zeemanSplit);
+\draw[level]   (2.0*\levelLength + 2.0*\levelConnect, 2.6*\levelGap - \zeemanSplit)
+-- (2.0*\levelLength + \levelLengthLong + 2.0*\levelConnect, 2.6*\levelGap - \zeemanSplit) node[right]{$m_\mathrm{F}=-1$};
+% mF=0
+\draw[connect] (2.0*\levelLength + \levelConnect, 2.6*\levelGap)  -- (2.0*\levelLength + 2*\levelConnect, 2.6*\levelGap);
+\draw[level]   (2.0*\levelLength + 2.0*\levelConnect, 2.6*\levelGap)
+-- (2.0*\levelLength + \levelLengthLong + 2.0*\levelConnect, 2.6*\levelGap) node[right]{$m_\mathrm{F}=0$};
+% mF=1
+\draw[connect] (2.0*\levelLength + \levelConnect, 2.6*\levelGap)  -- (2.0*\levelLength + 2*\levelConnect, 2.6*\levelGap + \zeemanSplit);
+\draw[level]   (2.0*\levelLength + 2.0*\levelConnect, 2.6*\levelGap + \zeemanSplit)
+-- (2.0*\levelLength + \levelLengthLong + 2.0*\levelConnect, 2.6*\levelGap + \zeemanSplit) node[right]{$m_\mathrm{F}=+1$ \quad \large \textcolor{Skyblue}{$\ket{1}$}};
+% mF=2
+\draw[connect] (2.0*\levelLength + \levelConnect, 2.6*\levelGap)  -- (2.0*\levelLength + 2.0*\levelConnect, 2.6*\levelGap + 2.0*\zeemanSplit);
+\draw[level]   (2.0*\levelLength + 2.0*\levelConnect, 2.6*\levelGap + 2.0*\zeemanSplit)
+-- (2.0*\levelLength + \levelLengthLong + 2*\levelConnect, 2.6*\levelGap + 2.0*\zeemanSplit) node[right]{$m_\mathrm{F}=+2$};
+
+% virtual level
+\draw[virtualLevel] (2.0*\levelLength + 2.0*\levelConnect, 2.6*\levelGap + \virtualLevel)
+-- (2.0*\levelLength + \levelLengthLong + 2.0*\levelConnect, 2.6*\levelGap + \virtualLevel) node[right]{\scriptsize Virtual Level};
+
+% MW transition
+\draw[transitionBoth, red] (2.0*\levelLength + 0.2*\levelLengthLong + 2.0*\levelConnect, -4.3*\levelGap + \zeemanSplit) 
+-- node[left, scale=0.8]{MW} (2.0*\levelLength + 0.5*\levelLengthLong + 2.0*\levelConnect, 2.6*\levelGap + \virtualLevel);
+
+% RF transiton
+\draw[transitionBoth, red] (2.0*\levelLength + 0.5*\levelLengthLong + 2.0*\levelConnect, 2.6*\levelGap + \virtualLevel) 
+-- node[left, scale=0.8]{RF\quad\quad} (2.0*\levelLength + 0.8*\levelLengthLong + 2.0*\levelConnect, 2.6*\levelGap + \zeemanSplit);

@@ -1,0 +1,17 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_GB
+% !TeX root = ../../Diplomarbeit_Thomas_Weigner.tex
+%optical elements
+\node[generic sensor, anchor=aperture west, rotate=180, scale=1.6] (Camera) at (0, 0) {};
+\node[lens,lens type=diverging, Ggreen, object height=1.2cm] (L1) at (1,0) {};
+\node[lens,lens type=converging, object height=1.2cm] (L2) at (2.5,0) {};
+\node[mirror, rotate=-45, object height=1.2cm] (M1) at (4,0) {};
+\node[lens,lens type=diverging, rotate=90, object height=1.2cm] (L3) at (4,5) {};
+\draw[HelpLineColor, thick, <->] (2.5,4) -- (2.5,6);
+\node[HelpLineColor, anchor=east] at (2.5,5) {translation stage};
+%beam paths
+\draw[rubidiumColor, -<-]  (L3) -- +(0,2);
+\draw[rubidiumColor, ->-]  (L3) -- (M1);
+\draw[rubidiumColor, ->-]  (M1) -- (L2);
+\draw[rubidiumColor, ->-]  (L2) -- (L1);
+\draw[rubidiumColor, ->-]  (L1) -- (Camera);
