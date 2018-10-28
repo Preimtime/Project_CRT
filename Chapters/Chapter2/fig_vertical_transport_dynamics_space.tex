@@ -15,7 +15,7 @@
 		every axis plot/.append style={very thick},
 		legend style={legend cell align=left, align=left, fill=white, draw=white!15!black, anchor=west, at={(axis cs:245,0)}},
 ]
-	\addplot[mark=none, Ggreen, CoilCurrent] table [x=t, y=s, col sep=comma]{./Chapters/Atomic_Recombination/data_vertical_transport_dynamics.csv};
+	\addplot[mark=none, Ggreen, CoilCurrent] table [x=t, y=s, col sep=comma]{./Chapters/Chapter2/data_vertical_transport_dynamics.csv};
 	%---spy inset 1
 	\grenewcommand{\xStartZoom}{0}
 	\grenewcommand{\xEndZoom}{60}
@@ -55,7 +55,7 @@
 	ymin=\yStartZoom, ymax=\yEndZoom,
 	axis background/.style={fill=white}
 ]
-	\addplot[mark=none, Ggreen, CoilCurrent] table [x=t, y=s, col sep=comma]{./Chapters/Atomic_Recombination/data_vertical_transport_dynamics.csv};
+	\addplot[mark=none, Ggreen, CoilCurrent] table [x=t, y=s, col sep=comma]{./Chapters/Chapter2/data_vertical_transport_dynamics.csv};
 \end{axis}
 \draw[spyColor, dashed] (spypoint1) rectangle (spypoint2);
 \draw[spyColor, dashed] (spypoint1) -- (zoomedView1.south west);
@@ -77,7 +77,7 @@
 	ymin=\yStartZoomTwo, ymax=\yEndZoomTwo,
 	axis background/.style={fill=white}
 ]
-	\addplot[mark=none, Ggreen, CoilCurrent] table [x=t, y=s, col sep=comma]{./Chapters/Atomic_Recombination/data_vertical_transport_dynamics.csv};
+	\addplot[mark=none, Ggreen, CoilCurrent] table [x=t, y=s, col sep=comma]{./Chapters/Chapter2/data_vertical_transport_dynamics.csv};
 \end{axis}
 \draw[spyColor, dashed] (spypoint3) rectangle (spypoint4);
 \draw[spyColor, dashed] (spypoint3) -- (zoomedView2.north west);

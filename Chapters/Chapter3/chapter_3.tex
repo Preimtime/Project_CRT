@@ -2,77 +2,75 @@
 % !TeX spellcheck = en_GB
 % !TeX root = ../../Thesis.tex
 \chapter{Chapter 3}\label{chap:chapter_3}
-Tikz sketches and diagrams...
+This chapter contains a few Tikz sketches and diagrams as a inspiration and guide line to create your own Tikz figures.
 
+\begin{figure}[H]
+	\centering
+	\resizebox{\textwidth}{!}{
+		\begin{tikzpicture}[use optics, scale=1.0]
+			\input{./Chapters/Chapter3/fig_DFS_scheme}
+		\end{tikzpicture}
+	}
+	\caption[DFS setup]{optical setup for a \person{Doppler} free spectroscopy}
+	\label{fig:dfs}
+\end{figure}
 
-%\begin{figure}[H]
-%	\centering	
-%	\begin{tikzpicture}[scale=0.55]
-%		\input{./Chapters/Chapter2/fig_Rb_hyperfine_structure}
-%	\end{tikzpicture}
-%	\caption[\Rb D1,D2 line]{\Rb hyperfine structure of the D1 and D2 line with their respective $g_\mathrm{F}$ factors and linear \person{Zeeman} splitting coefficients. The excited states are 10 times magnified in relation to the ground state.}
-%	\label{fig:Rb_hyperfine_structure}
-%\end{figure}
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[use optics, scale=0.7]
+		\input{./Chapters/Chapter3/fig_reflective_imaging_sketch}
+	\end{tikzpicture}
+	\caption[optics sketch 1]{optics sketch 1}
+	\label{fig:reflective_imaging_setup}
+\end{figure}
 
-%\begin{figure}[htb]
-%	\centering
-%	\resizebox{\textwidth}{!}{
-%		\begin{tikzpicture}[use optics, scale=1.0]
-%		\input{./Chapters/Chapter2/fig_DFS_scheme}
-%		\end{tikzpicture}
-%	}
-%	\caption[DFS setup]{Effective optical setup for a \person{Doppler} free spectroscopy.}
-%	\label{fig:dfs}
-%\end{figure}
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[use optics, scale=0.7]
+		\input{./Chapters/Chapter3/fig_trapping_with_wires}
+	\end{tikzpicture}
+	\caption[trapping atoms wiht a wire]{Trapping atoms with wires.}
+	\label{fig:trapping_atoms_with_a_wire}
+\end{figure}
 
-%\begin{figure}[htb]
-%	\noindent
-%	\centering
-%	\begin{subfigure}[t]{0.49\textwidth}
-%		\centering
-%		\begin{tikzpicture}[use optics, scale=1.0]
-%		\input{./Chapters/Experiment_Setup/fig_ECDL}
-%		\end{tikzpicture}
-%		\subcaption{}
-%		\label{fig:laser_types_ecdl}
-%	\end{subfigure}
-%	\begin{subfigure}[t]{0.49\textwidth}
-%		\centering
-%		\begin{tikzpicture}[use optics, scale=0.7]
-%		\input{./Chapters/Experiment_Setup/fig_DFB_laser}
-%		\end{tikzpicture}
-%		\subcaption{}
-%		\label{fig:laser_types_dfb}
-%	\end{subfigure}
-%	\caption[laser types]{Used semiconductor laser types: (\subref{fig:laser_types_ecdl}) shows a laser diode with an external cavity with a blazed grating in \person{Littrow} configuration. The external cavity length is tune able by piezo. (\subref{fig:laser_types_dfb}) is a sketch of a laser diode with distributed feedback through the grating structure in the semiconductor.}
-%	\label{fig:laser_types}
-%\end{figure}
+\clearpage
+\begin{figure}[H]
+	\centering	
+	\begin{tikzpicture}[scale=0.55]
+		\input{./Chapters/Chapter3/fig_Rb_hyperfine_structure}
+	\end{tikzpicture}
+	\caption[\Rb D1,D2 line]{\Rb hyperfine structure of the D1 and D2 line}
+	\label{fig:Rb_hyperfine_structure}
+\end{figure}
 
-%\begin{figure}[htb]
-%	\centering
-%	\begin{tikzpicture}[scale=0.6]
-%	\input{./Chapters/Experiment_Setup/fig_laser_transitions}
-%	\end{tikzpicture}
-%	\caption[laser transitions]{Laser transitions used in the experiment on the \Rb D2-line. The master laser is locked to the $F=1-3$ crossover peak. The TA seeding laser gets FO locked to it and thereby, shifted by $\SI{139}{\mega \hertz}$. After being amplified by the tapered amplifier, it leaves the laser box. The cooling beam going into the MOT-chamber is shifted by an AOM\nomenclature[A-AOM]{AOM}{acusto optical modulator} $+\SI{62.5}{\mega \hertz}$. By changing the voltage of the VCO in the FO lock, the main beam frequency gets shifted. This way all the necessary shifts, indicated by thin pink arrows can be reached. The repumper laser is locked to the $F=1-2$ crossover peak and then shifted with an AOM by $+\SI{78.5}{\mega \hertz}$ to the $F=1 \rightarrow F'=2$ transition.}
-%	\label{fig:laser_trasnistions}
-%\end{figure}
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[scale=0.48]
+		\input{./Chapters/Chapter3/fig_cryostat_overview}
+	\end{tikzpicture}
+	\caption[overview of cryogenic setup]{Overview sketch of the cryogenic setup}
+	\label{fig:cryogenic_overview}
+\end{figure}
 
-
-%\begin{subfigure}[t]{0.98\textwidth}
-%	\centering
-%	\begin{tikzpicture}[scale=0.8, use optics]
-%	\input{./Chapters/Experiment_Setup/fig_reflective_imaging_sketch}
-%	\end{tikzpicture}
-%	\subcaption{}
-%	\label{fig:reflective_imaging_setup}
-%\end{subfigure}
-%
-%
-%\begin{subfigure}[t]{0.34\textwidth}
-%	\centering
-%	\begin{tikzpicture}[scale=0.78, use optics]
-%	\input{./Chapters/Experiment_Setup/fig_main_imaging_sketch}
-%	\end{tikzpicture}
-%	\subcaption{}
-%	\label{fig:main_imaging_setup}
-%\end{subfigure}
+\begin{figure}[H]
+	\noindent
+	\centering
+	\begin{subfigure}[t]{0.49\textwidth}
+		\centering
+		\begin{tikzpicture}[use optics, scale=1.0]
+		\input{./Chapters/Chapter3/fig_ECDL}
+		\end{tikzpicture}
+		\subcaption{}
+		\label{fig:laser_types_ecdl}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.49\textwidth}
+		\centering
+		\begin{tikzpicture}[use optics, scale=0.7]
+		\input{./Chapters/Chapter3/fig_DFB_laser}
+		\end{tikzpicture}
+		\subcaption{}
+		\label{fig:laser_types_dfb}
+	\end{subfigure}
+	\caption[laser types]{semiconductor laser types: (\subref{fig:laser_types_ecdl}) ECDL; (\subref{fig:laser_types_dfb}) DFB.}
+	\label{fig:laser_types}
+\end{figure}

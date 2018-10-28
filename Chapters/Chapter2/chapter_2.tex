@@ -2,13 +2,22 @@
 % !TeX spellcheck = en_GB
 % !TeX root = ../../Thesis.tex
 \chapter{Chapter 2}\label{chap:chapter_2}
-Pgf plots...
+Here some Pgf exemplary plots.
 
-\begin{figure}[htb]
+\begin{figure}[H]
 	\centering	
-	\begin{tikzpicture}[scale=0.88]
-	\input{./Chapters/Chapter2/fig_zeeman_splitting}
+	\begin{tikzpicture}[scale=0.6]
+		\input{./Chapters/Chapter2/fig_zeeman_splitting}
 	\end{tikzpicture}
 	\caption[\person{Zeeman} splitting]{\person{Zeeman} splitting of the \Rb ground state $5^2\mathrm{S}_{1/2}$.}
 	\label{fig:zeeman_splitting_breit_rabi}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[scale=0.88]
+		\input{./Chapters/Chapter2/fig_vertical_transport_dynamics_space}
+	\end{tikzpicture}
+	\caption[pgf plot with zoom]{pgf plot with zoom}
+	\label{fig:vertical_transport_dynamics_a}
 \end{figure}

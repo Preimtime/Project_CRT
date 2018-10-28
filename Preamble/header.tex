@@ -1,6 +1,14 @@
 % !TeX encoding = UTF-8
 % !TeX spellcheck = en_GB
 % !TeX root = ../Thesis.tex
+
+%* --------------------------------------------------------------------------------	*
+%* "THE BEER-WARE LICENSE" (Revision 42):											*
+%* <weigner.thomas@gmail.com> wrote this file. As long as you retain this notice	*
+%* you can do whatever you want with this stuff. If we meet some day, and you think	*
+%* this stuff is worth it, you can buy me a beer in return.   Thomas Weigner		*
+%* --------------------------------------------------------------------------------	*
+
 % *****************************************************************************
 % ******************************** Settings ***********************************
 % *****************************************************************************
@@ -320,28 +328,28 @@
 
 %TODO this doesn't fucking work
 %---externalize plots for speed up
-\usepgfplotslibrary{external}					% externally do the jobs (shell escape needs to be enabled)
-\tikzexternalize[prefix=./Figures/]				% externalize and save figures in Figures				
-%\tikzset{external/force remake}
-
-%---exclude todo pictures from externalize
-\usepackage{letltxmacro}
-\LetLtxMacro{\oldmissingfigure}{\missingfigure}
-\renewcommand{\missingfigure}[2][]{\tikzexternaldisable\oldmissingfigure[{#1}]{#2}\tikzexternalenable}
-\LetLtxMacro{\oldtodo}{\todo}
-\renewcommand{\todo}[2][]{\tikzexternaldisable\oldtodo[#1]{#2}\tikzexternalenable}
-
-%---global plots settings
-\pgfplotsset{legend style={overlay}, 			% set legends etc. as overlay to horizontaly align accoording to the axes
-			 ylabel style={overlay},
-			 yticklabel style={overlay}}
-\newcommand{\marksSize}{3.5pt}					% size for marks in plots
-\pgfplotsset{									% set san serif font for labels, axes, etc.
-	tick label style = {font=\sansmath\sffamily},
-	every axis label = {font=\sansmath\sffamily},
-	legend style = {font=\sansmath\sffamily},
-	label style = {font=\sansmath\sffamily}
-}
+%\usepgfplotslibrary{external}					% externally do the jobs (shell escape needs to be enabled)
+%\tikzexternalize[prefix=./Figures/]				% externalize and save figures in Figures				
+%%\tikzset{external/force remake}
+%
+%%---exclude todo pictures from externalize
+%\usepackage{letltxmacro}
+%\LetLtxMacro{\oldmissingfigure}{\missingfigure}
+%\renewcommand{\missingfigure}[2][]{\tikzexternaldisable\oldmissingfigure[{#1}]{#2}\tikzexternalenable}
+%\LetLtxMacro{\oldtodo}{\todo}
+%\renewcommand{\todo}[2][]{\tikzexternaldisable\oldtodo[#1]{#2}\tikzexternalenable}
+%
+%%---global plots settings
+%\pgfplotsset{legend style={overlay}, 			% set legends etc. as overlay to horizontaly align accoording to the axes
+%			 ylabel style={overlay},
+%			 yticklabel style={overlay}}
+%\newcommand{\marksSize}{3.5pt}					% size for marks in plots
+%\pgfplotsset{									% set san serif font for labels, axes, etc.
+%	tick label style = {font=\sansmath\sffamily},
+%	every axis label = {font=\sansmath\sffamily},
+%	legend style = {font=\sansmath\sffamily},
+%	label style = {font=\sansmath\sffamily}
+%}
 
 %---zoom area variables for plot zooms with secound axis environment
 \newcommand{\xStartZoom}{0.0}

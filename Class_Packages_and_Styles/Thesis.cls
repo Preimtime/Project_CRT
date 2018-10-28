@@ -1,6 +1,7 @@
 % !TeX encoding = UTF-8
 % !TeX spellcheck = en_GB
 % !TeX root = ../Thesis.tex
+%BEGIN_FOLD%BEGIN_FOLD
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Class:Thesis																   	%		
 % Version: 1.3	                                          					   	%
@@ -9,6 +10,14 @@
 % Date: 21.09.2018															   	%
 % License: This document is open source under the Beer licene.					%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%* --------------------------------------------------------------------------------	*
+%* "THE BEER-WARE LICENSE" (Revision 42):											*
+%* <weigner.thomas@gmail.com> wrote this file. As long as you retain this notice	*
+%* you can do whatever you want with this stuff. If we meet some day, and you think	*
+%* this stuff is worth it, you can buy me a beer in return.   Thomas Weigner		*
+%* --------------------------------------------------------------------------------	*
+%END_FOLD%END_FOLD
 
 % ****************************************************************************** 
 % ************************** Class Identification ******************************
