@@ -4,7 +4,9 @@
 \chapter{Chapter 1}\label{chap:chapter_1}
 List of class options:
 
-\quad ***************************** General settings *******************************
+\begin{center}
+	******************** General settings ********************
+\end{center}
 \begin{enumerate}
 \item`a4paper' or `a5paper'
 
@@ -33,7 +35,9 @@ List of class options:
 
 \item`titlepage2`: This option loads the alternative titlepage titlepage\_alternative instead of titlepage\_official. This intended to have two designs available and quickly switch between them.
 
- **************************** Draftmode settings ******************************
+\begin{center}
+	******************** Draftmode settings ********************
+\end{center}
 \item`draftclassic': For draft mode without loading any images (same as draft in scrbook) and notes
 
 \item`draft': Special draft mode with line numbers, images, and water mark
@@ -45,12 +49,12 @@ List of class options:
 \item`todonotesoff`: manualy disable todonotes (has to be loaded after draft options)
  Add notes with follwing commands in the draft mode:
  \begin{verbatim}
-	 \mynote{text} -> green note on the side pointing to the location
-	 \sidenote{text} -> blue note on the side
-	 \needref{text}	-> blue note on the side pointing to the location
-	 \urgentnote{text} -> red note on the side pointing to the location
-	 \inlinenote{text} -> orange inline note
-	 \missingfigure[figwidth=length]{text} -> dummy picture
+	\mynote{text} -> green note on the side pointing to the location
+	\sidenote{text} -> blue note on the side
+	\needref{text}	-> blue note on the side pointing to the location
+	\urgentnote{text} -> red note on the side pointing to the location
+	\inlinenote{text} -> orange inline note
+	\missingfigure[figwidth=length]{text} -> dummy picture
  \end{verbatim}
  In the index section a list of todonotes is printed.
  !!!You must not use underscore in the missingfigure argument.
@@ -58,12 +62,16 @@ List of class options:
 
 \item'bibdebug': debug mode for BibLaTeX
 
- ************************* Custom Page Margins ********************************
+\begin{center}
+	******************** Custom Page Margins ********************
+\end{center}
 \item`custommargin`: Use `custommargin' in options to activate custom page margins,
  which can be defined in the preamble.tex. Custom margin will override
  print/online margin setup.
 
- *********************** Choosing the Fonts in Class Options ******************
+\begin{center}
+	*************** Choosing the Fonts in Class Options ***************
+\end{center}
 \item`times' : Times font with math support
 
 \item`fourier': Utopia Font with Fourier Math font (Font has to be installed)
@@ -74,7 +82,9 @@ List of class options:
 
  default or leave empty: `Latin Modern' font will be loaded.
 
- *************************** Bibliography settings ****************************
+\begin{center}
+******************** Bibliography settings ********************
+\end{center}
 \item`biblatex`: use the package BibLaTex instead of natbib packages
 
 \item`bibsections`: list references by parts/chapters/sections (settings in header)
@@ -83,7 +93,9 @@ List of class options:
 
 \item`bibtex8`: use BibTeX8 (UTF-8 support) as backend for BibLaTeX to sort references from .bib file (by default Biber is used)
 
- ********************** Choosing the Bibliography style ***********************
+\begin{center}
+******************** Choosing the Bibliography style ********************
+\end{center}
 \item`authoryear': For author-year citation eg., Krishna (2013)
 
 \item`numbered': (Default Option) For numbered and sorted citation e.g., [1,5,2]
