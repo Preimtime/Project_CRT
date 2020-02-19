@@ -176,7 +176,6 @@ pythontex-files-*/
 *.loe
 
 # TikZ & PGF
-*.dpth
 *.md5
 *.auxlock
 *.dep
