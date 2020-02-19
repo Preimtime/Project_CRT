@@ -287,6 +287,30 @@
 \tikzstyle{line} = [draw, -latex']
 \tikzstyle{cloud} = [draw, ellipse,fill=purple!20, node distance=3cm,minimum height=2em]
 
+%---externalize plots for speed up
+\usetikzlibrary{external}							
+\tikzexternalize									% externally do the jobs (shell escape needs to be enabled)
+\tikzsetexternalprefix{Figures/}					% externalize and save figures in Figures
+%
+%%---exclude todo pictures from externalize
+%\usepackage{letltxmacro}
+%\LetLtxMacro{\oldmissingfigure}{\missingfigure}
+%\renewcommand{\missingfigure}[2][]{\tikzexternaldisable\oldmissingfigure[{#1}]{#2}\tikzexternalenable}
+%\LetLtxMacro{\oldtodo}{\todo}
+%\renewcommand{\todo}[2][]{\tikzexternaldisable\oldtodo[#1]{#2}\tikzexternalenable}
+%
+%%---global plots settings
+%\pgfplotsset{legend style={overlay}, 			% set legends etc. as overlay to horizontaly align accoording to the axes
+%			 ylabel style={overlay},
+%			 yticklabel style={overlay}}
+%\newcommand{\marksSize}{3.5pt}					% size for marks in plots
+%\pgfplotsset{									% set san serif font for labels, axes, etc.
+%	tick label style = {font=\sansmath\sffamily},
+%	every axis label = {font=\sansmath\sffamily},
+%	legend style = {font=\sansmath\sffamily},
+%	label style = {font=\sansmath\sffamily}
+%}
+
 %---additional pin anchors
 %BEGIN_FOLD
 %\makeatletter
