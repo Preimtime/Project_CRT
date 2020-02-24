@@ -176,9 +176,9 @@ pythontex-files-*/
 *.loe
 
 # TikZ & PGF
-*.dpth
 *.md5
 *.auxlock
+*.dep
 
 # todonotes
 *.tdo
@@ -218,3 +218,4 @@ TSWLatexianTemp*
 
 # expex forward references with \gathertags
 *-tags.tex
+*.pdf
