@@ -452,12 +452,8 @@
 
 %---units
 \usepackage{siunitx} 					% use this package module for SI units
-\sisetup{detect-all}					% always used currently set font
-\DeclareSIUnit{\gauss}{G}				% Gauss
-\DeclareSIUnit{\year}{yr}				% year
-\DeclareSIUnit{\eV}{eV}					% electron Volt
-\DeclareSIUnit{\atoms}{atoms}			% atom count
-\DeclareSIUnit{\mm}{\milli \meter}
+\sisetup{detect-all, binary-units=true}	% always used currently set font
+\DeclareSIUnit{\channel}{channel}		% Gauss
 %\sisetup{inter-unit-product =$\cdot$}	% for dots as inner product (danger!!! produces Texstudio crash)
 %END_FOLD
 
