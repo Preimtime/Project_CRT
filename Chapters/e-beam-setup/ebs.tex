@@ -19,12 +19,12 @@ CRT Mount ??
 
 HAMEG HM507 oscilloscopes were used for testing purposes. These contain a D14-363GY/123\autocite{D14363GY123-manual} CRT hereinafter abbreviated as `D14', `tube', or `CRT'. Although the HM507 has only a bandwidth of \SIrange{0}{50}{\mega\hertz}, which is not sufficient for the hyperfine splitting frequency of \SI{461.7}{\mega\hertz}\todo{http://www.tobiastiecke.nl/archive/PotassiumProperties.pdf} of $^{39}\mathrm{K}$, it was used nevertheless because of its simple construction and availability. A schematic view of the device is shown in \cref{fig:electrode configuration} with the back pin arrangement in \cref{fig:pin arrangement}.
 
-The voltages and currents of the necessary pins to drive the CRT were measured using a \SI{2.5}{\kilo\volt} probe \todo{model number} with an attenuation ratio of \todo{1:100 or 100:1} and are summarized in \cref{tab:D14-363GY/123 tube pin measurements}. It was not possible to measure pin g3 directly. Therefore a HVPS (\cref{sec:HVPS}) was used to set a voltage and the beam diameter was observed. The best focus was achieved with a voltage of \SI{-1.813e3}{\volt}.
+The voltages and currents of the necessary pins to drive the CRT were measured using a \SI{2.5}{\kilo\volt} probe \todo{model number} with an attenuation ratio of \todo{1:100 or 100:1} and are summarized in \cref{tab:D14-363GY/123 tube pin measurements}. It was not possible to measure pin g3 directly. Therefore a HVPS (\cref{sec:HVPS}) was used to set a voltage and the beam diameter was observed. The best focus was achieved with a voltage of \SI{-1.813e3}{\volt} \todo{current?}.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=5cm]{./Chapters/e-beam-setup/electrode configuration}
-	\caption{Electrode configuration (from \autocite{tubedata})}
+	\caption{Electrode configuration (from \autocite{D14363GY123-manual})}
 	\todo[inline]{how to cite figure}
 	\label{fig:electrode configuration}
 \end{figure}
@@ -32,7 +32,7 @@ The voltages and currents of the necessary pins to drive the CRT were measured u
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=5cm]{./Chapters/e-beam-setup/pin arrangement}
-	\caption{Pin arrangement, bottom view (from \autocite{tubedata})}
+	\caption{Pin arrangement, bottom view (from \autocite{D14363GY123-manual})}
 	\todo[inline]{how to cite figure}
 	\label{fig:pin arrangement}
 \end{figure}
@@ -49,7 +49,7 @@ The voltages and currents of the necessary pins to drive the CRT were measured u
 		1        & f      & -1.99e3              & 86.6e3 \\
 		2        & k      & -2.00                & -7.6 \\
 		3        & g1     & -2.03                & 0 \\
-		4        & g3     & {-}                  & -1.813e3 \\
+		4        & g3     & -1.813e3             & {-} \\
 		5        & i.c.   & 71.7                 & 0.1 \\
 		6        & g5     & 64.                  & 7.2 \\
 		12       & g2, g4 & 71.                  & 0 \\
@@ -64,3 +64,18 @@ The voltages and currents of the necessary pins to drive the CRT were measured u
 
 To produce high DC voltages to drive the CRT, 4 HCP 14-6500\autocite{fug-hcp-manual} power supplies were used. They were named `HVPS 1' to `HVPS 4' and can provide up to \SI{\pm 6.5}{\kilo\volt} DC and \SI{2}{\milli\ampere}. To connect the output to the CRT pins, BNC cables were refitted with a save high voltage (SHV) connector on one side while on the other end the BNC connector was kept. The output was measured with a \SI{6}{\kilo\volt} probe\todo{find exact value of big yellow probe} and the ripple was determined to be between \SIlist{116;204}{\milli\volt}. The breakdown voltages is around \SI{3}{\kilo\volt}\todo{somewhere 2-4, find exact value}.
 
+
+\section{CRT wire connection}\label{sec:CRT wire connection}
+
+\begin{figure}[H]
+	\centering
+	\begin{circuitikz}[european, voltage shift=0.5]
+		\draw (0,0) to[isourceC, l=$I_0$, v=$V_0$] (0,3)
+		to[short, -*, f=$I_0$] (2,3)
+		to[R=$R_1$, f>_=$i_1$] (2,0) -- (0,0);
+		\draw (2,3) -- (4,3)
+		to[R=$R_2$, f>_=$i_2$]
+		(4,0) to[short, -*] (2,0);
+	\end{circuitikz}
+	\caption{test circuit}
+\end{figure}
