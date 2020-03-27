@@ -3,18 +3,6 @@
 % !TeX root = ../../Thesis.tex
 \chapter{Electron beam setup}\label{ch:Electron beam setup}
 
-chapter about electron beam setup
-
-Charakterisierung der intakten CRT -> Frank 
-
-Charakterisierung HVPS ->  Frank 
-
-Skizze inkl. externe Power Supplies, wie wird die CRT betrieben?
-
-Heater
-Wie sieht der Innen aus? 
-CRT Mount ??
-
 \section{Charatarization of a working CRT}\label{sec:Charatarization of a working CRT}
 
 HAMEG HM507 oscilloscopes were used for testing purposes. These contain a D14-363GY/123\autocite{D14363GY123-manual} CRT hereinafter abbreviated as `D14', `tube', or `CRT'. Although the HM507 has only a bandwidth of \SIrange{0}{50}{\mega\hertz}, which is not sufficient for the hyperfine splitting frequency of \SI{461.7}{\mega\hertz}\todo{http://www.tobiastiecke.nl/archive/PotassiumProperties.pdf} of $^{39}\mathrm{K}$, it was used nevertheless because of its simple construction and availability. A schematic view of the device is shown in \cref{fig:electrode configuration} with the back pin arrangement in \cref{fig:pin arrangement}.
@@ -62,20 +50,76 @@ The voltages and currents of the necessary pins to drive the CRT were measured u
 
 \section{High Voltage Power Supply HVPS}\label{sec:HVPS}
 
-To produce high DC voltages to drive the CRT, 4 HCP 14-6500\autocite{fug-hcp-manual} power supplies were used. They were named `HVPS 1' to `HVPS 4' and can provide up to \SI{\pm 6.5}{\kilo\volt} DC and \SI{2}{\milli\ampere}. To connect the output to the CRT pins, BNC cables were refitted with a save high voltage (SHV) connector on one side while on the other end the BNC connector was kept. The output was measured with a \SI{6}{\kilo\volt} probe\todo{find exact value of big yellow probe} and the ripple was determined to be between \SIlist{116;204}{\milli\volt}. The breakdown voltages is around \SI{3}{\kilo\volt}\todo{somewhere 2-4, find exact value}.
+To produce high DC voltages to drive the CRT, 4 HCP 14-6500\autocite{fug-hcp-manual} power supplies were used. They were named `HVPS 1' to `HVPS 4' and can provide up to \SI{\pm 6.5}{\kilo\volt} DC and \SI{2}{\milli\ampere}. To connect the output to the CRT pins, BNC cables were refitted with a save high voltage (SHV) connector on one side while on the other end the BNC connector was kept. The output was measured with a \SI{6}{\kilo\volt} probe\todo{find exact value of big yellow probe} and the ripple was determined to be between \SIlist{116;204}{\milli\volt}. The breakdown voltages is around \SI{3}{\kilo\volt}\todo{somewhere 2-4, find exact value}. 
 
+\section{CRT wiring}\label{sec:CRT wiring}
+A schematic of the supplied power is shown in \cref{fig:schematics of wiring}. A small AC or DC voltage is necessary to drive the heater filament. This part of the setup is explained in \cref{sec:Heater}.
 
-\section{CRT wire connection}\label{sec:CRT wire connection}
 
 \begin{figure}[H]
 	\centering
-	\begin{circuitikz}[european, voltage shift=0.5]
-		\draw (0,0) to[isourceC, l=$I_0$, v=$V_0$] (0,3)
-		to[short, -*, f=$I_0$] (2,3)
-		to[R=$R_1$, f>_=$i_1$] (2,0) -- (0,0);
-		\draw (2,3) -- (4,3)
-		to[R=$R_2$, f>_=$i_2$]
-		(4,0) to[short, -*] (2,0);
+	\begin{circuitikz}[european]
+		%\draw [help lines] (0,0) grid (10,10);
+		
+		\newcommand{\hvps}[2] % corordinates of bottom left corner, label
+		% draw a hvps
+		{		
+			% draw HVPS
+			\draw (0 + {#1}[0], 0 + {#1}[1]) rectangle (2.5 + {#1}[0], 2.5 + {#1}[1]); % box of size 2.5
+			\node[above] at (1.25 + {#1}[0], 2.5 + {#1}[1]) {#2};	% label for box
+			\draw (3 + {#1}[0], 1 + {#1}[1]) -- (1.5 + {#1}[0], 1 + {#1}[1]) to[vsource] (1.5 + {#1}[0], 2 + {#1}[1]) -- (3 + {#1}[0], 2 + {#1}[1]);  % voltage supply
+			\draw (1.5 + {#1}[0], 0.5 + {#1}[1]) -- (3 + {#1}[0], 0.5 + {#1}[1]) node[ground] {}; % ground
+		}
+	
+		\newcommand{\coaxial}[2] % coordinates of left inner wire, length of cable
+		% draw a coaxial cable with given length
+		{
+			\draw (0 + {#1}[0], {#1}[1]) to[short, *-*] (#2 + {#1}[0], {#1}[1]); % middle line
+			\draw (1 + {#1}[0], {#1}[1]) circle [radius=0.5]; % left circle
+			\draw (#2 - 1 + {#1}[0], {#1}[1]) circle [radius=0.5]; % right circle
+			\draw (1 + {#1}[0], 0.5 + {#1}[1]) -- (#2 - 1 + {#1}[0], 0.5 + {#1}[1]); % top line
+			\draw (0 + {#1}[0], -0.5 + {#1}[1]) to[short, *-*] (#2 + {#1}[0], -0.5 + {#1}[1]); % bottom line
+		}
+
+		% HVPS 4
+		\hvps{(0, 0)}{HVPS 4}
+		\draw (3, 2) -- (3, 1.5);
+		\coaxial{(3, 1.5)}{5}
+		\draw (8, 1.5) -- (10, 1.5);
+		\node [right] at (10, 1.5) {i.c.};
+		
+		% HVPS 3
+		\hvps{(0, 4)}{HVPS 3}
+		\draw (3, 6) -- (3, 5.5);
+		\coaxial{(3, 5.5)}{5}
+		\draw (8, 5.5) -- (10, 5.5);
+		\node [right] at (10, 5.5) {g3};
+		
+		% HVPS 2
+		\hvps{(0, 8)}{HVPS 2}
+		\draw (3, 10) -- (3, 9.5);
+		\coaxial{(3, 9.5)}{5}
+		\draw (8, 9.5) -- (10, 9.5);
+		\node [right] at (10, 9.5) {f};
+		\draw (9, 9.5) to[sV, *-] (9, 8); % AC voltage source
+		\draw (9, 8) to[short, *-] (10, 8);
+		\node [right] at (10, 8) {f};
+		\draw (9, 8) -- (9, 7) -- (10, 7);
+		\node [right] at (10, 7) {k};
+		
+		% HVPS 1
+		\hvps{(0, 12)}{HVPS 1}
+		\draw (3, 14) -- (3, 13.5);
+		\coaxial{(3, 13.5)}{5}
+		\draw (8, 13.5) -- (10, 13.5);
+		\node [right] at (10, 13.5) {g1};
+		
 	\end{circuitikz}
-	\caption{test circuit}
+	\caption{Schematics of supplying CRT pins with power.}
+	\label{fig:schematics of wiring}
 \end{figure}
+
+\section{Heater}\label{sec:Heater}
+Heater
+Wie sieht der Innen aus? 
+CRT Mount ??
