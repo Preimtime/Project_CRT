@@ -5,11 +5,11 @@
 
 \section{Charatarization of a working CRT}\label{sec:Charatarization of a working CRT}
 
-HAMEG HM507 oscilloscopes were used for testing purposes. These contain a D14-363GY/123\autocite{D14363GY123-manual} CRT hereinafter abbreviated as `D14', `tube', or `CRT'. Although the HM507 has only a bandwidth of \SIrange{0}{50}{\mega\hertz}, which is not sufficient for the hyperfine splitting frequency of \SI{461.7}{\mega\hertz}\todo{http://www.tobiastiecke.nl/archive/PotassiumProperties.pdf} of $^{39}\mathrm{K}$, it was used nevertheless because of its simple construction and availability. A schematic view of the device is shown in \cref{fig:electrode configuration} with the back pin arrangement in \cref{fig:pin arrangement}.
+HAMEG HM507 oscilloscopes \autocite{HM507-manual} were used for testing purposes. These contain a D14-363GY/123\autocite{D14363GY123-manual} CRT hereinafter abbreviated as `D14', `tube', or `CRT'. Although the HM507 has only a bandwidth of \SIrange{0}{50}{\mega\hertz}, which is not sufficient for the hyperfine splitting frequency of \SI{461.7}{\mega\hertz}\todo{http://www.tobiastiecke.nl/archive/PotassiumProperties.pdf} of $^{39}\mathrm{K}$, it was used nevertheless because of its simple construction and availability. A schematic view of the device is shown in \cref{fig:electrode configuration} with the back pin arrangement in \cref{fig:pin arrangement}.
 
-The voltages and currents of the necessary pins to drive the CRT were measured using a \SI{2.5}{\kilo\volt} probe \todo{model number} with an attenuation ratio of \todo{1:100 or 100:1} and are summarized in \cref{tab:D14-363GY/123 tube pin measurements}. It was not possible to measure pin g3 directly. Therefore a HVPS (\cref{sec:HVPS}) was used to set a voltage and the beam diameter was observed. The best focus was achieved with a voltage of \SI{-1.813e3}{\volt} \todo{current?}.
+The voltages and currents of the necessary pins to drive the CRT were measured using a \SI{2.5}{\kilo\volt} probe \todo{model number} with an attenuation ratio of \todo{1:100 or 100:1} and are summarized in \cref{tab:D14-363GY/123 tube pin measurements}. It was not possible to measure pin g3 directly. Therefore a HVPS (\cref{sec:HVPS}) was used to set a voltage and the beam diameter was observed. The best focus was achieved with the voltage mentioned in the table\todo{current?}. The voltage offset of x-, and y-plates was not possible to measure directly, since it varies with time to draw the necessary image on the phosphor screen. The given values in \cref{tab:D14-363GY/123 tube pin measurements} are the mean of the minimum and maximum measured voltage. The deflection coefficient is summarized in \cref{tab:D14-363GY/123 deflection coefficient}.
 
-\begin{figure}[H]
+\begin{figure}[h]
 	\centering
 	\includegraphics[width=5cm]{./Chapters/e-beam-setup/electrode configuration}
 	\caption{Electrode configuration (from \autocite{D14363GY123-manual})}
@@ -17,7 +17,7 @@ The voltages and currents of the necessary pins to drive the CRT were measured u
 	\label{fig:electrode configuration}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[h]
 	\centering
 	\includegraphics[width=5cm]{./Chapters/e-beam-setup/pin arrangement}
 	\caption{Pin arrangement, bottom view (from \autocite{D14363GY123-manual})}
@@ -26,34 +26,51 @@ The voltages and currents of the necessary pins to drive the CRT were measured u
 \end{figure}
 
 
-\begin{table}[H]
+\begin{table}[h]
 	\centering
 	\caption{D14-363GY/123 CRT pin measurements}
+	\todo[inline]{current empty or '-' symbol}
 	\label{tab:D14-363GY/123 tube pin measurements}
-	\begin{tabular}{S c *{2}{S}}
+	\begin{tabular}{S r *{2}{S}}
 		\toprule
-		{number} & {pin}  & {voltage/\si{\volt}} & {current/\si{\micro\ampere}} \\
+		{number} & pin    & {voltage/\si{\volt}} & {current/\si{\micro\ampere}} \\
 		\midrule
-		1        & f      & -1.99e3              & 86.6e3 \\
-		2        & k      & -2.00                & -7.6 \\
-		3        & g1     & -2.03                & 0 \\
-		4        & g3     & -1.813e3             & {-} \\
-		5        & i.c.   & 71.7                 & 0.1 \\
-		6        & g5     & 64.                  & 7.2 \\
-		12       & g2, g4 & 71.                  & 0 \\
-		14       & f      & -1.97e3              & -86.2e3 \\
+		1      & f      & -1.99e3              & 86.6e3 \\
+		2      & k      & -2.00                & -7.6 \\
+		3      & g1     & -2.03                & 0 \\
+		4      & g3     & -1.813e3 \\
+		5      & i.c.   & 71.7                 & 0.1 \\
+		6      & g5     & 64.                  & 7.2 \\
+		7      & y2     & 78 \\
+		9      & y1     & 78 \\
+		11     & x2     & 96                   & {-} \\
+		12     & g2, g4 & 71.0                 & 0 \\
+		13     & x1     & 96                   & {-} \\
+		14     & f      & -1.97e3              & -86.2e3 \\
 		\bottomrule
 	\end{tabular}
-	
+\end{table}
+
+\begin{table}[h]
+	\centering
+	\caption{D14-363GY/123 deflection coefficient (from \autocite{D14363GY123-manual})}
+	\todo[inline]{how to cite source}
+	\label{tab:D14-363GY/123 deflection coefficient}
+	\begin{tabular}{*{2}{l} l}
+		\toprule
+		horizontal & $M_x$ & \SI{19}{\volt/\centi\meter} \\
+		vertical   & $M_y$ & \SI{11.5}{\volt/\centi\meter} \\
+		\bottomrule
+	\end{tabular}
 \end{table}
 
 
 \section{High Voltage Power Supply HVPS}\label{sec:HVPS}
 
-To produce high DC voltages to drive the CRT, 4 HCP 14-6500\autocite{fug-hcp-manual} power supplies were used. They were named `HVPS 1' to `HVPS 4' and can provide up to \SI{\pm 6.5}{\kilo\volt} DC and \SI{2}{\milli\ampere}. To connect the output to the CRT pins, BNC cables were refitted with a save high voltage (SHV) connector on one side while on the other end the BNC connector was kept. The output was measured with a \SI{6}{\kilo\volt} probe\todo{find exact value of big yellow probe} and the ripple was determined to be between \SIlist{116;204}{\milli\volt}. The breakdown voltages is around \SI{3}{\kilo\volt}\todo{somewhere 2-4, find exact value}. 
+To produce high dc voltages to drive the CRT, 4 HCP 14-6500\autocite{fug-hcp-manual} power supplies were used. They were named `HVPS 1' to `HVPS 4' and can provide up to \SI{\pm 6.5}{\kilo\volt}$\mathrm{dc}$ and \SI{2}{\milli\ampere}. To connect the output to the CRT pins, BNC cables were refitted with a save high voltage (SHV) connector on one side while on the other end the BNC connector was kept. The output was measured with a \SI{6}{\kilo\volt} probe\todo{find exact value of big yellow probe} and the ripple was determined to be between \SIlist{116;204}{\milli\volt}. The breakdown voltages is around \SI{3}{\kilo\volt}\todo{somewhere 2-4, find exact value}. 
 
 \section{CRT wiring}\label{sec:CRT wiring}
-A schematic of the supplied power is shown in \cref{fig:schematics of wiring}. A small AC or DC voltage is necessary to drive the heater filament. This part of the setup is explained in \cref{sec:Heater}.
+A schematic of the supplied power is shown in \cref{fig:schematics of wiring}. A small ac or dc voltage is necessary to drive the heater filament. This part of the setup is explained in \cref{sec:Heater}.
 
 
 \begin{figure}[H]
@@ -101,7 +118,7 @@ A schematic of the supplied power is shown in \cref{fig:schematics of wiring}. A
 		\coaxial{(3, 9.5)}{5}
 		\draw (8, 9.5) -- (10, 9.5);
 		\node [right] at (10, 9.5) {f};
-		\draw (9, 9.5) to[sV, *-] (9, 8); % AC voltage source
+		\draw (9, 9.5) to[sV, *-] (9, 8); % ac voltage source
 		\draw (9, 8) to[short, *-] (10, 8);
 		\node [right] at (10, 8) {f};
 		\draw (9, 8) -- (9, 7) -- (10, 7);
