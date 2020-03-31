@@ -1,0 +1,29 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+% !TeX root = ../../Thesis.tex
+
+\chapter{Cathodic Ray Tube Basics}
+
+This section features a quick explaination what a CRT is and what it's main components are, followed by a more detailed description on how these components are implemented in the CRT Heerlen D14-363GY, which was used in this project. It ends with a description of the important characteristcs of the CRT and the requirement the theory poses on them.
+
+\section{Underlying Physics}
+
+Wikipedia states: "The cathode-ray tube (CRT) is a vacuum tube that contains one or more electron guns and a phosphorescent screen and is used to display images. It modulates, accelerates, and deflects electron beam(s) onto the screen to create the images."
+
+There are three vital components to accomplish this feat: the electron gun, the electron lens and the deflection plates. 
+
+The electron gun extracts electrons from a cathode material, accelerates them onto a perforated anode and thereby produces a free electron beam (fig). One important characteristic in the selection of a cathode material is a low work function. The work function denotes the amount of energy needed to extract one electron from the material. The are two way to overcome this energy barrier in an electron gun, one can either overcompensate it by applying a strong electric field ("field emission", "cold cathode", fig X,a) or one can heat the material until some electrons have enough thermal energy to overcome the energy barrier ("thermal emission","hot cathode"). For our CRT, only thermal emission is relevant, more detail on this will be added later along with the description of our cathode's design. 
+
+The electrons that leave the electron gun are still divergent and need to be focused. For our 2 keV electrons it is still possible to use an electro static lens. Cylindrically symmetrical pieces of conductor, like rings and tubes, can be set to an electrical potential and act as a Sammellinse or a Zerstreuungslinse for the electrons. By combining several of them, one can (theoretically) engineer an electro-optical system with any combination of desired focal lengths $f_1$ and $f_2$. The field of the system is simply governed by the Laplace equation in cylindrical coordinates:
+\begin{equation}
+	0=\dfrac{1}{r}% \pdv{\phi}{r}+\pdv[2]{\phi}{r}+\pdf[2]{\phi}{y}
+\end{equation}
+If we take the axis of the beam to be the z-axis, the position of the focal point in the x-y-plane can be shifted using the two pairs of deflection plates, one for the x- and one for the y-direction. The deflection is achived by applying a voltage between the two parallel plates. (figure) In this simple case the deflection angle is approximately (cite):
+\begin{equation}\label{key}
+\delta \tan(\delta) \approx \frac{e \cdot U_z\cdot L}{2 U_0 \cdot d}
+\end{equation}
+As the angles in question are normally well below 1 degree, everything will probably be 
+
+\section{Implementation in the Heerlen D14-363GY }
+
+
