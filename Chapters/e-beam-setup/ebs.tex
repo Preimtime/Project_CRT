@@ -1,9 +1,11 @@
 % !TeX encoding = UTF-8
 % !TeX spellcheck = en_US
 % !TeX root = ../../Thesis.tex
-\chapter{Electron beam setup}\label{ch:Electron beam setup}
+\chapter{Electron beam setup}
+\label{ch:Electron beam setup}
 
-\section{Charatarization of a working CRT}\label{sec:Charatarization of a working CRT}
+\section{Charatarization of a working CRT}
+\label{sec:Charatarization of a working CRT}
 
 HAMEG HM507 oscilloscopes \autocite{HM507-manual} were used for testing purposes. These contain a D14-363GY/123\autocite{D14363GY123-manual} CRT hereinafter abbreviated as `D14', `tube', or `CRT'. Although the HM507 has only a bandwidth of \SIrange{0}{50}{\mega\hertz}, which is not sufficient for the hyperfine splitting frequency of \SI{461.7}{\mega\hertz}\todo{http://www.tobiastiecke.nl/archive/PotassiumProperties.pdf} of $^{39}\mathrm{K}$, it was used nevertheless because of its simple construction and availability. A schematic view of the device is shown in \cref{fig:electrode configuration} with the back pin arrangement in \cref{fig:pin arrangement}.
 
@@ -56,6 +58,7 @@ The voltages and currents of the necessary pins to drive the CRT were measured u
 	\caption{D14-363GY/123 deflection coefficient (from \autocite{D14363GY123-manual})}
 	\todo[inline]{how to cite source}
 	\label{tab:D14-363GY/123 deflection coefficient}
+	
 	\begin{tabular}{*{2}{l} l}
 		\toprule
 		horizontal & $M_x$ & \SI{19}{\volt/\centi\meter} \\
@@ -65,12 +68,52 @@ The voltages and currents of the necessary pins to drive the CRT were measured u
 \end{table}
 
 
-\section{High Voltage Power Supply HVPS}\label{sec:HVPS}
+\section{High Voltage Power Supply HVPS}
+\label{sec:HVPS}
 
-To produce high dc voltages to drive the CRT, 4 HCP 14-6500\autocite{fug-hcp-manual} power supplies were used. They were named `HVPS 1' to `HVPS 4' and can provide up to \SI{\pm 6.5}{\kilo\volt}$\mathrm{dc}$ and \SI{2}{\milli\ampere}. To connect the output to the CRT pins, BNC cables were refitted with a save high voltage (SHV) connector on one side while on the other end the BNC connector was kept. The output was measured with a \SI{6}{\kilo\volt} probe\todo{find exact value of big yellow probe} and the ripple was determined to be between \SIlist{116;204}{\milli\volt}. The breakdown voltages is around \SI{3}{\kilo\volt}\todo{somewhere 2-4, find exact value}. 
+To produce high dc voltages to drive the CRT, four HCP 14-6500 power supplies\autocite{fug-hcp-manual} were used. They were named `HVPS 1' to `HVPS 4' and can provide up to \SI{\pm 6.5}{\kilo\volt} and \SI{2}{\milli\ampere}. To connect the output to the CRT pins, BNC cables were refitted with a save high voltage (SHV) connector on one side while on the other end the BNC connector was kept (\cref{fig:Coaxial cable with SHV and BNC connector}). A \SI{6}{\kilo\volt} probe\todo{find name of big yellow probe} was used to obtain the breakdown voltage, which is around \SI{3}{\kilo\volt}\todo{somewhere 2.5-4, find exact value} caused by the coaxial cable which was not built do sustain high voltages.
+
+\begin{figure}[h]
+	\centering
+	
+	\missingfigure[figwidth=0.9\textwidth]{Figure of SHV \& BNC connector cable.}
+	
+	\caption{Coaxial cable with SHV and BNC connector.}
+	\label{fig:Coaxial cable with SHV and BNC connector}
+\end{figure}
+
+\subsection{Ripple measurement}
+\label{subsec:ripple measurement}
+Each power supply was measured for its ripple with a set voltage of \SI{2}{\kilo\volt}. A \SI{2.5}{\kilo\volt} probe (attenuation ratio \todo{100:1 or 1:100})was connected to an oscilloscope set to ac coupling with a timescale of \SI{1}{\milli\second}. To get the electronic noise of the oscilloscope itself, the probe was shorted and the noise measured. A picture of a measurement is shown in \cref{fig:measurement HVPS ripple} with the values summarized in \cref{tab:measurement HVPS ripple}.
+
+\begin{figure}[h]
+	\centering
+	
+	\includegraphics[width=0.9\textwidth]{./Chapters/e-beam-setup/ripple HVPS1}
+
+	\caption{Measurement of HVPS ripple.}
+	\label{fig:measurement HVPS ripple}
+\end{figure}
+
+\begin{table}[h]
+	\centering
+	\caption{HVPS ripple}
+	\label{tab:measurement HVPS ripple}
+	\begin{tabular}{l S}
+		\toprule
+		device & {ripple/\si{\milli\volt}} \\
+		\midrule
+		short  & 116 \\
+		HVPS 1 & 136 \\
+		HVPS 2 & 138 \\
+		HVPS 3 & 194 \\
+		HVPS 4 & 204 \\
+		\bottomrule
+	\end{tabular}
+\end{table}
 
 \section{CRT wiring}\label{sec:CRT wiring}
-A schematic of the supplied power is shown in \cref{fig:schematics of wiring}. A small ac or dc voltage is necessary to drive the heater filament. This part of the setup is explained in \cref{sec:Heater}.
+A schematic of the supplied power is shown in \cref{fig:schematics of wiring}. A small ac or dc voltage is necessary to drive the heater filament f. This part of the setup is explained in \cref{sec:Heater}.
 
 
 \begin{figure}[H]
@@ -138,5 +181,4 @@ A schematic of the supplied power is shown in \cref{fig:schematics of wiring}. A
 
 \section{Heater}\label{sec:Heater}
 Heater
-Wie sieht der Innen aus? 
-CRT Mount ??
+Wie sieht der Innen aus?
