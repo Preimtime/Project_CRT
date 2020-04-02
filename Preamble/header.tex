@@ -463,6 +463,9 @@
 \usepackage{bm}							% bold symbols in maths environment	(not ideal with times)
 \usepackage{braket}						% bracket notation
 
+%---physics packages 
+\usepackage{physics}					% derivatives and other symbols commonly used in texts on physics
+
 %---units
 \usepackage{siunitx} 					% use this package module for SI units
 \sisetup{detect-all}					% always used currently set font
@@ -578,38 +581,38 @@
 
 % ********************************* symbols ************************************
 %BEGIN_FOLD
-\newcommand{\ud}{\: \mathrm{d}}									% upright d for integrals and derivatives	\ud
-\newcommand{\ue}{\mathrm{e}}									% upright Exp e								\ue
-\newcommand{\expo}[1]{\mathrm{e}^{#1}}							% upright e for exponential function 		\expo{#1}
-\newcommand{\ui}{\mathrm{i}}									% upright imaginary i						\ui
-\newcommand{\de}[2]{\frac{\mathrm{d} #1}{\mathrm{d} #2}}		% for derivatives		  		 			\de{#1}{#2}
-\newcommand{\dd}[2]{\frac{\mathrm{d}^2 #1}{\mathrm{d} #2^2}}	% for double derivatives  	 	 			\dd{#1}{#2}
-\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}			% for partial derivatives 		 			\pd{#1}{#2}
-\newcommand{\pdd}[2]{\frac{\partial^2 #1}{\partial #2^2}}		% for double partial derivatives			\pdd{#1}{#2}
-\newcommand{\gv}[1]{\ensuremath{\mbox{\boldmath$ #1 $}}}		% for Greek vectors							\gv{#1}
-\newcommand{\uv}[1]{\ensuremath{\bm{\hat{#1}}}}					% for unit vector							\uv{#1}
-\newcommand{\abs}[1]{\left| #1 \right|}							% for absolute value						\abs{#1}
-\newcommand{\avg}[1]{\left< #1 \right>}							% for average								\avg{#1}
-\newcommand{\mean}[1]{\overline{#1}}							% for mean value							\mean{#1}
-\newcommand{\entspricht}{\ensuremath{\hat{=}}} 					% for =^									\entspricht
-\newcommand{\kf}{\dfrac{1}{4 \pi \epsilon_0}}					% for 1/4pi e0								\kf
-\newcommand{\au}{\; \text{(a.u.)}}								% for atomic units							\au
-\newcommand{\sollgelten}{\overset{!}{=}}						% for =!									\sollgelten
-\newcommand{\electron}{\text{e}^-}								% for e-									\electron
-\newcommand{\bohrmag}{\mu_\mathrm{B}}							% for bohr magneton mu_B					\bohrmag
-\newcommand{\boltzmann}{k_\mathrm{B}}							% for Boltzmann constant					\boltzmann
-\newcommand{\grad}{\vec{\nabla}}								% for vec-nabla sym.						\grad
-\newcommand{\Alpha}{\mathcal{L}}								% Lagrangian L								\Alpha
-\newcommand{\Beta}{\mathcal{B}}									% "beautiful" B								\Beta
-\newcommand{\Order}{\mathcal{O}}								% "beautiful" O								\Order
-\newcommand{\Op}[1]{\bm{\expandafter\widehat{#1}}}				% vectorial operator						\Op{#1}
-\newcommand{\op}[1]{\expandafter\widehat{#1}}					% operator									\op{#1}
-\newcommand{\expect}[1]{\left\langle #1 \right\rangle}			% expected value							\expect{#1}
-\newcommand{\nab}{\gv{\nabla}} 									% for nablasymbol							\nab
-\newcommand{\divg}[1]{{\mathop{\gv{\nabla}}\nolimits}\cdot #1}	% for divergence							\div{#1}
-\newcommand{\rot}[1]{{\mathop{\gv{\nabla}}\nolimits}\times #1}	% for curl									\rot{#1}
-\newcommand{\laplace}[1]{{\mathop{\gv{\Delta}}\nolimits} #1}	% for Laplace								\laplace{#1}
-\newcommand{\ham}{\op{H}}										% for Hamiltonian							\ham
+%\newcommand{\ud}{\: \mathrm{d}}									% upright d for integrals and derivatives	\ud
+%\newcommand{\ue}{\mathrm{e}}									% upright Exp e								\ue
+%\newcommand{\expo}[1]{\mathrm{e}^{#1}}							% upright e for exponential function 		\expo{#1}
+%\newcommand{\ui}{\mathrm{i}}									% upright imaginary i						\ui
+%\newcommand{\de}[2]{\frac{\mathrm{d} #1}{\mathrm{d} #2}}		% for derivatives		  		 			\de{#1}{#2}
+%\newcommand{\dd}[2]{\frac{\mathrm{d}^2 #1}{\mathrm{d} #2^2}}	% for double derivatives  	 	 			\dd{#1}{#2}
+%\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}			% for partial derivatives 		 			\pd{#1}{#2}
+%\newcommand{\pdd}[2]{\frac{\partial^2 #1}{\partial #2^2}}		% for double partial derivatives			\pdd{#1}{#2}
+%\newcommand{\gv}[1]{\ensuremath{\mbox{\boldmath$ #1 $}}}		% for Greek vectors							\gv{#1}
+%\newcommand{\uv}[1]{\ensuremath{\bm{\hat{#1}}}}					% for unit vector							\uv{#1}
+%\newcommand{\abs}[1]{\left| #1 \right|}							% for absolute value						\abs{#1}
+%newcommand{\avg}[1]{\left< #1 \right>}							% for average								\avg{#1}
+%\newcommand{\mean}[1]{\overline{#1}}							% for mean value							\mean{#1}
+%\newcommand{\entspricht}{\ensuremath{\hat{=}}} 					% for =^									\entspricht
+%\newcommand{\kf}{\dfrac{1}{4 \pi \epsilon_0}}					% for 1/4pi e0								\kf
+%\newcommand{\au}{\; \text{(a.u.)}}								% for atomic units							\au
+%\newcommand{\sollgelten}{\overset{!}{=}}						% for =!									\sollgelten
+%\newcommand{\electron}{\text{e}^-}								% for e-									\electron
+%\newcommand{\bohrmag}{\mu_\mathrm{B}}							% for bohr magneton mu_B					\bohrmag
+%\newcommand{\boltzmann}{k_\mathrm{B}}							% for Boltzmann constant					\boltzmann
+%\newcommand{\grad}{\vec{\nabla}}								% for vec-nabla sym.						\grad
+%\newcommand{\Alpha}{\mathcal{L}}								% Lagrangian L								\Alpha
+%\newcommand{\Beta}{\mathcal{B}}									% "beautiful" B								\Beta
+%\newcommand{\Order}{\mathcal{O}}								% "beautiful" O								\Order
+%\newcommand{\Op}[1]{\bm{\expandafter\widehat{#1}}}				% vectorial operator						\Op{#1}
+%\newcommand{\op}[1]{\expandafter\widehat{#1}}					% operator									\op{#1}
+%\newcommand{\expect}[1]{\left\langle #1 \right\rangle}			% expected value							\expect{#1}
+%\newcommand{\nab}{\gv{\nabla}} 									% for nablasymbol							\nab
+%\newcommand{\divg}[1]{{\mathop{\gv{\nabla}}\nolimits}\cdot #1}	% for divergence							\div{#1}
+%\newcommand{\rot}[1]{{\mathop{\gv{\nabla}}\nolimits}\times #1}	% for curl									\rot{#1}
+%\newcommand{\laplace}[1]{{\mathop{\gv{\Delta}}\nolimits} #1}	% for Laplace								\laplace{#1}
+%\newcommand{\ham}{\op{H}}										% for Hamiltonian							\ham
 %END_FOLD
 
 % ***************************** Abbreviations **********************************
