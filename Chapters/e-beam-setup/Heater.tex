@@ -1,0 +1,19 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+% !TeX root = ../../Thesis.tex
+
+\begin{figure}
+	\centering
+	\missingfigure[figwidth=0.9\textwidth]{Circuit diagram of AC-power supply}
+	%\includegraphics[width=0.7\linewidth]{"Chapters/e-beam-setup/"}
+	\caption{Circuit diagram of AC-power supply }
+	\label{fig:heater_circuit}
+\end{figure}
+
+\todo{Insert circuit diagram}
+The heater provides an adjustable AC voltage, which is used to regulate the temperature of the cathode. In the cold state, the heater filament has a an electrical resisitance of approximately \SI{15}{\ohm}, when the filament is hot, this value rises to \SI{90}{\ohm}. The normal heater voltage for the D14363GY123 during  operation is \SIrange{6.0}{6.6}{\volt} according to \cite{D14363GY123-manual}. 
+Our AC-power supply (figure \ref{fig:heater_circuit} shows its circuit diagram) consists of an isolation transformer (form grid voltage to 12 V), its primary  and secondary circuits are isolated up to \SI{4}{\kilo\volt} \cite{Myrra}. The power supply has two  banana plug socket to connect to the heater filament. 
+It is connected to the transformer in series with a variable \SI{100}{\ohm} resistance. Using the full resistance, there is a voltage of approximately \SI{5.7}{\volt} applied to the heater filament, by lowering the variable resistance this value can goes up to nearly the full voltage of the transformer. 
+The current running through the filament is measured with an integrated amperemeter \cite{Solutions} that measures currents up to two \SI{2}{\ampere} with \si{\milli\ampere} accuracy.
+At the beginning of operation it is recommendable, to set the variable resistance to maximum and slowly increase it to the desired value once the filament is heated up. As the resistance of the cold filament is significantly lowered, high onset currents could otherwise damage it.  
+
