@@ -39,32 +39,32 @@ The assembly was put inside the glove box which was subsequently filled with nit
 	\label{fig:Gadget to cut CRT with wire}
 \end{figure}
 
-------------------------------------------------------------------------------
 
 \section{Oxygen poisoning}
 \label{sec:Oxygen poisoning}
 
 
-As mentioned in \todo{where} it is paramount to avoid contact of the cathode with oxygen. Therefore tests with a broken CRT were made to test on how well it can be isolated from air.
+As mentioned in \todo{where ?} it is paramount to avoid contact of the cathode with oxygen. Therefore tests with a broken CRT were made to test on how well it can be isolated from air.
 
 % daily notes 2019-12-11
-The first experiment consisted of filling a drinking glass put upside-down with helium and putting a lighter after a set amount of time. If the fire goes off, it means that oxygen did not get inside. This was successfully tested from \SIrange{0.5}{10}{\minute}.
+The first experiment consisted of filling a drinking glass put upside-down with helium and putting a lighter after a set amount of time. If the fire goes off, it means that oxygen did not get inside. This was tested successfully from \SIrange{0.5}{10}{\minute}.
 
-Next, plastic wrap was put on top of the glass filled with nitrogen opening with a rubber band. The glass was put with the open side up from \SIrange{}{6}{\minute} after which it turned around and the foil removed. A lighter was put inside and the flame went out again.
+Next, plastic wrap was put on top of the glass filled with nitrogen by a rubber band. The glass was put with the open side up from \SIrange{3}{10}{\minute} after which it was turned upside down and the foil was removed. A lighter was put inside and the flame went out again.
 
-To improve the sensitivity, a He leak tester was used. For the first two tests, one plastic foil and one rubber band were used. For the third test three foils and two rubber bands. For the fourth and last test an aluminum foil was hot glued to the CRT to seal it.
+To improve the sensitivity, a He leak tester was used. For the first two tests, one plastic foil and one rubber band were used, for the third test three foils and two rubber bands, and for the last test an aluminum foil was hot glued on the CRT to seal it. The measurement locations are shown in \cref{fig:Measurement locatiosn of He leakage}. As shown in \cref{tab:He leak test series.} \todo{which table better?} using rubber band and clear foil results in the highest leakage while the glue seals much better (glue avg). But care needs to be taken in order ensure that the whole CRT is sealed since even a small leak can result in a rate around an order of magnitude above the background (glue max).
 
 \begin{table}[h]
 	\centering
 	\caption{He leak test.}
 	\label{tab:He leak test series.}
 	
-	\begin{tabular}{l s}
+	\begin{tabular}{l S}
 		\toprule
 		
-		% 1st video
 		location & {leak rate/(\si{\milli\bar\litre/\second})} \\
 		\midrule
+		
+		% 1st video
 		\multicolumn{2}{l}{1 plastic foil, 1 rubber band} \\
 		background & \num{8e-5} \\
 		plastic foil & \num{2e-4} \\
@@ -88,9 +88,52 @@ To improve the sensitivity, a He leak tester was used. For the first two tests, 
 		% 4th video
 		\multicolumn{2}{l}{1 aluminum foil, hot glue} \\
 		background & \num{6e-5} \\
-		glue min & \num{7e-5} \\
+		glue avg & \num{7e-5} \\
 		glue max & \num{6e-4} \\
 		aluminum foil & \num{8e-5} \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\begin{table}[h]
+	\centering
+	\caption{He leak test.}
+	%\label{tab:He leak test series.}
+	\todo[inline]{numbers right aligned}
+	
+	\begin{tabular}{l S}
+		\toprule
+		
+		location & {leak rate/(\SI{e-5}{\milli\bar\litre/\second})} \\
+		\midrule
+		
+		% 1st video
+		\multicolumn{2}{l}{1 plastic foil, 1 rubber band} \\
+		background & \num{8} \\
+		plastic foil & \num{20} \\
+		He gas cylinder & \num{200} \\
+		\midrule
+		
+		% 2nd video
+		\multicolumn{2}{l}{1 plastic foil, 1 rubber band} \\
+		background & \num{7} \\
+		plastic foil & \num{20} \\
+		rubber band & \num{40} \\
+		\midrule
+		
+		% 3rd video
+		\multicolumn{2}{l}{3 foils, 2 rubber bands} \\
+		background & \num{20} \\
+		plastic foil & \num{30} \\
+		rubber band & \num{70} \\
+		\midrule
+		
+		% 4th video
+		\multicolumn{2}{l}{1 aluminum foil, hot glue} \\
+		background & \num{6} \\
+		glue min & \num{7} \\
+		glue max & \num{60} \\
+		aluminum foil & \num{8} \\
 		\bottomrule
 	\end{tabular}
 \end{table}
@@ -124,8 +167,5 @@ To improve the sensitivity, a He leak tester was used. For the first two tests, 
 	\label{fig:Measurement locatiosn of He leakage}
 \end{figure}
  
-Versuchsreihe: Wie schnell degradet die Kathode
-wie CRT transportieren? (Luft abhalten)
 
-tested nitrogen with CRT Dev 3 for 6 min, 10 min which also works
 
