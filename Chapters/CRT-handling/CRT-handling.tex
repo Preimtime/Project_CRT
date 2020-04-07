@@ -41,37 +41,91 @@ The assembly was put inside the glove box which was subsequently filled with nit
 
 ------------------------------------------------------------------------------
 
-Oxygen poisoning 
+\section{Oxygen poisoning}
+\label{sec:Oxygen poisoning}
+
+
+As mentioned in \todo{where} it is paramount to avoid contact of the cathode with oxygen. Therefore tests with a broken CRT were made to test on how well it can be isolated from air.
+
+% daily notes 2019-12-11
+The first experiment consisted of filling a drinking glass put upside-down with helium and putting a lighter after a set amount of time. If the fire goes off, it means that oxygen did not get inside. This was successfully tested from \SIrange{0.5}{10}{\minute}.
+
+Next, plastic wrap was put on top of the glass filled with nitrogen opening with a rubber band. The glass was put with the open side up from \SIrange{}{6}{\minute} after which it turned around and the foil removed. A lighter was put inside and the flame went out again.
+
+To improve the sensitivity, a He leak tester was used. For the first two tests, one plastic foil and one rubber band were used. For the third test three foils and two rubber bands. For the fourth and last test an aluminum foil was hot glued to the CRT to seal it.
+
+\begin{table}[h]
+	\centering
+	\caption{He leak test.}
+	\label{tab:He leak test series.}
+	
+	\begin{tabular}{l s}
+		\toprule
+		
+		% 1st video
+		location & {leak rate/(\si{\milli\bar\litre/\second})} \\
+		\midrule
+		\multicolumn{2}{l}{1 plastic foil, 1 rubber band} \\
+		background & \num{8e-5} \\
+		plastic foil & \num{2e-4} \\
+		He gas cylinder & \num{2e-3} \\
+		\midrule
+		
+		% 2nd video
+		\multicolumn{2}{l}{1 plastic foil, 1 rubber band} \\
+		background & \num{7e-5} \\
+		plastic foil & \num{2e-4} \\
+		rubber band & \num{4e-4} \\
+		\midrule
+		
+		% 3rd video
+		\multicolumn{2}{l}{3 foils, 2 rubber bands} \\
+		background & \num{2e-4} \\
+		plastic foil & \num{3e-4} \\
+		rubber band & \num{7e-4} \\
+		\midrule
+		
+		% 4th video
+		\multicolumn{2}{l}{1 aluminum foil, hot glue} \\
+		background & \num{6e-5} \\
+		glue min & \num{7e-5} \\
+		glue max & \num{6e-4} \\
+		aluminum foil & \num{8e-5} \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\begin{figure}[h]
+	\centering
+	
+	\begin{subfigure}[b]{0.4\textwidth}
+		\includegraphics[width=\textwidth]{./Chapters/CRT-handling/plastic_foil}
+		\caption{plastic foil}
+	\end{subfigure}
+	\hspace{0.1\textwidth}
+	\begin{subfigure}[b]{0.4\textwidth}
+		\includegraphics[width=\textwidth]{./Chapters/CRT-handling/rubber_band}
+		\caption{rubber band}
+	\end{subfigure}
+
+	\vspace{1cm}
+	
+	\begin{subfigure}[b]{0.4\textwidth}
+		\includegraphics[width=\textwidth]{./Chapters/CRT-handling/glue}
+		\caption{glue}
+	\end{subfigure}
+	\hspace{0.1\textwidth}
+	\begin{subfigure}[b]{0.4\textwidth}
+		\includegraphics[width=\textwidth]{./Chapters/CRT-handling/aluminum_foil}
+		\caption{aluminum}
+	\end{subfigure}
+	
+	\caption{Measurement locations of He leakage.}
+	\label{fig:Measurement locatiosn of He leakage}
+\end{figure}
+ 
 Versuchsreihe: Wie schnell degradet die Kathode
-
-
-
-2019-12-11
-
-tested helium content in drinking glass by having the bottom open for 30 s, 1 min, 3 min, 6 min, 10 min
-lighter goes off when putting it in glass
-
-tested the same with nitrogen with plastic wrap put on opening with rubber band and opening at the top for 3 min, 6 min, 10 min which also works with a lighter (flame goes off)
+wie CRT transportieren? (Luft abhalten)
 
 tested nitrogen with CRT Dev 3 for 6 min, 10 min which also works
 
-tested CRT Dev 3 with helium leak tester
-1st test with 1 foil, 1 rubber band
-background: 8e-5 mbarl/s
-CRT foil/opening next to probe: 2e-4 mbarl/s  to 4e-4 mbarl/s
-next to open He gas cylinder: 2e-3 mbarl/s and up to 1.3e-2 mbarl/s
-
-2nd test with 1 foil, 1 rubber band
-background: 7e-5 mbarl/s
-CRT foil/opening next to probe: 2.8e-4 mbarl/s to 4e-4 mbarl/s
-CRT rubber/foil band next to probe: 4e-4 mbarl/s to 8e-4 mbarl/s
-
-3rd test with 3 foils, 2 rubber bands
-background: 2.2e-4 mbarl/s
-CRT foil/opening next to probe: 2.9e-4 mbarl/s
-CRT rubber band below foil: 7e-4 mbarl/s to 1.3e-3 mbarl/s
-
-4th test with 1 aluminum foil hot glued to CRT
-background: 6.6e-5 mbarl/s
-on glued spot: 7e-5 mbarl/s to 7e-4 mbarl/s mostly under 1e-4 mbarl/s 
-on foil itself: 7 mbarl/s to 8.5 mbarl/s
