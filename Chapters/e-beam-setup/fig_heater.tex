@@ -1,0 +1,31 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+% !TeX root = ../../Thesis.tex
+
+
+%\draw [help lines] (0, 0) grid (8, 4);
+%\filldraw (0, 0) circle (0.5mm);
+
+% left half with transformer
+\draw (0, 0)
+to [sV, label = \SI{230}{\volt}] ++ (0, 2)
+to [normal open switch]  ++ (2, 0);
+\draw (2, 2) node [transformer core, anchor=A1] (transformer) {}
+	(transformer.inner dot A1) node[circ]{}
+	(transformer.inner dot B1) node[circ]{};
+\draw (transformer.A2) -- (0, 0|-transformer.A2) -- (0, 0);
+
+% right half
+\ctikzset{european resistors}
+\draw (transformer.B1)  to [fuse, label = \SI{200}{\milli\ampere}] (6, 2)
+	to [pR, name=pot] ++ (0, -2) -- (6, 0|-transformer.B2);
+\draw (transformer.B2) to [ammeter] (6, 0|-transformer.B2);
+
+\draw (6, 3) to [short, -*] (6, 2);
+\node [right] at (6, 3) {$V_{\mathrm{bias}}$};
+
+\draw (6, 0|-transformer.B2) to [short, *-] (7, 0|-transformer.B2);
+\node [right] at (7, 0|-transformer.B2) {f};
+
+\draw (pot.wiper) -- (7, 1);
+\node [right] at (7, 1) {f};
