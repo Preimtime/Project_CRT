@@ -140,10 +140,11 @@ A schematic of the supplied power is shown in \cref{fig:schematics of wiring}. A
 
 	\caption{Circuit diagram of filament power supply.}
 	\label{fig:heater_circuit}
+	\todo[inline]{check if really \SI{14}{\ohm} or if it event exists}
 \end{figure}
 
 The heater provides an adjustable ac voltage, which is used to regulate the temperature of the cathode. In the cold state, the heater filament has a an electrical resisitance of approximately \SI{15}{\ohm}, when the filament is hot, this value rises to \SI{90}{\ohm}. The normal heater voltage for the D14-363GY/123 during  operation is \SIrange{6.0}{6.6}{\volt} according to \cite{D14363GY123-manual}. 
-Our ac-power supply (figure \ref{fig:heater_circuit} shows its circuit diagram) consists of an isolation transformer (form grid voltage \todo[author=Frank]{what is form grid voltage?} to 12 V), its primary  and secondary circuits are isolated up to \SI{4}{\kilo\volt} \cite{DS44231-DataSheet} \todo[author=Frank]{\SI{4}{\kilo\volt} soruce?}. The power supply has two  banana plug sockets to connect to the heater filament. 
+Our ac-power supply (figure \ref{fig:heater_circuit} shows its circuit diagram) consists of an isolation transformer (from grid voltage to 12 V), its primary  and secondary circuits are isolated up to \SI{4}{\kilo\volt} \cite{DS44231-DataSheet}. The power supply has two  banana plug sockets to connect to the heater filament. 
 It is connected to the transformer in series with a \SI{100}{\ohm} potentiometer. Using the full resistance, there is a voltage of approximately \SI{5.7}{\volt} applied to the heater filament, by lowering the resistance this value can goes up to nearly the full voltage of the transformer. 
 The current running through the filament is measured with an integrated amperemeter \cite{ACA-20PC-manual} that measures currents up to two \SI{2}{\ampere} with \si{\milli\ampere} accuracy.
 
