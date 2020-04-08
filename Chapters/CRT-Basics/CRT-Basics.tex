@@ -29,14 +29,13 @@ The electron gun extracts electrons from a cathode material, accelerates them on
 	\label{fig:hotcathodecoldcathode}
 \end{figure}
 
-
-Short mention of Wehnelt cylinder \todo{mention Wehnelt cylinder} 
+The cathode itself is housed in a so-called Wehnelt cylinder, as the name suggests it is conducting cylinder, which is set to a slightly more negative potential than the cathode itself. This part implements two freatures, firstly it condenses the emitted electrons, leading to a smaller spot size, i.e. making the cathode a more point-like electron source. Secondly it enables us to regulate the beam current, the more negative the Wehnelt potential is, the less electrons are emitted by the electron gun. As we make the Wehnelt potential more positive, the beam current keeps increases and keeps increasing even after it is more positive than the cathode itself. However the spot size reduction is lost in the process, along with the ability to properly focus the beam with the electron optics.
 
 The electrons that leave the electron gun are still divergent and need to be focused. For our 2 \SI{2}{\kilo\electronvolt} electrons it is still possible to use an electro static lens. Cylindrically symmetrical pieces of conductor, like rings and tubes, can be set to an electrical potential and act as a lens for the electrons. By combining several of them, one can (theoretically) engineer an electro-optical system with any combination of desired focal lengths $f_1$ and $f_2$. The field of this system is simply governed by Laplace's equation in cylindrical coordinates:
 \begin{equation}
 	0=\dfrac{1}{r}\pdv{\phi}{r}+\pdv[2]{\phi}{r}+\pdv[2]{\phi}{y}
 \end{equation}
-If we take the axis of the beam to be the z-axis, the position of the focal point in the x-y-plane can be shifted using the two pairs of deflection plates, one for the x- and one for the y-direction. The deflection is achived by applying a voltage between the two parallel plates. (see: figure \ref{fig:deflectionplate2}) In this simple case the deflection angle is approximately (cite):
+If we take the axis of the beam to be the z-axis, the position of the focal point in the x-y-plane can be shifted using the two pairs of deflection plates, one for the x- and one for the y-direction. The deflection is achived by applying a voltage between the two parallel plates. (see: figure \ref{fig:deflectionplate2}) In this simple case the deflection angle is approximately \cite{Demtroeder3}:
 \begin{equation}\label{key}
 \delta \tan(\delta) \approx \frac{e \cdot U_z\cdot L}{2 U_0 \cdot d}
 \end{equation}
@@ -53,53 +52,53 @@ As the angles in question are normally well below 1 degree, everything will prob
 
 \section{Implementation in the Heerlen D14-363GY }
 
-\begin{figure}[h]
+\todo[\author{Alex}]{How to properly do subfigures?}
+This section describes how, the mechanisms described above are implemented in the CRT that was used in this project: the PDS/CRT Heerlen D14-363GY. Figure \ref{fig:FotoCRT} \todo{Insert Image of CRT} shows an image of said CRT, figure \ref{fig:SchemeCRT} shows a schematic depiction. The cathode is not visible, as it is fixed inside the Wehnelt cylinder (1), just a few millimeters from the exit of the wehnelt cylinder the electrons pass through the perforated anode (2) they gain their full final kinetic energy over this short distance. The electrons that go through the perforation and enter the electrostatic lens, have \SI{2}{\kilo\electronvolt} and therefore move at a speed of approximately \SI{0.08}{\clight}. 
+The electrostatic lenses are realized using three conducting rings (3), that are set to the same potential but have varying radii: Each consectutive ring has a smaller radius than the previous one, this leads to…  
+\todo{Optional: Explain how this electron lens functions} Auswirkung 
+
+\begin{figure}
 	\centering
 	\begin{subfigure}{.5\textwidth}
 		\centering
-		
+		\missingfigure[figwidth=0.9\linewidth]{Image of CRT}
 		%\includegraphics[width=.9\linewidth]{"".png}
-		\caption{}
+		\caption{Image picture of the Heerlen D14-363GY}
 		\label{fig:FotoCRT}
 	\end{subfigure}%
 	\begin{subfigure}{.5\textwidth}
 		\centering
 		\includegraphics[width=.9\linewidth]{"Chapters/CRT-Basics/electrode configuration".png}
-		\caption{}
+		\caption{Schematic of the CRT from \cite{D14363GY123-manual}}
 		\label{fig:SchemeCRT}
 	\end{subfigure}
-	\caption{Evanescent fields of plane waves at a glass-water interface (a): for TM polarization, (b): for TE polarization}
-	\label{fig:interface}
+	\caption{}
+	\label{}
 \end{figure}
 
-This section describes how, the mechanisms described above are implemented in the CRT that was used in this project: the PDS/CRT Heerlen D14-363GY. Figure xxxa \todo{Insert Image of CRT} shows an image of said CRT, figure xxxb \todo{Insert sketch from manual} shows a schematic depiction. The cathode is not visible, as it is fixed inside the Wehnelt cylinder (1), just a few millimeters from the exit of the wehnelt cylinder the electrons pass through the perforated anode (2) they gain their full final kinetic energy over this short distance. The electrons that go through the perforation and enter the electrostatic lens, have \SI{2}{\kilo\electronvolt} and therefore move at a speed of approximately \SI{0.08}{\clight}. 
-The electrostatic lenses are realized using three conducting rings (3), that are set to the same potential but have varying radii: Each consectutive ring has a smaller radius than the previous one, this leads to…  
-\todo{Optional: Explain how this electron lens functions} Auswirkung 
 
-Between the electrostatic lens and the deflection plates, there is another aperture (4), which is internally connected to the anode and is thereby kept at the same potential. In our Setup, the deflection plates are not simply parallel but are shaped like funnels (5,7), between the two pairs of deflection plates, we have the final aperture (6), this ones potential can be regulated seperately \todo{Where is g5 normally} (usually at x) 
-
-\todo{Should we already mention the names of the pins here?}
+Between the electrostatic lens and the deflection plates, there is another aperture (4), which is internally connected to the anode and is thereby kept at the same potential. In our Setup, the deflection plates are not simply parallel but are shaped like funnels (5,7), between the two pairs of deflection plates, we have the final aperture (6), this ones potential can be regulated seperately (usually it's on the same potential as the anode) 
 
 It is connected to the glass envelope of the CRT to prevent the glass from charging up and distorting the image. 
 Finally the beam hits the phorsphorous-coated screen which floureces on electron impact.
 
 \subsection{The Cathode}
 
-As already mentioned, we are using a hot cathode, where the electrons are exited thermally until some of them acquire enough energy to leave the material. Compared to cold cathodes, which work by field emission, this leads to a broader energy distribution. In fields like electron microscopy, where a high resolution is the goal, this in undesireable, as it leads to some degree of chromatic aberration in the elecron optics, for our purposes, this should not be a problem. On the other hand, hot cathodes normally allow for higher current densities \todo{cite} (cite), which is very important to us. The  electron current from this kind of emission is described by (cite) \todo{cite}: 
+As already mentioned, we are using a hot cathode, where the electrons are exited thermally until some of them acquire enough energy to leave the material. Compared to cold cathodes, which work by field emission, this leads to a broader energy distribution. In fields like electron microscopy, where a high resolution is the goal, this in undesireable, as it leads to some degree of chromatic aberration in the elecron optics, for our purposes, this should not be a problem. On the other hand, hot cathodes normally allow for higher current densities \todo{cite?} (cite), which is very important to us. The  electron current from this kind of emission is described by:\cite{PowerTubes323} 
 
 \begin{equation}\label{eq:thermionic_current}
 I=A\cdot T^2 \cdot e^{-b/T}
 \end{equation}
 
-Where $b$ is proportional to the the work function of the material, $T$ is temperature and $A$ is a material-dependent constant. It is clear from this formula, that a low work function and a high melting point are important characteristics for a good cathode material. A brief comparison of the most commonly used candidates is given in tabel XXX \todo{optional: get table from book}.
+Where $b$ is proportional to the the work function of the material, $T$ is temperature and $A$ is a material-dependent constant. It is clear from this formula, that a low work function and a high melting point are important characteristics for a good cathode material. 
 
 The cathode from one of our Heerlen D14-363GY-tubes has been removed and examined with EDX (Energy-dispersive X-ray Spectroscopy). Nickel, barium, and strontium have been found, which suggests that it is a metal oxide cathode with barium-, strontium-, and possibly aluminum-oxide. This type of cathode is very common in low power electron tubes.
 
-add figure \todo{insert SEM image}
+%add figure \todo{insert SEM image}
 
-(citation) \todo{cite} describes a typical oxide cathode as a coating of barium and strontium oxides on a structure made from nickel alloys. Nickel is chosen for it's strength and toughness, which it retains even at high temperatures. These cathodes are normally made by coating a case stucture with a mixture of barium and strontium carbonates (typically \SI{60}{\percent} Ba and \SI{40}{\percent} Sr), suspended in a binder material and then baking the structure, causing the carbonates to be reduced to oxides. \todo{This stuff is a bit different to what's on wikipedia}
+The "Power Vacuum Tubes Handbook" \cite{PowerTubes323Avadhanulu} describes a typical oxide cathode as a coating of barium and strontium oxides on a structure made from nickel alloys. Nickel is chosen for it's strength and toughness, which it retains even at high temperatures. These cathodes are normally made by coating a case stucture with a mixture of barium and strontium carbonates (typically \SI{60}{\percent} Ba and \SI{40}{\percent} Sr), suspended in a binder material and then baking the structure, causing the carbonates to be reduced to oxides.
 
-These metal oxide cathodes normally operate at \SIrange{700}{820}{\celsius} and are capable of average emision densities of \SIrange{100}{500}{\milli\ampere\per\centi\meter\squared}. Still higher peak emissions are possible for shorter periods of time, as already mentioned, one of the advantages of this type of cathode is it's high emission current capability compared to cathodes made from other materials. Downsides to this cathode type are its greater susceptibility to so-called oxygen poissoning and to ion bombardement. The literature therefore recommends to avoid prolonged exposure to oxygen, this will be expanded upon in section (reference) \todo{insert ref to section on CRT handling}. Also the material from the oxide cathode will evaporate during the lifetime of the tube and will travel to other parts of the tube. The literature (citation "powertubes"\todo{insert citation from"powertubes"}) therefore also advises against exceeding the design value  for the heater voltage, as this reduces the lifetime of the cathode significantly. (however during the course of our project, we did drive the cathode with higher heater voltages on various occasions in order to increase the available beam current)
+These metal oxide cathodes normally operate at \SIrange{700}{820}{\celsius} and are capable of average emision densities of \SIrange{100}{500}{\milli\ampere\per\centi\meter\squared}. Still higher peak emissions are possible for shorter periods of time, as already mentioned, one of the advantages of this type of cathode is it's high emission current capability compared to cathodes made from other materials. Downsides to this cathode type are its greater susceptibility to so-called oxygen poissoning and to ion bombardement. The literature therefore recommends to avoid prolonged exposure to oxygen, this will be expanded upon in section (reference) \todo{insert ref to section on CRT handling}. Also the material from the oxide cathode will evaporate during the lifetime of the tube and will travel to other parts of the tube. The literature (also from \cite{PowerTubes323Avadhanulu}) therefore also advises against exceeding the design value  for the heater voltage, as this reduces the lifetime of the cathode significantly. (however during the course of our project, we did drive the cathode with higher heater voltages on various occasions in order to increase the available beam current)\todo{Explaination layout cathode}
 
 
 
