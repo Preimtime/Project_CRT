@@ -106,8 +106,10 @@
 \ifsetBibLaTeX\begin{refsegment}\fi		% catch possible citations otside of any chapter (needed when bibsections is used)
 \maketitle								% add titel page; for changes edit titlepage.tex
 \ifdeclaration \include{./Chapters/Declaration/declaration} \else \cleardoublepage \fi
-%\include{./Chapters/Dedication/dedication}
-%\frontmatter
+
+\include{./Chapters/Dedication/dedication}
+\frontmatter
+
 %\include{./Chapters/Abstract/abstract}
 %\include{./Chapters/Abstract/zusammenfassung}
 \ifsetBibLaTeX\end{refsegment}\fi
@@ -120,7 +122,10 @@
 %\include{./Chapters/Chapter1/chapter_1}
 %\include{./Chapters/Chapter2/chapter_2}
 %\include{./Chapters/Chapter3/chapter_3}
+
 \include{./Chapters/Cicero/Cicero}
+\include{./Chapters/e-beam-setup/ebs}
+
 
 %---backmatter-------------------------------------------------------------------
 \backmatter
