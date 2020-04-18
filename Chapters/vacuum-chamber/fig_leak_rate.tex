@@ -2,22 +2,15 @@
 % !TeX spellcheck = en_US
 % !TeX root = ../../Thesis.tex
 
-\begin{axis}[
-	%name=zeemanShift,
-	%grid=major,
-	ymode = log,
-	xlabel = time/\si{\minute},
-	ylabel = pressure/\si{\milli\bar},
-	%scaled ticks=false,
-	%		every x tick scale label/.style={at={(xticklabel* cs:1.03,-0.3em)}, /pgfplots/near ticklabel align=outside, anchor=near xticklabel opposite, inner sep=0pt},
-	%		xticklabel style={/pgf/number format/sci}, sci generic={mantissa sep=\cdot,exponent={10^{#1}}}},
-	%yticklabel style={/pgf/number format/sci},
-	xmin = 0,
-	ymin = 1e-5,
-	%extra tick style={grid=none}, 
-	%width=0.7\textwidth,
-	%legend style={at={(1.02, 0.5)}, anchor = west},
-	%every axis plot/.append style={thick}
+\begin{axis}
+	[
+		%grid=major,
+		ymode = log,
+		xlabel = time/\si{\minute},
+		ylabel = pressure/\si{\milli\bar},
+		%yticklabel style={/pgf/number format/sci},
+		xmin = 0,
+		ymin = 1e-5,
 	]
 	\addplot[mark=none, black] table [x=t, y=p, col sep=comma]{./Chapters/vacuum-chamber/leak_rate.csv};
 \end{axis}
