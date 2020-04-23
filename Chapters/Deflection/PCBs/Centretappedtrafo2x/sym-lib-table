@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name Centretappedtrafo-rescue)(type Legacy)(uri ${KIPRJMOD}/Centretappedtrafo-rescue.lib)(options "")(descr ""))
+)
