@@ -35,10 +35,12 @@ The electrons that leave the electron gun are still divergent and need to be foc
 \begin{equation}
 	0=\dfrac{1}{r}\pdv{\phi}{r}+\pdv[2]{\phi}{r}+\pdv[2]{\phi}{y}
 \end{equation}
-If we take the axis of the beam to be the z-axis, the position of the focal point in the x-y-plane can be shifted using the two pairs of deflection plates, one for the x- and one for the y-direction. The deflection is achived by applying a voltage between the two parallel plates. (see: figure \ref{fig:deflectionplate2}) In this simple case the deflection angle is approximately \cite{Demtroeder3}:
+If we take the axis of the beam to be the z-axis, the position of the focal point in the x-y-plane can be shifted using the two pairs of deflection plates, one for the x- and one for the y-direction. The deflection is achived by applying a voltage between the two parallel plates. (see: figure \ref{fig:deflectionplate2}) By starting with an electron with kinetic energy $e \cdot U_0$ which is accelerated in x-direction by a constant force $e\cdot U_0$ over the extent of the plates $L$, the deflection angle is approximately \cite{Demtroeder3}:
 \begin{equation}\label{key}
-\delta \tan(\delta) \approx \frac{e \cdot U_z\cdot L}{2 U_0 \cdot d}
+\delta \tan(\delta) \approx \frac{U_z\cdot L}{2 U_0 \cdot d}
 \end{equation}
+
+For the measures of our CRT ($ L \approx \SI{10}{\centi\meter}$, $d \approx \SI{1}{\centi\meter}$, $U_0 \approx \SI{2}{\kilo\volt}$ and distance to screen $\approx \SI{20}{\centi\meter}$) this amounts to a deflection coefficient of around \SI{20}{\volt\per\centi\meter}, which is quite consistent with the value given in the CRT's manual.\todo[]{können die Maße stimmen?} 
 
 \begin{figure}
 	\centering
@@ -47,12 +49,8 @@ If we take the axis of the beam to be the z-axis, the position of the focal poin
 	\label{fig:deflectionplate2}
 \end{figure}
 
-
-As the angles in question are normally well below 1 degree, everything will probably be easy :) \todo{how does this compare to actual value in the tube?}
-
 \section{Implementation in the Heerlen D14-363GY }
 
-\todo[\author{Alex}]{How to properly do subfigures?}
 This section describes how, the mechanisms described above are implemented in the CRT that was used in this project: the PDS/CRT Heerlen D14-363GY. Figure \ref{fig:FotoCRT} \todo{Insert Image of CRT} shows an image of said CRT, figure \ref{fig:SchemeCRT} shows a schematic depiction. The cathode is not visible, as it is fixed inside the Wehnelt cylinder (1), just a few millimeters from the exit of the wehnelt cylinder the electrons pass through the perforated anode (2) they gain their full final kinetic energy over this short distance. The electrons that go through the perforation and enter the electrostatic lens, have \SI{2}{\kilo\electronvolt} and therefore move at a speed of approximately \SI{0.08}{\clight}. 
 The electrostatic lenses are realized using three conducting rings (3), that are set to the same potential but have varying radii: Each consectutive ring has a smaller radius than the previous one. 
 
@@ -97,9 +95,13 @@ The cathode from one of our Heerlen D14-363GY-tubes has been removed and examine
 
 The "Power Vacuum Tubes Handbook" \cite{PowerTubes323Avadhanulu} describes a typical oxide cathode as a coating of barium and strontium oxides on a structure made from nickel alloys. Nickel is chosen for it's strength and toughness, which it retains even at high temperatures. These cathodes are normally made by coating a case stucture with a mixture of barium and strontium carbonates (typically \SI{60}{\percent} Ba and \SI{40}{\percent} Sr), suspended in a binder material and then baking the structure, causing the carbonates to be reduced to oxides.
 
-These metal oxide cathodes normally operate at \SIrange{700}{820}{\celsius} and are capable of average emision densities of \SIrange{100}{500}{\milli\ampere\per\centi\meter\squared}. Still higher peak emissions are possible for shorter periods of time, as already mentioned, one of the advantages of this type of cathode is it's high emission current capability compared to cathodes made from other materials. Downsides to this cathode type are its greater susceptibility to so-called oxygen poissoning and to ion bombardement. The literature therefore recommends to avoid prolonged exposure to oxygen, this will be expanded upon in section (reference) \todo{insert ref to section on CRT handling}. Also the material from the oxide cathode will evaporate during the lifetime of the tube and will travel to other parts of the tube. The literature (also from \cite{PowerTubes323Avadhanulu}) therefore also advises against exceeding the design value  for the heater voltage, as this reduces the lifetime of the cathode significantly. (however during the course of our project, we did drive the cathode with higher heater voltages on various occasions in order to increase the available beam current)\todo{Explaination layout cathode}
+These metal oxide cathodes normally operate at \SIrange{700}{820}{\celsius} and are capable of average emision densities of \SIrange{100}{500}{\milli\ampere\per\centi\meter\squared}. Still higher peak emissions are possible for shorter periods of time, as already mentioned, one of the advantages of this type of cathode is it's high emission current capability compared to cathodes made from other materials. Downsides to this cathode type are its greater susceptibility to so-called oxygen poissoning and to ion bombardement. The literature therefore recommends to avoid prolonged exposure to oxygen. Oxygen poisoning is process in which oxygen adsorbs onto the cathode and increases its work function, effectively reducing its ability to emitt electrons. 
+Also the material from the oxide cathode will evaporate during the lifetime of the tube and will travel to other parts of the tube, adsorbing to electron optics parts and turning them into additional emitters. The literature (also from \cite{PowerTubes323Avadhanulu}) therefore also advises against exceeding the design value  for the heater voltage, as this reduces the lifetime of the cathode significantly. (however during the course of our project, we did drive the cathode with higher heater voltages on various occasions in order to increase the available beam current)
 
-\subsection{Cathode Layout} 
+\subsection{Cathode Layout}
+
+Figure \ref{fig:cathodelayout} shows how metal oxide cathodes for CRTs typically look, the depiction agrees very well with the layout of our cathode. On the image we see the cathode cylinder, which corresponds to the nickel support structure mentioned above. It is shaped into a cup, i.e. the cylinder is hollow and open on one side, where the heater filament (shaped into a heater coil) is inserted. The oxide disk, from where the electrons are emitted, is baked onto the top of the cathode cylinder. The cathode cylinder is mounted on an isolating support structure and inserted into the Wehnelt cylinder, which is called "grid cup" in the drawing. 
+  
 
 \begin{figure}
 	\centering
