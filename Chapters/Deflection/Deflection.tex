@@ -47,8 +47,8 @@ A first setup with which we can try to obtain the desired voltages is depicted i
 
 \begin{description}
 	\item[Amplifier:] Up to now we have used the XXX \todo[]{which model?} and the YYY \todo[]{which model?} amplifier, they amplify the signal by a fixed gain of (How much?) \todo[]{Check amplifier specifications}, intputs and outputs can  simply be connected via BNC cables, the amplifier is powered by a linear power supply with a DC voltage of \SI{24}{\volt} via two banana plugs in the front. As we want to be control the shapes of the Lissajous curves (and as the deflection coefficients for the x- and y- plates differ) it is desireable to be able to adjust the gain of the amplifiers in future versions of the setup. \todo[]{Optional: Go to the lab and measure their performance with an Oszi.}
-	\item[Center Tapped Transformer:] Figure \ref{fig:CTT} show how the center tapped transformer is implemented. The in- and outputs, as well as the bias voltage can be connected via BNC cables. As usual, the shields of all of these cables are connected to ground, furthermore they are connected to each other and to the housing. As a safety feature, both outputs X1 and X2 are directly connected to the bias through an arrangement of diodes: Two connections, each with a normal diode and a Zener diode facing in opposite directions. The breakthrough voltage of the Zener diode is \SI{200}{\volt}, during normal operation the voltage on it stays below this value and none of the connections let any current through as one of the two diodes is always blocking it. However if one of the plates in the CRT accidentally comes in contact with high voltage, the connection with the appropriately oriented Zener diode opens up, preventing a voltage spike on the center tapped transformer and thereby protecting the electronics connected to its primary circuit.\todo[]{I don't really know whether a high resistance bias or a low resistance bias is better.}
-	\todo[]{Write about the circuit's performance}
+	\item[Center Tapped Transformer:] The center tapped transformer we use is the Mini-Circuits TC8-1G2+ (\cite{TC8-1G2}), a transformer for frequencies of \SIrange{2}{500}{\mega\hertz}, with a winding ratio of 1 to 8. Figure \ref{fig:CTT} shows how the center tapped transformer is implemented. The in- and outputs, as well as the bias voltage can be connected via BNC cables. As usual, the shields of all of these cables are connected to ground, furthermore they are connected to each other and to the housing. As a safety feature, both outputs X1 and X2 are directly connected to the bias through an arrangement of diodes: Two connections, each with a normal diode and a Zener diode facing in opposite directions. The breakthrough voltage of the Zener diode is \SI{200}{\volt}, during normal operation the voltage on it stays below this value and none of the connections let any current through as one of the two diodes is always blocking it. However if one of the plates in the CRT accidentally comes in contact with high voltage, the connection with the appropriately oriented Zener diode opens up, preventing a voltage spike on the center tapped transformer and thereby protecting the electronics connected to its primary circuit.\todo[]{I don't really know whether a high resistance bias or a low resistance bias is better.}\\
+	At the point of writing there are still some problems with the behaviour of the senter tapped transformer, the capacitances of the diodes introduce an undesired phaseshift between the two signals. Figure \ref{fig:unbiased2} shows the circuit's behaviour at \SI{465}{\mega\hertz} without its diodes, here the signals are shifted by $\SI{120}{\pico\second} = \SI{20}{\degree} = \SI{0.35}{\radian}$. Additionally, applying a bias voltage leads to differing amplitudes, as can be seen in figure \ref{fig:biased2}.  
 	\todo[]{Optional: Go back to the Lab and fix the problem with the diodes?}
 	\item[Phase Shifter:] To control the phase shift between the x- and y-deflection plates, we use a Mini-Circuits \cite{JSPHS-661} phase shifter. This part was put in a  housing (\cite{Hammond1455D601RD }) on a separate PCB and can be connected via BNC cabels. Figure \ref{fig:circuit_phase} shows how the phase shifter is connected and figure \ref{fig:PCB_phase} shows the corresponding PCB layout. Note that again the shields of the BNC cables are connected among each other and to the housing. The JSPHS-661+ is designed for frequencies in the range \SIrange{400}{600}{\mega\hertz}. By applying a DC voltage of \SIrange{0}{12}{\volt} to the bias connector, it is possible to introduce a phase shift of up to \SI{200}{\degree} to the signal.
 	
@@ -74,6 +74,27 @@ A first setup with which we can try to obtain the desired voltages is depicted i
 	\end{subfigure}
 	\caption{}
 	\label{fig:PhaseShifter}
+\end{figure}
+
+
+
+
+\begin{figure}
+	\centering
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[height=0.2\textheight]{Chapters/Deflection/unbiased2}
+		\caption{Signal of center tapped transformer without diodes, unbiased at \SI{465}{\mega\hertz}}
+		\label{fig:unbiased2}
+	\end{subfigure}%
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[height=0.2\textheight]{Chapters/Deflection/biased2}
+		\caption{Signal of center tapped transformer without diodes, unbiased at \SI{465}{\mega\hertz}}
+		\label{fig:biased2}
+	\end{subfigure}
+	\caption{}
+	\label{fig:CTTSignal}
 \end{figure}
 
 
