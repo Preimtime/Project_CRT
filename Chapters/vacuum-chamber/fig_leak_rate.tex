@@ -1,0 +1,16 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+% !TeX root = ../../Thesis.tex
+
+\begin{axis}
+	[
+		%grid=major,
+		ymode = log,
+		xlabel = time/\si{\minute},
+		ylabel = pressure/\si{\milli\bar},
+		%yticklabel style={/pgf/number format/sci},
+		xmin = 0,
+		ymin = 1e-5,
+	]
+	\addplot[mark=none, black] table [x=t, y=p, col sep=comma]{./Chapters/vacuum-chamber/leak_rate.csv};
+\end{axis}
