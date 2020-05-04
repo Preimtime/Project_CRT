@@ -20,13 +20,24 @@ There are three vital components to accomplish this feat: the electron gun, the 
 \end{figure}
 
 
-The electron gun extracts electrons from a cathode material, accelerates them onto a perforated anode and thereby produces a free electron beam (see \cref{fig:electrongun}). One important characteristic in the selection of a cathode material is a low work function. The work function denotes the amount of energy needed to extract one electron from the material. The are two ways to overcome this energy barrier in an electron gun, one can either overcompensate it by applying a strong electric field (``field emission'', ``cold cathode'', \cref{fig:hotcathodecoldcathode} b) or one can heat the material until some electrons have enough thermal energy to overcome the energy barrier (``thermal emission'', ``hot cathode'', \cref{fig:hotcathodecoldcathode} a). For our CRT, only thermal emission is relevant, more detail on this will be added later along with the description of our cathode's design. 
+The electron gun extracts electrons from a cathode material, accelerates them onto a perforated anode and thereby produces a free electron beam (see \cref{fig:electrongun}). One important characteristic in the selection of a cathode material is a low work function. The work function denotes the amount of energy needed to extract one electron from the material. The are two ways to overcome this energy barrier in an electron gun, one can either overcompensate it by applying a strong electric field (``field emission'', ``cold cathode'', \cref{fig:coldcathode} or one can heat the material until some electrons have enough thermal energy to overcome the energy barrier (``thermal emission'', ``hot cathode'', \cref{fig:hotcathode}. For our CRT, only thermal emission is relevant, more detail on this will be added later along with the description of our cathode's design. 
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.9\textwidth]{Chapters/CRT-Basics/HotCathodeColdCathode}
-	\caption{a. Schematic of a hot cathode; b. Schematic of field emission cathode}
-	\label{fig:hotcathodecoldcathode}
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[height=0.3\textheight]{Chapters/CRT-Basics/HotCathode}
+		\caption{Schematic of a hot cathode}
+		\label{fig:hotcathode}
+	\end{subfigure}%
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[height=0.3\textheight]{Chapters/CRT-Basics/ColdCathode}
+		\caption{Schematic of field emission cathode}
+		\label{fig:coldcathode}
+	\end{subfigure}
+	\caption{Cathode types}
+	\label{fig:cathodes}
 \end{figure}
 
 The cathode itself is housed in a so-called Wehnelt cylinder, as the name suggests it is conducting cylinder, which is set to a slightly more negative potential than the cathode itself. This part implements two features, firstly it condenses the emitted electrons, leading to a smaller spot size, i.e. making the cathode a more point-like electron source. Secondly it enables us to regulate the beam current, the more negative the Wehnelt potential is, the less electrons are emitted by the electron gun. As we make the Wehnelt potential more positive, the beam current increases and continues to rise even after it is more positive than the cathode itself. However the spot size reduction is lost in the process, along with the ability to properly focus the beam with electron optics.
