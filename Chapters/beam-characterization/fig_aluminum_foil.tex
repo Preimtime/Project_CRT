@@ -1,0 +1,88 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+% !TeX root = ../../Thesis.tex
+
+%\begin{axis}
+%	[
+%		%grid=major,
+%		ymode = log,
+%		xlabel = filament current/\si{\milli\ampere},
+%		ylabel = filament voltage/\si{\volt}
+%		%yticklabel style={/pgf/number format/sci},
+%		%xmin = 0,
+%		%ymin = 1e-5,
+%	]
+%	\addplot[mark=none, black] table [x=current_filament, y=voltage, col sep=comma]{./Chapters/beam-characterization/data_aluminum_foil_opened.csv};
+%\end{axis}
+
+
+
+
+\begin{groupplot}[
+		group style={
+			group size=2 by 1,
+			horizontal sep=0.15\textwidth}, %0.1\textwidth},
+		width=0.5\textwidth,
+		height=0.5\textwidth]
+	
+	%1st plot
+	\nextgroupplot[
+		%title={},
+		xlabel={filament current/\si{\milli\ampere}},
+		ylabel={filament voltage/\si{\volt}},
+	%	xmin=5, xmax=7.5,
+	%	ymin=0, ymax=0.5,
+	%	xtick distance=1, %xticklabels={,,},
+	%	ytick distance=0.1, %yticklabels={,,},
+		legend style={at={(0.05, 0.95)}, anchor={north west}},
+		legend cell align={left}]
+	
+	\addplot+[
+		black,
+		only marks,
+		mark=*,
+		mark size=2pt,
+		mark options={solid}]
+	table [x=current_filament, y=voltage, col sep=comma]{./Chapters/beam-characterization/data_aluminum_foil_opened.csv};
+	\addlegendentry{CRT opened}
+	
+	\addplot+[
+		blue,
+		only marks,
+		mark=*,
+		mark size=2pt,
+		mark options={solid}]
+	table [x=current_filament, y=voltage, col sep=comma]{./Chapters/beam-characterization/data_aluminum_foil_unopened.csv};
+	\addlegendentry{CRT unopened}
+	
+
+%	%2nd plot
+	\nextgroupplot
+	[
+	%title={},
+	xlabel={filament current/\si{\milli\ampere}},
+	ylabel={beam current/\si{\micro\ampere}},
+%	xmin=5, xmax=7.5,
+	ymin=0, %ymax=0.5,
+	legend style={at={(0.05, 0.95)}, anchor={north west}},
+	legend cell align={left},
+	]
+	
+	\addplot+[
+		black,
+		only marks,
+		mark=*,
+		mark size=2pt,
+		mark options={solid}	]
+	table [x=current_filament, y=current, col sep=comma]{./Chapters/beam-characterization/data_aluminum_foil_opened.csv};
+	\addlegendentry{CRT opened}
+	
+	\addplot+[
+		blue,
+		only marks,
+		mark=*,
+		mark size=2pt,
+		mark options={solid}]
+	table [x=current_filament, y=current, col sep=comma]{./Chapters/beam-characterization/data_aluminum_foil_unopened.csv};
+	\addlegendentry{CRT unopened}
+\end{groupplot}
