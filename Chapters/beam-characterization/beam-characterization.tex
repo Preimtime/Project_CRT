@@ -20,17 +20,14 @@ Chapter about beam characterization.
 \noindent \textbf{possible sections} \\
 current and voltage on filament \\
 pressure (oxygen exposure) vs beam current \\
-aluminum foil \\
 What happens with the wobblestick ->  \\
-Faraday cup -> Frank \\
-Beam current measurement -> Frank \\
 Measurement Ablenkungsgeschwindigkeit (frequency) -> Alex \\
 
 
 \section{Aluminum foil}
 \label{sec:Aluminum foil}
 
-In \cref{fig:Front view of vacuum chamber (first iteration)} the inside of the 6-way cross of the first iteration is shown. On one side of the phosphor screen, aluminum foil was attached to simulate the aquadag coating inside a CRT\todo{explain in basics what aquadag is?}. The beam was deflected on the aluminum foil and the BNC output was connected to ground through an ammeter to measure the beam current. As shown in \cref{fig:Difference in filament voltage and beam current between an opened and unopened CRT} there is close to no difference in the filament voltage (and therefore heating power) between an opened and unopened CRT while the beam current on the aluminum foil varies widely. One possible reason could be that electrons scatter around and not all choose the wire path to ground. Therefore a Faraday cup (see \todo{ref Faraday cup section}) was used in the second iteration.
+In \cref{fig:Front view of vacuum chamber (first iteration)} the inside of the 6-way cross of the first iteration is shown. On one side of the phosphor screen, aluminum foil was attached to simulate the aquadag coating inside a CRT\todo{explain in basics what aquadag is?}. The beam was deflected on the aluminum foil and the BNC output was connected to ground through an ammeter to measure the beam current. As shown in \cref{fig:Difference in filament voltage and beam current between an open and sealed CRT} there is close to no difference in the filament voltage (and therefore heating power) between an opened and sealed CRT while the beam current on the aluminum foil varies widely. One possible reason could be that electrons scatter around and not all choose the wire path to ground. Therefore a Faraday cup (see \cref{sec:Faraday cup}) was used in the second iteration.
 
 
 \begin{figure}[h]
@@ -48,12 +45,12 @@ In \cref{fig:Front view of vacuum chamber (first iteration)} the inside of the 6
 		\input{./Chapters/beam-characterization/fig_aluminum_foil}
 	\end{tikzpicture}
 	
-	\caption{Difference in filament voltage and beam current between an opened and unopened CRT.}
-	\label{fig:Difference in filament voltage and beam current between an opened and unopened CRT}
+	\caption{Difference in filament voltage and beam current between an open and sealed CRT.}
+	\label{fig:Difference in filament voltage and beam current between an open and sealed CRT}
 	\todo[inline]{figure size, overfull hbox}
 \end{figure}
 
-\section{Faraday cup}\todo[caption{error with figures}]{Package tikz Error: Sorry, the system call 'pdflatex -halt-on-error -interact}
+\section{Faraday cup}\todo[caption={error with figures}]{Package tikz Error: Sorry, the system call 'pdflatex -halt-on-error -interact}
 \label{sec:Faraday cup}
 
 

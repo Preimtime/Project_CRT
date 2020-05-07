@@ -26,7 +26,7 @@
 		mark size=2pt,
 		mark options={solid}]
 	table [x=current_filament, y=voltage, col sep=comma]{./Chapters/beam-characterization/data_aluminum_foil_opened.csv};
-	\addlegendentry{CRT opened}
+	\addlegendentry{open}
 	
 	\addplot+[
 		blue,
@@ -34,8 +34,8 @@
 		mark=*,
 		mark size=2pt,
 		mark options={solid}]
-	table [x=current_filament, y=voltage, col sep=comma]{./Chapters/beam-characterization/data_aluminum_foil_unopened.csv};
-	\addlegendentry{CRT unopened}
+	table [x=current_filament, y=voltage, col sep=comma]{./Chapters/beam-characterization/data_aluminum_foil_sealed.csv};
+	\addlegendentry{sealed}
 	
 
 %	%2nd plot
@@ -57,7 +57,7 @@
 		mark size=2pt,
 		mark options={solid}	]
 	table [x=current_filament, y=current, col sep=comma]{./Chapters/beam-characterization/data_aluminum_foil_opened.csv};
-	\addlegendentry{CRT opened}
+	\addlegendentry{open}
 	
 	\addplot+[
 		blue,
@@ -65,6 +65,6 @@
 		mark=*,
 		mark size=2pt,
 		mark options={solid}]
-	table [x=current_filament, y=current, col sep=comma]{./Chapters/beam-characterization/data_aluminum_foil_unopened.csv};
-	\addlegendentry{CRT unopened}
+	table [x=current_filament, y=current, col sep=comma]{./Chapters/beam-characterization/data_aluminum_foil_sealed.csv};
+	\addlegendentry{sealed}
 \end{groupplot}
