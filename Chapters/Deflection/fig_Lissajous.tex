@@ -1,0 +1,100 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+% !TeX root = ../../Thesis.tex
+
+
+\begin{groupplot}[
+	group style={
+		group size=5 by 1,
+		horizontal sep=0mm},
+	width=0.25\textwidth,
+	height=0.25\textwidth]
+	
+	%1st plot
+	\nextgroupplot[
+		title={$\phi = 0$},
+		xmin = -1.2, xmax = 1.2,
+		ymin = -1.2, ymax = 1.2,
+		xticklabels={,,},
+		yticklabels={,,},
+	]
+	
+		% phi = 0
+		\addplot[
+			red,
+			domain=0:2*pi,
+			samples=201,
+		] ({sin(deg(x))}, {sin(deg(x))});
+
+	
+	
+	%2nd plot
+	\nextgroupplot[
+	title={$\phi = \pi/4$},
+	xmin = -1.2, xmax = 1.2,
+	ymin = -1.2, ymax = 1.2,
+	xticklabels={,,},
+	yticklabels={,,},
+	]
+	
+		% phi = pi/4
+		\addplot[
+			red,
+			domain=0:2*pi,
+			samples=201,
+		] ({sin(deg(x))}, {sin(deg(x)+deg(pi/4))});
+		
+		
+	%3rd plot
+	\nextgroupplot[
+	title={$\phi = \pi/2$},
+	xmin = -1.2, xmax = 1.2,
+	ymin = -1.2, ymax = 1.2,
+	xticklabels={,,},
+	yticklabels={,,},
+	]
+	
+	% phi = pi/2
+	\addplot[
+	red,
+	domain=0:2*pi,
+	samples=201,
+	] ({sin(deg(x))}, {sin(deg(x)+deg(pi/2))});
+	
+		
+	%4th plot
+	\nextgroupplot[
+	title={$\phi = 3\pi/4$},
+	xmin = -1.2, xmax = 1.2,
+	ymin = -1.2, ymax = 1.2,
+	xticklabels={,,},
+	yticklabels={,,},
+	]
+	
+	% phi = 3*pi/4
+	\addplot[
+	red,
+	domain=0:2*pi,
+	samples=201,
+	] ({sin(deg(x))}, {sin(deg(x)+deg(3*pi/4))});
+	
+		
+	%5th plot
+	\nextgroupplot[
+	title={$\phi = \pi$},
+	xmin = -1.2, xmax = 1.2,
+	ymin = -1.2, ymax = 1.2,
+	xticklabels={,,},
+	yticklabels={,,},
+	]
+	
+	% phi = pi
+	\addplot[
+	red,
+	domain=0:2*pi,
+	samples=201,
+	] ({sin(deg(x))}, {sin(deg(x)+deg(pi))});
+	
+		
+	
+\end{groupplot}
