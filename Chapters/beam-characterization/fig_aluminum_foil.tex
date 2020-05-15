@@ -1,0 +1,70 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+% !TeX root = ../../Thesis.tex
+
+\begin{groupplot}[
+		group style={
+			group size=2 by 1,
+			horizontal sep=0.1\textwidth}, %0.1\textwidth},
+		width=0.4\textwidth,
+		height=0.4\textwidth]
+	
+	%1st plot
+	\nextgroupplot[
+		%title={},
+		xlabel={filament current/\si{\milli\ampere}},
+		ylabel={filament voltage/\si{\volt}},
+	%	xmin=5, xmax=7.5,
+	%	ymin=0, ymax=0.5,
+		legend style={at={(0.05, 0.95)}, anchor={north west}},
+		legend cell align={left}]
+	
+	\addplot+[
+		black,
+		only marks,
+		mark=*,
+		mark size=2pt,
+		mark options={solid}]
+	table [x=current_filament, y=voltage, col sep=comma]{./Chapters/beam-characterization/data_aluminum_foil_opened.csv};
+	\addlegendentry{open}
+	
+	\addplot+[
+		red,
+		only marks,
+		mark=*,
+		mark size=2pt,
+		mark options={solid}]
+	table [x=current_filament, y=voltage, col sep=comma]{./Chapters/beam-characterization/data_aluminum_foil_sealed.csv};
+	\addlegendentry{sealed}
+	
+
+%	%2nd plot
+	\nextgroupplot
+	[
+	%title={},
+	xlabel={filament current/\si{\milli\ampere}},
+	ylabel={beam current/\si{\micro\ampere}},
+%	xmin=5, xmax=7.5,
+	ymin=0, %ymax=0.5,
+	legend style={at={(0.05, 0.95)}, anchor={north west}},
+	legend cell align={left},
+	]
+	
+	\addplot+[
+		black,
+		only marks,
+		mark=*,
+		mark size=2pt,
+		mark options={solid}	]
+	table [x=current_filament, y=current, col sep=comma]{./Chapters/beam-characterization/data_aluminum_foil_opened.csv};
+	\addlegendentry{open}
+	
+	\addplot+[
+		red,
+		only marks,
+		mark=*,
+		mark size=2pt,
+		mark options={solid}]
+	table [x=current_filament, y=current, col sep=comma]{./Chapters/beam-characterization/data_aluminum_foil_sealed.csv};
+	\addlegendentry{sealed}
+\end{groupplot}
