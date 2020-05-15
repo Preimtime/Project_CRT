@@ -151,9 +151,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.7"
-     inkscape:cx="-166.47918"
-     inkscape:cy="132.03087"
+     inkscape:zoom="1.4"
+     inkscape:cx="-68.773953"
+     inkscape:cy="147.58304"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -170,7 +170,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -327,18 +327,18 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:6.09443903px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.28567681"
-       x="21.132212"
-       y="177.62801"
+       x="8.4700098"
+       y="176.11609"
        id="text6200"><tspan
          sodipodi:role="line"
          id="tspan6198"
-         x="21.132212"
-         y="177.62801"
-         style="font-size:6.09443903px;stroke-width:0.28567681">Heater-</tspan><tspan
+         x="8.4700098"
+         y="176.11609"
+         style="font-size:9.17222214px;stroke-width:0.28567681">Heater-</tspan><tspan
          sodipodi:role="line"
-         x="21.132212"
-         y="185.24606"
-         style="font-size:6.09443903px;stroke-width:0.28567681"
+         x="8.4700098"
+         y="187.58136"
+         style="font-size:9.17222214px;stroke-width:0.28567681"
          id="tspan6202">filament</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:0.32366619;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
@@ -358,14 +358,14 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:6.09443903px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.28567681"
-       x="16.275705"
-       y="269.90164"
+       x="12.873919"
+       y="275.94928"
        id="text6239"><tspan
          sodipodi:role="line"
          id="tspan6237"
-         x="16.275705"
-         y="269.90164"
-         style="font-size:6.09443903px;stroke-width:0.28567681">Cathode</tspan></text>
+         x="12.873919"
+         y="275.94928"
+         style="font-size:9.17222214px;stroke-width:0.28567681">Cathode</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:0.32366619;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m 113.31709,191.59639 v 20.0554"
@@ -378,15 +378,15 @@
        inkscape:connector-curvature="0" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:6.09446192px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.28567681"
-       x="76.706146"
-       y="175.99724"
+       style="font-style:normal;font-weight:normal;font-size:7.05555534px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.28567681"
+       x="66.878769"
+       y="175.61926"
        id="text6261"><tspan
          sodipodi:role="line"
          id="tspan6259"
-         x="76.706146"
-         y="175.99724"
-         style="font-size:6.09446192px;stroke-width:0.28567681">Anode</tspan></text>
+         x="66.878769"
+         y="175.61926"
+         style="font-size:9.17222214px;stroke-width:0.28567681">Anode</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:1.02745903;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="M 80.488176,279.06192 V 262.62256"

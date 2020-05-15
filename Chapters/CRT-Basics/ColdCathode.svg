@@ -17,7 +17,7 @@
    id="svg8"
    inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"
    sodipodi:docname="ColdCathode.svg"
-   inkscape:export-filename="C:\Users\alexp\Documents\Projekte\Arbeit\Projektarbeit QuaK\LaTeX\Projektarbeit_CRT\Chapters\CRT-Basics\HotCathodeColdCathode.png"
+   inkscape:export-filename="C:\Users\alexp\Documents\Projekte\Arbeit\Projektarbeit QuaK\LaTeX\Project_CRT\Chapters\CRT-Basics\ColdCathode.png"
    inkscape:export-xdpi="250"
    inkscape:export-ydpi="250">
   <defs
@@ -91,10 +91,10 @@
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
      inkscape:zoom="1"
-     inkscape:cx="193.71604"
+     inkscape:cx="-223.28396"
      inkscape:cy="211.46611"
      inkscape:document-units="mm"
-     inkscape:current-layer="g1558-5"
+     inkscape:current-layer="layer1"
      showgrid="false"
      units="mm"
      inkscape:window-width="2736"
@@ -270,14 +270,16 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:6.09443903px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.28567681"
-       x="13.908484"
-       y="192.37701"
-       id="text6239-9"><tspan
+       x="11.527235"
+       y="187.61452"
+       id="text6239-9"
+       inkscape:export-xdpi="250"
+       inkscape:export-ydpi="250"><tspan
          sodipodi:role="line"
          id="tspan6237-9"
-         x="13.908484"
-         y="192.37701"
-         style="font-size:6.09443903px;stroke-width:0.28567681">Cathode</tspan></text>
+         x="11.527235"
+         y="187.61452"
+         style="font-size:9.17222222px;stroke-width:0.28567681">Cathode</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:0.32366619;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m 110.40804,197.60373 v 20.05539"
@@ -291,13 +293,15 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:6.09446192px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.28567681"
-       x="73.797081"
-       y="182.00458"
-       id="text6261-2"><tspan
+       x="70.357498"
+       y="178.82957"
+       id="text6261-2"
+       inkscape:export-xdpi="250"
+       inkscape:export-ydpi="250"><tspan
          sodipodi:role="line"
          id="tspan6259-3"
-         x="73.797081"
-         y="182.00458"
-         style="font-size:6.09446192px;stroke-width:0.28567681">Anode</tspan></text>
+         x="70.357498"
+         y="178.82957"
+         style="font-size:9.17222214px;stroke-width:0.28567681">Anode</tspan></text>
   </g>
 </svg>
