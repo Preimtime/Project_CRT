@@ -11,7 +11,7 @@ HAMEG HM507 oscilloscopes \autocite{HM507-manual} were used for testing purposes
 
 The voltages and currents of the necessary pins to drive the CRT were measured using a \SI{2.5}{\kilo\volt} probe with an attenuation ratio of \todo{1:100 or 100:1} and are summarized in \cref{tab:D14-363GY/123 tube pin measurements}. It was not possible to measure pin g3 directly. Therefore a HVPS (\cref{sec:HVPS}) was used to set a voltage and the beam diameter was observed. The best focus was achieved with the value written in the table. The voltage offset of x-, and y-plates was not possible to measure directly, since it varies with time to draw the necessary image on the phosphor screen. The given values are the mean of the minimum and maximum measured voltage. The deflection coefficient is summarized in \cref{tab:D14-363GY/123 deflection coefficient}.
 
-\begin{figure}[h]
+\begin{figure}[ht]
 	\centering
 	\includegraphics[width=5cm]{./Chapters/e-beam-setup/pin arrangement}
 	\caption{Pin arrangement, bottom view from \autocite{D14363GY123-manual}}
@@ -19,7 +19,7 @@ The voltages and currents of the necessary pins to drive the CRT were measured u
 \end{figure}
 
 
-\begin{table}[h]
+\begin{table}[ht]
 	\centering
 	\caption{D14-363GY/123 CRT pin measurements}
 	\label{tab:D14-363GY/123 tube pin measurements}
@@ -43,7 +43,7 @@ The voltages and currents of the necessary pins to drive the CRT were measured u
 	\end{tabular}
 \end{table}
 
-\begin{table}[h]
+\begin{table}[ht]
 	\centering
 	\caption{D14-363GY/123 deflection coefficient from \autocite{D14363GY123-manual}}
 	\label{tab:D14-363GY/123 deflection coefficient}
@@ -62,7 +62,7 @@ The voltages and currents of the necessary pins to drive the CRT were measured u
 
 To produce high dc voltages to drive the CRT, four HCP 14-6500 power supplies \autocite{fug-hcp-manual} were used. They were named `HVPS 1' to `HVPS 4' and can provide up to \SI{\pm 6.5}{\kilo\volt} and \SI{2}{\milli\ampere}. To connect the output to the CRT pins, BNC cables were refitted with a save high voltage (SHV) connector on one side while on the other end the BNC connector was kept (\cref{fig:Coaxial cable with SHV and BNC connector}). A \SI{6}{\kilo\volt} probe was used to obtain the breakdown voltage, which is around \SI{3}{\kilo\volt}\todo{somewhere 2.5-4, find exact value} caused by the coaxial cable which was not built do sustain high voltages.
 
-\begin{figure}[h]
+\begin{figure}[ht]
 	\centering
 	
 	\missingfigure[figwidth=0.9\textwidth]{Figure of SHV \& BNC connector cable.}
@@ -75,7 +75,7 @@ To produce high dc voltages to drive the CRT, four HCP 14-6500 power supplies \a
 \label{subsec:ripple measurement}
 Each power supply was measured for its ripple with a set voltage of \SI{2}{\kilo\volt}. A \SI{2.5}{\kilo\volt} probe (attenuation ratio \todo{100:1 or 1:100}) was connected to an oscilloscope set to ac coupling with a timescale of \SI{1}{\milli\second}. To get the electronic noise of the oscilloscope itself, the probe was shorted and the noise measured. A picture of a measurement is shown in \cref{fig:measurement HVPS ripple} with the values summarized in \cref{tab:measurement HVPS ripple}. As can be seen, the ripple is very close to the noise level and can not really be distinguished.
 
-\begin{figure}[h]
+\begin{figure}[ht]
 	\centering
 	
 	\includegraphics[width=0.9\textwidth]{./Chapters/e-beam-setup/ripple HVPS1}
@@ -84,7 +84,7 @@ Each power supply was measured for its ripple with a set voltage of \SI{2}{\kilo
 	\label{fig:measurement HVPS ripple}
 \end{figure}
 
-\begin{table}[h]
+\begin{table}[ht]
 	\centering
 	\caption{HVPS ripple}
 	\label{tab:measurement HVPS ripple}
