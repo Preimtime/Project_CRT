@@ -7,19 +7,25 @@
 
 In order to be able to fit the CRT screen, CF160 flanges were chosen for the test chamber. At one point during testing, major changes were made which will be explained in \cref{sec:Second iteration}.
 
+\correction{explain more in detail what is the purpose of the chamber, the two iterations are not really important built this chapter rather about the function and operation of the chamber over time due to outgasing the pressure improved)}
 \section{First iteration}
 \label{sec:vacuum chamber first iteration}
 
 A 3D render of the chamber is shown in  (\cref{fig:3D rendering of test chamber}). Without a CRT installed, it was possible to reach a pressure of \SI{6.8e-7}{\milli\bar}, while with one the lowest was \SI{2.0e-6}{\milli\bar}.
+A 3D render of the chamber is shown in  (\cref{fig:3D rendering of test chamber}). Without a CRT installed, it was possible to reach a pressure of \SI{6.8e-7}{\milli\bar}, while with one the lowest was \SI{2.0e-6}{\milli\bar}. \correction{not sure what you mean here}
  
 \subsection{Parts}
+\subsection{Parts} \correction{unmeaning title}
 \label{subsec:Parts}
  
 The center piece consists of a 6-way cross with view ports at the front and bottom. A valve was installed at the back in order to flood the chamber with nitrogen\todo{pure nitrogen name?} when installing a new CRT to avoid oxygen poisoning. On the right side, a HiCube 300 Eco turbo pump was installed and on the left side a wobble stick was attached with a wire. A nipple fitting \todo{length} was installed at the top with a 5 port cluster flange, each being of type CF63.
+The center piece consists of a 6-way cross with view ports at the front and bottom. A valve was installed at the back in order to flood the chamber with nitrogen\todo{pure nitrogen name?} \suggestion{Alphagaz$^{TM}$ 1 $N_2$ purity $\ge\SI{99.999}{\percent}$}, when installing a new CRT to avoid oxygen poisoning \correction{water vapor getting into the chamber}. On the right side, a HiCube 80 Eco turbo pump was installed and on the left side a wobble stick was attached with a wire \correction{explain in connection of the rendering; this makes it easier, if necessary you can get more renderings}. A straight CF100 pipe \todo{length=27cm} was installed at the top with a 5 port cluster flange, each being of type CF40.
  
 In the middle port, a VSH vacuum transducer was installed to measure pressure. This needs a \SI{24}{\volt} dc power supply. On the left, a 19 pin connector \todo{how many pins and model name?} was installed to supply the necessary voltages to the CRT. Two flanges were equipped with four BNC feedthroughs each. One of them was used to connect do the x-, and y-plates, while the other connected to the wobble stick and aluminum foil at the CRT screen. Further explanation will be given in \cref{ch:Beam Characterization}. The last port was capped off by a blank flange.
+In the middle port, a VSH \correction{Thyracont exact model is in one note}  pressure gauge was installed. On the left, a 19 pin connector \todo{how many pins and model name? MIL Type C connector} \suggestion{MIL 19 C} was installed to supply the necessary voltages to the CRT. Two flanges were equipped with four BNC feedthroughs each. One of them was used to connect do the x-, and y-plates, while the other connected to the wobble stick and aluminum foil at the CRT screen. Further explanation will be given in \cref{ch:Beam Characterization}. The last port was capped off by a blank flange.
  
 For the inside wires, stranded copper cables were used. The chamber was sealed by rubber gaskets.
+For the inside wires, standard copper cables were used \correction{we also used thin Kapton insulated BNC cable}. The chamber was sealed by rubber \suggestion{Viton, maybe also describe the specification of these type of seals} gaskets.
  
 \begin{figure}[ht]
 	\centering
@@ -34,6 +40,7 @@ For the inside wires, stranded copper cables were used. The chamber was sealed b
 \label{subsec:CRT mounting mechanism}
 
  Two M8 rods of length \todo{rod length?} were drilled into the cluster flange. On each, a L-piece was installed between two nuts and they were connected by a hose clamp. Two of these were used to secure the CRT inside the nipple facing the cross (\cref{fig:Image of CRT mounting mechanism}).
+ Two M8 rods of length \todo{rod length? check Solid works} were drilled \correction{screwed / with a counter nut} into the cluster flange. On each, a L shaped aluminum piece was installed between two nuts. These were then connected by a hose clamp, which was used to secure the CRT inside below the cluster flange (\cref{fig:Image of CRT mounting mechanism}).
  
 
 \begin{figure}[h]
@@ -47,9 +54,11 @@ For the inside wires, stranded copper cables were used. The chamber was sealed b
 
 
 \subsection{Leak test}
+\subsection{Leak test} \correction{in general make better section titles}
 \label{subsec:Leak test}
 
 Before inserting a CRT, a leak test was performed. First, the chamber was set to a pressure of \SI{e-5}{\milli\bar} after which the pump was turned off. The pressure was measured once a minute for a duration \SI{3}{\hour}. This is shown in \cref{fig:Leak rate of test chamber after turning off pump}.
+Before inserting a CRT, a leak test was performed. First, the chamber was set to a pressure of \SI{e-5}{\milli\bar} after which the pump was turned off. The pressure was measured once a minute for a duration \SI{3}{\hour}. This is shown in \cref{fig:Leak rate of test chamber after turning off pump}. \correction{this is not so much of a leak but mainly outgasing / how was the pressure measured?}
 
 \begin{figure}[ht]
 	\centering
@@ -72,6 +81,7 @@ At one point during experimentation, major changes were made to the chamber. Tha
 \label{subsec:Changes}
 
 First, every rubber gasket was changed to a copper one for a better seal, except at the cluster flange, since that spot will be opened and closed the most often. Each copper stranded cable inside was switched to a coaxial one and the mantle was connected to the chamber wall, which was set to ground. A Faraday cup was installed below the wobble stick, to accurately measure the beam current (further details in \cref{sec:Faraday cup}). The aluminum foil was extended to cover all four sides of the screen.
+First, every rubber gasket was exchanged to a copper one for a better seal, except at the cluster flange, since that spot will be opened and closed the most often. Each copper stranded cable inside was switched to a coaxial one and the mantle was connected to the chamber wall, which was set to ground. A Faraday cup was installed below the wobble stick, to accurately measure the beam current (further details in \cref{sec:Faraday cup}). The aluminum foil was extended to cover all four sides of the screen.
 
 \subsection{Fastening}
 \label{subsec:Fastening}

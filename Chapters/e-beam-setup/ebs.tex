@@ -8,8 +8,10 @@
 \label{sec:Charatarization of a working CRT}
 
 HAMEG HM507 oscilloscopes \autocite{HM507-manual} were used for testing purposes which contain a D14-363GY/123\autocite{D14363GY123-manual} CRT. Although it only has a bandwidth of \SIrange{0}{50}{\mega\hertz}, which is not sufficient for the hyperfine splitting frequency of \SI{461.7}{\mega\hertz}\todo{http://www.tobiastiecke.nl/archive/PotassiumProperties.pdf} of $^{39}\mathrm{K}$, it was used nevertheless because of its simple construction and availability. The back pin arrangement is shown in \cref{fig:pin arrangement}.
+HAMEG HM507 oscilloscopes \autocite{HM507-manual} were used for testing purposes which contain a D14-363GY/123\autocite{D14363GY123-manual} CRT. Although it only has a bandwidth of \SIrange{0}{50}{\mega\hertz}, which is not sufficient to reach the hyperfine splitting frequency of \SI{461.7}{\mega\hertz}\todo{http://www.tobiastiecke.nl/archive/PotassiumProperties.pdf} for $^{39}\mathrm{K}$, it was used nevertheless because of its simple construction and availability. The back pin arrangement is shown in \cref{fig:pin arrangement}.
 
 The voltages and currents of the necessary pins to drive the CRT were measured using a \SI{2.5}{\kilo\volt} probe with an attenuation ratio of \todo{1:100 or 100:1} and are summarized in \cref{tab:D14-363GY/123 tube pin measurements}. It was not possible to measure pin g3 directly. Therefore a HVPS (\cref{sec:HVPS}) was used to set a voltage and the beam diameter was observed. The best focus was achieved with the value written in the table. The voltage offset of x-, and y-plates was not possible to measure directly, since it varies with time to draw the necessary image on the phosphor screen. The given values are the mean of the minimum and maximum measured voltage. The deflection coefficient is summarized in \cref{tab:D14-363GY/123 deflection coefficient}.
+The voltages and currents of the necessary pins to drive the CRT were measured using a \SI{2.5}{\kilo\volt} probe with a voltage divider of 100:1 \todo{or was it 1000:1} and are summarized in \cref{tab:D14-363GY/123 tube pin measurements}. It was not possible to measure pin g3 directly. Therefore a HVPS (\cref{sec:HVPS}) was used to set a voltage and the beam diameter was observed. The best focus was achieved with the value written in the table. The voltage offset of x-, and y-plates was not possible to measure directly, since it varies with time to draw the necessary image on the phosphor screen. The given values are the mean of the minimum and maximum measured voltage. The deflection coefficient is summarized in \cref{tab:D14-363GY/123 deflection coefficient}.
 
 \begin{figure}[ht]
 	\centering
@@ -61,6 +63,7 @@ The voltages and currents of the necessary pins to drive the CRT were measured u
 \label{sec:HVPS}
 
 To produce high dc voltages to drive the CRT, four HCP 14-6500 power supplies \autocite{fug-hcp-manual} were used. They were named `HVPS 1' to `HVPS 4' and can provide up to \SI{\pm 6.5}{\kilo\volt} and \SI{2}{\milli\ampere}. To connect the output to the CRT pins, BNC cables were refitted with a save high voltage (SHV) connector on one side while on the other end the BNC connector was kept (\cref{fig:Coaxial cable with SHV and BNC connector}). A \SI{6}{\kilo\volt} probe was used to obtain the breakdown voltage, which is around \SI{3}{\kilo\volt}\todo{somewhere 2.5-4, find exact value} caused by the coaxial cable which was not built do sustain high voltages.
+To produce high dc voltages to drive the CRT, four HCP 14-6500 power supplies \autocite{fug-hcp-manual} were used. They were named `HVPS 1' to `HVPS 4' and can provide up to \SI{2}{\milli\ampere} at \SI{\pm 6.5}{\kilo\volt}. To connect the output to the CRT pins, BNC cables were refitted with a save high voltage (SHV) connector on one side while on the other end the BNC connector was kept (\cref{fig:Coaxial cable with SHV and BNC connector}). A \SI{6}{\kilo\volt} probe was used to obtain the breakdown voltage, which is around \SI{3}{\kilo\volt}\todo{somewhere 2.5-4, find exact value} caused by the coaxial cable which was not built do sustain high voltages.
 
 \begin{figure}[ht]
 	\centering
@@ -74,6 +77,7 @@ To produce high dc voltages to drive the CRT, four HCP 14-6500 power supplies \a
 \subsection{Ripple measurement}
 \label{subsec:ripple measurement}
 Each power supply was measured for its ripple with a set voltage of \SI{2}{\kilo\volt}. A \SI{2.5}{\kilo\volt} probe (attenuation ratio \todo{100:1 or 1:100}) was connected to an oscilloscope set to ac coupling with a timescale of \SI{1}{\milli\second}. To get the electronic noise of the oscilloscope itself, the probe was shorted and the noise measured. A picture of a measurement is shown in \cref{fig:measurement HVPS ripple} with the values summarized in \cref{tab:measurement HVPS ripple}. As can be seen, the ripple is very close to the noise level and can not really be distinguished.
+Each power supply was measured for its ripple with a set voltage of \SI{2}{\kilo\volt}. A \SI{2.5}{\kilo\volt} probe (attenuation ratio \correction{ I think it was 1000:1}) was connected to an oscilloscope set to ac coupling with a timescale of \SI{1}{\milli\second}. To get the electronic noise of the oscilloscope itself, the probe was shorted and the noise measured. A picture of a measurement is shown in \cref{fig:measurement HVPS ripple} with the values summarized in \cref{tab:measurement HVPS ripple}. As can be seen, the ripple is very close to the noise level and can not really be distinguished.
 
 \begin{figure}[ht]
 	\centering
@@ -116,6 +120,7 @@ A schematic of the supplied power is shown in \cref{fig:schematics of wiring}. A
 	\label{fig:schematics of wiring}
 \end{figure}
 
+\correction{explain what i.c. is}
 
 \section{Heater}
 \label{sec:Heater}
@@ -132,9 +137,11 @@ A schematic of the supplied power is shown in \cref{fig:schematics of wiring}. A
 	\todo[inline]{check if really \SI{14}{\ohm} or if it event exists}
 \end{figure}
 
+\suggestion{also add picture of the final box}
 The heater provides an adjustable ac voltage, which is used to regulate the temperature of the cathode. In the cold state, the heater filament has a an electrical resisitance of approximately \SI{15}{\ohm}, when the filament is hot, this value rises to \SI{90}{\ohm}. The normal heater voltage for the D14-363GY/123 during  operation is \SIrange{6.0}{6.6}{\volt} according to \cite{D14363GY123-manual}. 
 Our ac-power supply (figure \ref{fig:heater_circuit} shows its circuit diagram) consists of an isolation transformer (from grid voltage to 12 V), its primary  and secondary circuits are isolated up to \SI{4}{\kilo\volt} \cite{DS44231-DataSheet}. The power supply has two  banana plug sockets to connect to the heater filament. 
 It is connected to the transformer in series with a \SI{100}{\ohm} potentiometer. Using the full resistance, there is a voltage of approximately \SI{5.7}{\volt} applied to the heater filament, by lowering the resistance this value can goes up to nearly the full voltage of the transformer. 
 The current running through the filament is measured with an integrated amperemeter \cite{ACA-20PC-manual} that measures currents up to two \SI{2}{\ampere} with \si{\milli\ampere} accuracy.
+The current running through the filament is measured with an integrated ampere meter \cite{ACA-20PC-manual}, that measures currents up to two \SI{2}{\ampere} with \si{\milli\ampere} accuracy.
 
 At the beginning of operation it is recommendable to set the maximum resistance and slowly increase the current to the desired value once the filament is heated up. As the resistance of the cold filament is significantly lower, high onset currents could otherwise damage it.  
