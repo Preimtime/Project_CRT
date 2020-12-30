@@ -644,7 +644,7 @@
 \fi
 \newcommand{\mynote}[1]{\todo[line,color=green!40]{#1}}
 \newcommand{\needref}[1]{\todo[size=\footnotesize,line,color=blue!30]{#1}}
-\newcommand{\needref}[1]{\todo[size=\footnotesize,line,color=blue!30]{ref #1}}
+%\newcommand{\needref}[1]{\todo[size=\footnotesize,line,color=blue!30]{ref #1}}
 \newcommand{\urgentnote}[1]{\todo[size=\normal,line,color=red!70]{#1}}
 \newcommand{\sidenote}[1]{\todo[noline,color=blue!50]{#1}}
 \newcommand{\inlinenote}[1]{\todo[inline,color=orange!30]{#1}}
