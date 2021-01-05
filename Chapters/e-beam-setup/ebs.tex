@@ -124,7 +124,7 @@ A schematic of the supplied power is shown in \cref{fig:schematics of wiring}. T
 \begin{figure}[ht]
 	\centering
 	
-	\begin{subfigure}[b]
+	\begin{subfigure}[b]{0.9\textwidth}
 		\begin{circuitikz}%[width=0.9\textwidth]
 			\input{./Chapters/e-beam-setup/fig_heater}
 		\end{circuitikz}
@@ -133,12 +133,12 @@ A schematic of the supplied power is shown in \cref{fig:schematics of wiring}. T
 	
 	\vspace{1cm}
 
-	\begin{subfigure}[b]
-			\missingfigure[figwidth=0.9\textwidth]{picture of ac bias voltage}
+	\begin{subfigure}[b]{0.9\textwidth}
+		\missingfigure[figwidth=\textwidth]{picture of ac bias voltage}
 		\caption{Picture of built filament power supply.}
 	\end{subfigure}
 	
-	\caption{AC power supply used to heat the filament with a \SI{-2}{\kilo\volt} bias voltage.
+	\caption{AC power supply used to heat the filament with a \SI{-2}{\kilo\volt} bias voltage.}
 	\label{fig:heater_circuit}
 	\todo[inline]{check if really \SI{14}{\ohm} or if it event exists}
 \end{figure}
