@@ -4,7 +4,6 @@
 
 \chapter{Cicero Word Generator}\label{chap:Cicero, Cicero Word Generator}
 This chapter describes the installation and initial setup of Cicero Word Generator \autocite{keshet2013distributed} on a PC running Windows 10 with analog and digital cards from National Instruments (NI). The code is freely available on GitHub \autocite{akeshet:Github}. This chapter contains only differences, problems, and possible solutions encountered when Cicero was installed for the PC `Fritz Fantom' which will be used for the QuaK experiment. It is therefore advised to use the technical and user manual \autocite{akeshet:manual} in conjunction.
-This chapter describes the installation and initial setup of Cicero Word Generator \autocite{keshet2013distributed} on a PC running Windows 10 with analog and digital cards from National Instruments (NI). The code is freely available on GitHub \autocite{akeshet:Github}. This chapter contains only differences, problems, and possible solutions encountered when Cicero was installed on the PC `Fritz Fantom', which is used to control the QuaK experiment. It is advised to use the technical and user manual \autocite{akeshet:manual} in conjunction. The titles in this chapter and font style with {\fontfamily{pcr}\selectfont Courier} and \textbf{Boldface} was mirrored in order to fit the manual. \suggestion{I am not sure what you mean whit this last sentence.}
 
 \section{Installation of National Instruments drivers}\label{sec:Cicero, Installation of National Instruments drivers}
 Before setting up the Cicero Word Generator, it is necessary to install the newest .NET Framework \autocite{microsoft:download.net} from Microsoft. Then NI drivers, NI-DAQmx (version 9.3), NI-VISA (newest version), and NI-4888.2 (newest version) should be downloaded from the National Instruments website \autocite{ni:drivers} and installed. When installing the NI drivers it is possible to get an `Runtime Error!'. In this case it is necessary to set the Regional format settings of Windows 10 to `English (United States)' \autocite{ni:runtimeerror}.
@@ -52,12 +51,9 @@ For synchronization, a \textbf{Shared Sample Clock} was used with \textbf{Dev1} 
 
 \section{Configuration and Basic Usage of Cicero}\label{sec:Cicero, Configuration and Basic Usage of Cicero}
 After setting up the Atticus server, Cicero can be configured. In step 3.c. it is necessary to write the full IP address and not `localhost'.
-After setting up the Atticus server, Cicero can be configured. In step 3.c. it is necessary to write the full IP address and not `localhost'. Once step 6 \correction{what is step 6?} is finished, Cicero should run without any problems.
 
 \subsection{Saving of Settings and Sequences}\label{sec:Cicero, Saving of Settings and Sequences}
 The `SettingsData' of the Server Atticus are saved in C:\textbackslash Users\textbackslash confetti\textbackslash Documents \textbackslash Cicero\textunderscore Atticus\textbackslash Cicero\textbackslash SettingsData while the `SequenceData' of Cicero are saved in C:\textbackslash Users\textbackslash confetti\textbackslash Documents\textbackslash Cicero\textunderscore Atticus\textbackslash Cicero\textbackslash SequenceData.
 
 \subsection{Sequence length limit}\label{sec:cicero, Sequence length limit}
 The duration of a sequence is limited to $\num[exponent-base=2]{e32}/(16*32*\SI{350}{\kilo\hertz})$ = \SI{23.967}{\second} coming from a 32-bit application, \SI{16}{\bit} per channel, 32 channels in a NI PCIe-6738 card, and \SI{350}{\kilo\hertz} clock rate.
-
-\correction{shouldn't the last two subsection be subsubsections?}
