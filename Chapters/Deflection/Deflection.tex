@@ -5,16 +5,16 @@
 \chapter{Deflection Electronics}
 
 \section{Demands on the setup}
-For the QuaK experiment it is paramount to be able to deflect the beam precisely and with the right frequency. 
-For the QuaK experiment it is paramount to be able to deflect the beam \correction{of a sufficient current } precisely at the right frequency \correction{with a sufficient small enough bandwidth}. 
+
+For the QuaK experiment it is paramount to be able to deflect a beam of a sufficient current precisely at the right frequency with a sufficiently small bandwidth. 
 As previously mentioned, our deflection system simply consists of two pairs of parallel plates between which a voltage is applied \todo[]{Optional: insert Foto of CRT's deflection plates - fig:DeflectionSetup}. Controlling this voltage allows us to control the deflection of the beam. Various aspects are important here (illustrated in \cref{fig:VoltageAspects}):
 
 \begin{description}
-	\item[Offset:] Although the deflection of the beam is controlled by the voltage between the plates, it is necessary to be able to set their mean potential as well. During normal operation this offset voltage is at \SI{96}{\volt} for the x-direction and at \SI{78}{\volt} for the y-direction.
-	\item[Offset:] Although the deflection of the beam is controlled by the voltage between the plates, it is necessary to be able to set their mean potential as well. During normal operation this offset voltage is at \SI{96}{\volt} for the x-direction and at \SI{78}{\volt} for the y-direction. \suggestion{what happens when there is no bias voltage, what is the purpose of it}
 	
-	\item[Amplitude:] The deflection coefficients in the x and y planes are \SI{19}{\volt\per\centi\meter} and \SI{11.5}{\volt\per\centi\meter} respectively (see \cite{D14363GY123-manual}). We therefore need to be able to supply approximately \SI{70}{\volt}.
-	\item[Amplitude:] The deflection coefficients in the x and y planes are \SI{19}{\volt\per\centi\meter} and \SI{11.5}{\volt\per\centi\meter} respectively (see \cite{D14363GY123-manual}). We therefore need to be able to supply approximately \SI{70}{\volt} \correction{to achieve what}.
+	\item[Offset:] Although the deflection of the beam is controlled by the voltage between the plates, it is necessary to be able to set their mean potential as well. During normal operation this offset voltage is at \SI{96}{\volt} for the x-direction and at \SI{78}{\volt} for the y-direction. These offsets are necessary to keep the beam focused.  \suggestion{what happens when there is no bias voltage, what is the purpose of it}
+	
+	
+	\item[Amplitude:] The deflection coefficients in the x and y planes are \SI{19}{\volt\per\centi\meter} and \SI{11.5}{\volt\per\centi\meter} respectively (see \cite{D14363GY123-manual}). We therefore need to be able to supply approximately \SI{70}{\volt} in order to be able to move the beam in a large enough area.  \correction{to achieve what -> good question! Why did we need that?}.
 	
 	\item[Frequency:] The final goal is to be able to deflect the beam at the hyperfine splitting frequency of $^{39}\mathrm{K}$, which is \SI{461.7}{\mega\hertz}. This is likely to prove impossible with this CRT-model, observations at the highest frequency we have tried so far will be discussed in section \cref{sec:Deflection frequency}.
 	
@@ -71,15 +71,15 @@ A first setup with which we can try to obtain the desired voltages is depicted i
 	\centering
 	\begin{subfigure}{0.4\textwidth}
 		\centering
-		\includegraphics[width=\textwidth]{Chapters/Deflection/circuit_phase}
-		\caption{}
+		\includegraphics[width=\textwidth]{Chapters/Deflection/circuit_phase4zu3}
+		\caption{Schematic of phase shifter connections}
 		\label{fig:circuit_phase}
 	\end{subfigure}
 	\hspace{0.1\textwidth}
 	\begin{subfigure}{0.4\textwidth}
 		\centering
 		\includegraphics[width=\textwidth]{Chapters/Deflection/PCB_phase3}
-		\caption{}
+		\caption{PCB-Layout of the phase shifter}
 		\label{fig:PCB_phase}
 	\end{subfigure}
 	\caption{}
@@ -114,21 +114,21 @@ A first setup with which we can try to obtain the desired voltages is depicted i
 	\centering
 	\begin{subfigure}{0.4\textwidth}
 		\centering
-		\includegraphics[width=\textwidth]{Chapters/Deflection/circuit_CTT}
-		\caption{}
+		\includegraphics[width=\textwidth]{Chapters/Deflection/circuit_CTT4zu3}
+		\caption{Schematic of center tapped transformer connections}
 		\label{fig:circuit_ctt}
 	\end{subfigure}
 	\hspace{0.1\textwidth}
 	\begin{subfigure}{0.4\textwidth}
 		\centering
 		\includegraphics[width=\textwidth]{Chapters/Deflection/PCB_CTT3}
-		\caption{}
+		\caption{PCB-Layout for center tapped transformer}
 		\label{fig:PCB_CTT}
 	\end{subfigure}
 	\caption{}
 	\label{fig:CTT}
 \end{figure}
 
-\correction{picture placement and caption is missing}
+\correction{picture placement and caption is missing -> Done}
 
 
