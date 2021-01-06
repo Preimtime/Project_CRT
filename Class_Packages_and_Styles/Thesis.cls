@@ -1079,7 +1079,7 @@
 %---place signature
 \newcommand{\placeSign}{
 	\centering
-	\degreePlace, am \degreeDate
+	\degreePlace, \degreeDate
 }
 
 %---author signature
