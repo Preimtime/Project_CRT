@@ -5,42 +5,17 @@
 \chapter{Vacuum test chamber}
 \label{ch:Vacuum chamber}
 
-Since the QUAK experiment will use cooled potassium atoms, a vacuum chamber is necessary. The goal of our preliminary setup was to only test and characterize the electron beam without the presence of trapped atoms. Low pressure is necessary to provide a mean free path long enough so that electrons do not scatter too much. It was important to have the possibility to use the phosphor coated CRT screen inside our chamber. Therefore CF160 flanges were chosen.
+Since the QUAK experiment will use cooled potassium atoms, a vacuum chamber is necessary. The goal of our preliminary setup was to only test and characterize the electron beam without the presence of trapped atoms. Low pressure is necessary to provide a mean free path long enough so that electrons do not scatter too much. It was important to have the possibility to use the phosphor coated CRT screen inside our chamber. Therefore CF160 flanges were chosen. \correction{explain more in detail what is the purpose of the chamber, the two iterations are not really important built this chapter rather about the function and operation of the chamber over time due to outgasing the pressure improved)}
 
-\textbf{delete from here}
-
-In order to be able to fit the CRT screen, CF160 flanges were chosen for the test chamber. At one point during testing, major changes were made which will be explained in \cref{sec:Second iteration}.
-
-\correction{explain more in detail what is the purpose of the chamber, the two iterations are not really important built this chapter rather about the function and operation of the chamber over time due to outgasing the pressure improved)}
-
-\textbf{to here}
 
 \section{Chamber Setup}
 \label{sec:Chamber Setup}
 
 A 3D render of the chamber is shown in (\cref{fig:3D rendering of test chamber}). The center piece consists of a 6-way cross with view ports at the front and bottom. A valve was installed at the back in order to flood the chamber with nitrogen (Alphagaz\texttrademark~N$_2$ purity $\ge\SI{99.999}{\percent}$) when installing a new CRT to avoid water vapor getting into the chamber. On the right side, a HiCube 300 Eco turbo pump was installed. To the left, a wobble stick was attached with a wire to move items inside the running chamber. Later a Faraday cup was attached to it (see \cref{sec:Faraday cup} for more information). A straight CF160 pipe of length \SI{27}{\centi\meter} was installed at the top with a 5 port cluster flange, each being of type CF40.
-
-\textbf{delete from here}
-
-The center piece consists of a 6-way cross with view ports at the front and bottom. A valve was installed at the back in order to flood the chamber with nitrogen\todo{pure nitrogen name?} \suggestion{Alphagaz$^{TM}$ 1 $N_2$ purity $\ge\SI{99.999}{\percent}$}, when installing a new CRT to avoid oxygen poisoning \correction{water vapor getting into the chamber}. On the right side, a HiCube 80 Eco turbo pump was installed and on the left side a wobble stick was attached with a wire . A straight CF100 pipe \todo{length=27cm} was installed at the top with a 5 port cluster flange, each being of type CF40. \correction{explain in connection of the rendering; this makes it easier, if necessary you can get more renderings}
-
-\textbf{to here}
  
 In the middle port, a Thyracont \correction{Thyracont exact model is in one note} pressure gauge was installed. On the left, a MIL 19 C connector was installed to supply the necessary voltages to the CRT. Two flanges were equipped with four BNC feedthroughs each. One of them was used to connect the x-, and y-plates, while the other connected to the wobble stick and aluminum foil at the CRT screen. Further explanation will be given in \cref{ch:Beam Characterization}. The last port was capped off by a blank flange.
-
-\textbf{delte from here}
-
-In the middle port, a VSH \correction{Thyracont exact model is in one note}  pressure gauge was installed. On the left, a 19 pin connector \todo{how many pins and model name? MIL Type C connector} \suggestion{MIL 19 C} was installed to supply the necessary voltages to the CRT. Two flanges were equipped with four BNC feedthroughs each. One of them was used to connect do the x-, and y-plates, while the other connected to the wobble stick and aluminum foil at the CRT screen. Further explanation will be given in \cref{ch:Beam Characterization}. The last port was capped off by a blank flange.
-
-\textbf{to here}
  
 For the inside wires, at first stranded copper cables were used. These were later swapped for Kapton insulated BNC cables. The chamber was sealed by Viton rubber gaskets which were changed to copper gaskets. Only the gasket at the cluster flange was kept to rubber since the chamber was opened and closed multiple times at that connection.
-
-\textbf{delete from here}
-
-For the inside wires, standard copper cables were used \correction{we also used thin Kapton insulated BNC cable}. The chamber was sealed by rubber \suggestion{Viton, maybe also describe the specification of these type of seals} gaskets.
-
-\textbf{to here}
  
 \begin{figure}[ht]
 	\centering
@@ -68,10 +43,9 @@ Two M8 rods of length \todo{rod length? check Solid works} were screwed with a c
 
 
 \section{Pressure measurements}
-\subsection{Leak test} \correction{in general make better section titles}
-\label{sec:Measurement of outgassing}
+\label{sec:Pressure measurements}
 
-Before inserting a CRT for the first time, measurements were made in order to find out how well low pressure could be maintained inside the setup. First, the chamber was set to a pressure of \SI{e-5}{\milli\bar} after which the pump was turned off. The pressure was measured once a minute for a duration \SI{3}{\hour}. This is shown in \cref{fig:Time evolution of pressure inside the test chamber after turning off pump}. \correction{this is not so much of a leak but mainly outgasing / how was the pressure measured?}
+Before inserting a CRT for the first time, measurements were made in order to find out how well low pressure could be maintained inside the setup. First, the chamber was set to a pressure of \SI{e-5}{\milli\bar} after which the pump was turned off. The pressure was measured once a minute for a duration \SI{3}{\hour}. This is shown in \cref{fig:Time evolution of pressure inside the test chamber after turning off pump}.
 
 \begin{figure}[ht]
 	\centering
@@ -84,7 +58,7 @@ Before inserting a CRT for the first time, measurements were made in order to fi
 	\label{fig:Time evolution of pressure inside the test chamber after turning off pump}
 \end{figure}
 
-Without a CRT installed, it was possible to reach a pressure of \SI{6.8e-7}{\milli\bar}. With a CRT installed inside, the lowest achieved pressure was \SI{2.0e-6}{\milli\bar}. It was not possible to reach a lower pressure due to outgassing. As mentioned in \cref{sec:Chamber Setup}, changes were made to the chamber. Thanks to these, it was possible to reach a pressure of \SI{1.2e-7}{\milli\bar} \todo{w/o CRT?}.
+Without a CRT installed, it was possible to reach a pressure of \SI{6.8e-7}{\milli\bar}. With a CRT installed inside, the lowest achieved pressure was \SI{2.0e-6}{\milli\bar}. It was not possible to reach a lower pressure due to outgassing. As mentioned in \cref{sec:Chamber Setup}, changes were made to the chamber. Thanks to these, it was possible to reach a pressure of \SI{1.2e-7}{\milli\bar} with a CRT inside the setup.
 
 \section{Fastening}
 \label{sec:Fastening}
