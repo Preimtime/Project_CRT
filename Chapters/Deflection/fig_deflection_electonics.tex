@@ -1,0 +1,40 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+% !TeX root = ../../Thesis.tex
+
+\ctikzset{sources/scale=0.5}
+\ctikzset{transformer L1/.style={inductors/coils=6}, transformer L2/.style={inductors/coils=6}}  % set coil number so that midtap touches coil
+
+\newcommand{\coaxial}[2] % coordinates of left inner wire, length of cable
+% draw a coaxial cable with given length
+{
+	\draw (0 + {#1}[0], {#1}[1]) to[short, -] (#2 + {#1}[0], {#1}[1]); % middle line
+	\draw (0.5 + {#1}[0], 0.25 + {#1}[1]) -- (#2 - 0.5 + {#1}[0], 0.25 + {#1}[1]); % top line
+	\draw (0 + {#1}[0], -0.25 + {#1}[1]) to[short, -] (#2 + {#1}[0], -0.25 + {#1}[1]); % bottom line
+	\draw (0.5 + {#1}[0], {#1}[1]) circle [radius=0.25]; % left circle
+	\draw (#2 - 0.5 + {#1}[0], {#1}[1]) circle [radius=0.25]; % right circle
+}
+
+%\draw [help lines] (0, 0) grid (15, 12);
+%\filldraw (0, 0) circle (0.5mm);
+
+
+% signal generator
+\draw (0, 3) rectangle (2, 4) node [midway]{RF};
+\coaxial{2, 3.5}{2}
+\draw (4, 3.25) node [ground] {};
+\draw (4, 3.5) to ++ (1, 0);
+
+% x signal
+\draw (5, 3.5) to ++ (0, 1.5) to ++ (2, 0) to [twoport, t=AMP] ++ (2, 0) node [transformer, anchor=A1] (x-transformer) {};
+\draw (x-transformer.A2) node [ground] {};  % gound left side
+\draw (x-transformer.B1) to ++ (2, 0) node [right] {x1}; % connection to x1
+\draw (x-transformer.B2) to ++ (2, 0) node [right] {x2}; % connection to x2
+\draw (x-transformer-L2) to [dcvsource, label=\SI{96}{\volt}] ++ (2, 0) node [ground] {};  % bias center to ground
+
+% y signal
+\draw (5, 3.5) to ++ (0, -2) to [vphaseshifter] ++ (2, 0) to [twoport, t=AMP]++ (2, 0) node [transformer, anchor=A1] (y-transformer) {};
+\draw (y-transformer.A2) node [ground] {};  % gound left side
+\draw (y-transformer.B1) to ++ (2, 0) node [right] {y1}; % connection to y1
+\draw (y-transformer.B2) to ++ (2, 0) node [right] {y2}; % connection to y2
+\draw (y-transformer-L2) to [dcvsource, label=\SI{78}{\volt}] ++ (2, 0) node [ground] {};  % bias center to ground
