@@ -8,11 +8,10 @@
 This chapter features a quick explanation what a Cathodic Ray Tube (CRT) is and what its main components are. This is followed by a more detailed description on how the individual components are implemented in our used CRT, a Heerlen D14-363GY. The chapter ends with a description of the important characteristics of the CRT and the requirement the theory poses on them.
 
 \section{Underlying Physics}
-\correction{this section is sometimes confusing and already deals with our CRT}
 
 
-Wikipedia states: ``The cathode-ray tube (CRT) is a vacuum tube that contains one or more electron guns, while a phosphorescent screen and is used to display images. It modulates, accelerates, and deflects electron beam(s) onto the screen to create the images.''
-\suggestion{you can probably explain it in your own words better -> maybe but I wanted some generally excepted definition (for example this one includes CRTs with multiple electron guns, which I was not aware of)}
+``The cathode-ray tube (CRT) is a vacuum tube that contains one or more electron guns, while a phosphorescent screen and is used to display images. It modulates, accelerates, and deflects electron beam(s) onto the screen to create the images.''\todo{wikipedia quelle}
+
 
 There are three vital components to accomplish this feat: the electron gun, the electron lens and the deflection plates.
 
@@ -23,13 +22,10 @@ There are three vital components to accomplish this feat: the electron gun, the 
 	\label{fig:electrongun}
 \end{figure}
 
-Thomas: The electron gun generates free electrons from a cathode material, accelerates them onto an anode and thereby produces an electron beam (see \cref{fig:electrongun}). One important characteristic in the selection of a cathode material is a low work function. It denotes the amount of energy needed to extract one electron from the material. There are two ways to overcome this energy barrier in an electron gun; one can either apply a strong electric field(``field emission'', ``cold cathode'')  as sen in \cref{fig:coldcathode}. \correction{explain why it has to be a sharp tip already here since it is shown in the picture} Or one can heat the material until some electrons have enough thermal energy to overcome the energy barrier (``thermal emission'', ``hot cathode'', \cref{fig:hotcathode}).
-
-The electron gun generates free electrons from a cathode material, accelerates them onto an anode and thereby produces an electron beam (see \cref{fig:electrongun}). One important characteristic in the selection of a cathode material is a low work function. It denotes the amount of energy needed to extract one electron from the material. There are two ways to overcome this energy barrier in an electron gun; one can either apply a strong electric field(``field emission'', ``cold cathode'')  as seen in \cref{fig:coldcathode}. Or one can heat the material until some electrons have enough thermal energy to overcome the energy barrier (``thermal emission'', ``hot cathode'', \cref{fig:hotcathode}).
+The electron gun generates free electrons from a cathode material, accelerates them onto an anode and thereby produces an electron beam (see \cref{fig:electrongun}). One important characteristic in the selection of a cathode material is a low work function. It denotes the amount of energy needed to extract one electron from the material. There are two ways to overcome this energy barrier in an electron gun; one can either apply a strong electric field (``field emission'', ``cold cathode'')  as seen in \cref{fig:coldcathode}. Or one can heat the material until some electrons have enough thermal energy to overcome the energy barrier (``thermal emission'', ``hot cathode'', \cref{fig:hotcathode}).
 In the case of the cold cathode, a cathode with a sharp tip is used, because  the electric field on the surface of a charged conductor is always strongest near sharp points. This causes the electrons to be emitted from the tip and makes for a very point-like electron source.
 
-
-As our CRT uses a hot cathode, more detail on this will be added later along with the description of our cathode's design.
+As our CRT uses a hot cathode, more details on this will be added later along with the description of our cathode's design.
 
 \begin{figure}
 	\centering
@@ -54,7 +50,7 @@ As our CRT uses a hot cathode, more detail on this will be added later along wit
 
 Normally the cathode itself is covered in beam direction in a so-called Wehnelt cylinder. Which is a conducting cylinder set to a slightly more negative potential than the cathode. This part implements two features; firstly it condenses the emitted electrons, leading to a smaller spot size, i.e. making the cathode a more point-like electron source. Secondly it enables us to regulate the beam current, the more negative the Wehnelt potential is, the less electrons are emitted by the electron gun. As we make the Wehnelt potential more positive, the beam current increases and continues to rise even after it is more positive than the cathode itself. However, the spot size gets increased, while the proper beam focus is lost. 
 
-The electrons, that leave the electron gun, are still divergent and need to be focused. For our \SI{2}{\kilo\electronvolt} electrons an electrostatic lens is used.  In the simples way these are cylindrically symmetrical pieces of conductor, like a ring or tube, set to an electrical potential. By combining several of them, one can create the same effect as a combination of concave and convex lenses (\cite{Demtroeder3}). \correction{"this is a strong statement" -> Yes, too strong of a statement actually}
+The electrons, that leave the electron gun, are still divergent and need to be focused. For our \SI{2}{\kilo\electronvolt} electrons an electrostatic lens is used.  In the simples way these are cylindrically symmetrical pieces of conductor, like a ring or tube, set to an electrical potential. By combining several of them, one can create the same effect as a combination of concave and convex lenses (\cite{Demtroeder3}). 
 
 The field of this system is simply governed by Laplace's equation in 
 cylindrical coordinates:
@@ -70,7 +66,7 @@ If we take the axis of the beam to be the z-axis, the focal point position in th
 
 %Ende erster Abschnitt
 
-For the measures of our CRT ($ L \approx \SI{10}{\centi\meter}$, $d \approx \SI{1}{\centi\meter}$, $U_0 \approx \SI{2}{\kilo\volt}$ and distance to screen $\approx \SI{20}{\centi\meter}$) this amounts to a deflection coefficient of around \SI{20}{\volt\per\centi\meter}, which is quite consistent with the value given in the CRT's manual.\todo[]{können die Maße stimmen?} 
+For the measures of our CRT ($ L \approx \SI{5}{\centi\meter}$, $d \approx \SI{5}{\milli\meter}$, $U_0 \approx \SI{2}{\kilo\volt}$ and distance to screen $\approx \SI{20}{\centi\meter}$) this amounts to a deflection coefficient of around \SI{20}{\volt\per\centi\meter}, which is quite consistent with the value given in the CRT's manual.
 
 \begin{figure}
 	\centering
@@ -116,8 +112,7 @@ Finally the beam hits the phosphorous-coated screen, which fluoresces on electro
 \subsection{The Cathode}
 
 
-As already mentioned, we are using a hot cathode, where electrons are thermally exited  to leave the material. Compared to cold cathodes which work by field emission, this leads to a broader energy distribution. For electron microscopy, where a high resolution is the goal, this in undesirable, as it leads to some degree of chromatic aberration in the electron optics; for our purposes, this should not be a problem. On the other hand, hot cathodes normally allow for higher current densities. This is very important to QUAK because a high current density allows for a high amplitude of the beam's dipole radiation and therefore a strong coupling to the potassium atoms. \suggestion{mention why it is important
--> done} The  electron current by thermal emission is described by \cite[chp 3.2.3]{Whitaker}:
+As already mentioned, we are using a hot cathode, where electrons are thermally exited  to leave the material. Compared to cold cathodes which work by field emission, this leads to a broader energy distribution. For electron microscopy, where a high resolution is the goal, this in undesirable, as it leads to some degree of chromatic aberration in the electron optics; for our purposes, this should not be a problem. On the other hand, hot cathodes normally allow for higher current densities. This is very important to QUAK because a high current density allows for a high amplitude of the beam's dipole radiation and therefore a strong coupling to the potassium atoms. The  electron current by thermal emission is described by \cite[chp 3.2.3]{Whitaker}:
 
 \begin{equation}\label{eq:thermionic_current}
 I=A\cdot T^2 \cdot e^{-b/T}

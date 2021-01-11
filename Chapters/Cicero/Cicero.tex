@@ -52,8 +52,8 @@ For synchronization, a \textbf{Shared Sample Clock} was used with \textbf{Dev1} 
 \section{Configuration and Basic Usage of Cicero}\label{sec:Cicero, Configuration and Basic Usage of Cicero}
 After setting up the Atticus server, Cicero can be configured. In step 3.c. it is necessary to write the full IP address and not `localhost'.
 
-\subsection{Saving of Settings and Sequences}\label{sec:Cicero, Saving of Settings and Sequences}
+\subsection*{Saving of Settings and Sequences}\label{sec:Cicero, Saving of Settings and Sequences}
 The `SettingsData' of the Server Atticus are saved in C:\textbackslash Users\textbackslash confetti\textbackslash Documents \textbackslash Cicero\textunderscore Atticus\textbackslash Cicero\textbackslash SettingsData while the `SequenceData' of Cicero are saved in C:\textbackslash Users\textbackslash confetti\textbackslash Documents\textbackslash Cicero\textunderscore Atticus\textbackslash Cicero\textbackslash SequenceData.
 
-\subsection{Sequence length limit}\label{sec:cicero, Sequence length limit}
+\subsection*{Sequence length limit}\label{sec:cicero, Sequence length limit}
 The duration of a sequence is limited to $\num[exponent-base=2]{e32}/(16*32*\SI{350}{\kilo\hertz})$ = \SI{23.967}{\second} coming from a 32-bit application, \SI{16}{\bit} per channel, 32 channels in a NI PCIe-6738 card, and \SI{350}{\kilo\hertz} clock rate.
