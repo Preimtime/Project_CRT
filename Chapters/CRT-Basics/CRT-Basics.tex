@@ -18,7 +18,7 @@ There are three vital components to accomplish this feat: the electron gun, the 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.9\textwidth]{Chapters/CRT-Basics/electron_gun}
-	\caption{Schematic of an electron gun}
+	\caption{Schematic of an electron gun.}
 	\label{fig:electrongun}
 \end{figure}
 
@@ -32,7 +32,7 @@ As our CRT uses a hot cathode, more details on this will be added later along wi
 	\begin{subfigure}{0.4\textwidth}
 		\centering
 		\includegraphics[width=\textwidth]{Chapters/CRT-Basics/HotCathode}
-		\caption{Schematic of a hot cathode}
+		\caption{Schematic of a hot cathode.}
 		\label{fig:hotcathode}
 	\end{subfigure}%
 	\hspace{0.1\textwidth}
@@ -40,7 +40,7 @@ As our CRT uses a hot cathode, more details on this will be added later along wi
 		\centering
 		\includegraphics[width=\textwidth]{Chapters/CRT-Basics/ColdCathode}
 		
-		\caption{Schematic of field emission cathode}
+		\caption{Schematic of field emission cathode.}
 		\label{fig:coldcathode}
 	\end{subfigure}
 	\caption{Cathode types}
@@ -48,9 +48,9 @@ As our CRT uses a hot cathode, more details on this will be added later along wi
 \end{figure}
 
 
-Normally the cathode itself is covered in beam direction in a so-called Wehnelt cylinder. Which is a conducting cylinder set to a slightly more negative potential than the cathode. This part implements two features; firstly it condenses the emitted electrons, leading to a smaller spot size, i.e. making the cathode a more point-like electron source. Secondly it enables us to regulate the beam current, the more negative the Wehnelt potential is, the less electrons are emitted by the electron gun. As we make the Wehnelt potential more positive, the beam current increases and continues to rise even after it is more positive than the cathode itself. However, the spot size gets increased, while the proper beam focus is lost. 
+Normally the cathode itself is covered in beam direction in a so-called Wehnelt cylinder. Which is a conducting cylinder set to a slightly more negative potential than the cathode. This part implements two features; firstly, it condenses the emitted electrons, leading to a smaller spot size, i.e. making the cathode a more point-like electron source. Secondly, it enables us to regulate the beam current, the more negative the Wehnelt potential is, the less electrons are emitted by the electron gun. As we make the Wehnelt potential more positive, the beam current increases and continues to rise even after it is more positive than the cathode itself. However, the spot size gets increased, while the proper beam focus is lost. 
 
-The electrons, that leave the electron gun, are still divergent and need to be focused. For our \SI{2}{\kilo\electronvolt} electrons an electrostatic lens is used.  In the simples way these are cylindrically symmetrical pieces of conductor, like a ring or tube, set to an electrical potential. By combining several of them, one can create the same effect as a combination of concave and convex lenses (\cite{Demtroeder3}). 
+The electrons that leave the electron gun are still divergent and need to be focused. For our electrons with an energy of \SI{2}{\kilo\electronvolt},  an electrostatic lens is used.  In the simplest way these are cylindrically symmetrical pieces of conductor, like a ring or tube, set to an electrical potential. By combining several of them, one can create the same effect as a combination of concave and convex lenses \cite{Demtroeder3}. 
 
 The field of this system is simply governed by Laplace's equation in 
 cylindrical coordinates:
@@ -58,7 +58,7 @@ cylindrical coordinates:
 	0=\dfrac{1}{r}\pdv{\phi}{r}+\pdv[2]{\phi}{r}+\pdv[2]{\phi}{z}
 \end{equation}
 
-If we take the axis of the beam to be the z-axis, the focal point position in the x-y-plane can be shifted using the two pairs of deflection plates, one for the x- and one for the y-direction. The deflection is achieved by applying a voltage between the two parallel plates. (see: \cref{fig:deflectionplate2}) By starting with an electron with kinetic energy $e \cdot U_0$ which is accelerated in x-direction by a constant force $e\cdot U_x / d$ over the extent of the plates $L$, the deflection angle is approximately \cite{Demtroeder3}:
+If we take the axis of the beam to be the $z$-axis, the focal point position in the $x$-$y$-plane can be shifted using the two pairs of deflection plates, one for the $x$- and one for the $y$-direction. The deflection is achieved by applying a voltage between the two parallel plates (see: \cref{fig:deflectionplate2}). By starting with an electron with kinetic energy $e \cdot U_0$ which is accelerated in $x$-direction by a constant force $e\cdot U_x / d$ over the extent of the plates $L$, the deflection angle is approximately \cite{Demtroeder3}:
 
 \begin{equation}\label{key}
 	\delta \approx \tan(\delta) \approx \frac{U_x\cdot L}{2 U_0 \cdot d}
@@ -71,7 +71,7 @@ For the measures of our CRT ($ L \approx \SI{5}{\centi\meter}$, $d \approx \SI{5
 \begin{figure}
 	\centering
 	\includegraphics[width=0.7\textwidth]{Chapters/CRT-Basics/DeflectionPlate2}
-	\caption{Deflection of an electron beam in a constant electrical field}
+	\caption{Deflection of an electron beam in a constant electrical field.}
 	\label{fig:deflectionplate2}
 \end{figure}
 
@@ -106,13 +106,13 @@ Between the electrostatic lens and the deflection plates, there is another apert
 
 Finally the beam hits the phosphorous-coated screen which fluoresces on electron impact.
 
-It is connected to the aquadag \footnote{A conductive coating used in CRTs, it consists of graphite particles dispersed in water} coating inside the glass envelope and prevents charge building up, that could lead to image distortions. 
-Finally the beam hits the phosphorous-coated screen, which fluoresces on electron impact.
+It is connected to the aquadag \footnote{A conductive coating used in CRTs, it consists of graphite particles dispersed in water.} coating inside the glass envelope and prevents charge building up that could lead to image distortions. 
+Finally, the beam hits the phosphorous-coated screen, which fluoresces on electron impact.
 
 \subsection{The Cathode}
 
 
-As already mentioned, we are using a hot cathode, where electrons are thermally exited  to leave the material. Compared to cold cathodes which work by field emission, this leads to a broader energy distribution. For electron microscopy, where a high resolution is the goal, this in undesirable, as it leads to some degree of chromatic aberration in the electron optics; for our purposes, this should not be a problem. On the other hand, hot cathodes normally allow for higher current densities. This is very important to QUAK because a high current density allows for a high amplitude of the beam's dipole radiation and therefore a strong coupling to the potassium atoms. The  electron current by thermal emission is described by \cite[chp 3.2.3]{Whitaker}:
+As already mentioned, we are using a hot cathode, where electrons are thermally exited  to leave the material. Compared to cold cathodes which work by field emission, this leads to a broader energy distribution. For electron microscopy, where a high resolution is the goal, this in undesirable, as it leads to some degree of chromatic aberration in the electron optics; for our purposes this should not be a problem. On the other hand, hot cathodes normally allow for higher current densities. This is very important to QUAK because a high current density allows for a high amplitude of the beam's dipole radiation and therefore a strong coupling to the potassium atoms. The  electron current by thermal emission is described by \cite[chp 3.2.3]{Whitaker}:
 
 \begin{equation}\label{eq:thermionic_current}
 I=A\cdot T^2 \cdot e^{-b/T}
@@ -140,7 +140,7 @@ Also the material from the oxide cathode will evaporate during the tube's lifeti
 \begin{figure}
 	\centering
 	\includegraphics[width=0.6\textwidth]{Chapters/CRT-Basics/Cathode_layout}
-	\caption{Schematic of the layout of a typical CRT-cathode from \cite{deVere69}}
+	\caption{Schematic of the layout of a typical CRT-cathode \cite{deVere69}.}
 	\label{fig:cathodelayout}
 \end{figure}
 
