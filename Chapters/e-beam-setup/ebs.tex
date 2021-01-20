@@ -7,21 +7,21 @@
 \section{Charatarization of a working CRT}
 \label{sec:Charatarization of a working CRT}
 
-HAMEG HM507 oscilloscopes \autocite{HM507-manual} were used for testing purposes which contain a D14-363GY/123\autocite{D14363GY123-manual} CRT. Although it only has a bandwidth of \SIrange{0}{50}{\mega\hertz}, which is not sufficient to reach the hyperfine splitting frequency of \SI{461.7}{\mega\hertz} for $^{39}\mathrm{K}$\cite{tiecke:potassium-properties} (or \SI{254}{\mega\hertz} for $^{41}\mathrm{K}$), it was used nevertheless because of its simple construction and availability. The back pin arrangement is shown in \cref{fig:pin arrangement}.
+HAMEG HM507 oscilloscopes \autocite{HM507-manual} were used for testing purposes. These contain a D14-363GY/123 \autocite{D14363GY123-manual} CRT. Although it only has a bandwidth of \SIrange{0}{50}{\mega\hertz}, which is not sufficient to reach the hyperfine splitting frequency of \SI{461.7}{\mega\hertz} for $^{39}\mathrm{K}$ \cite{tiecke:potassium-properties} (or \SI{254}{\mega\hertz} for $^{41}\mathrm{K}$), it was used nevertheless because of its simple construction and availability. The back pin arrangement is shown in \cref{fig:pin arrangement}.
 
-The voltages and currents of the necessary pins to drive the CRT were measured using a \SI{2.5}{\kilo\volt} probe with a voltage divider of 100:1 and are summarized in \cref{tab:D14-363GY/123 tube pin measurements}. It was not possible to measure pin g3 directly. Therefore a HVPS (\cref{sec:HVPS}) was used to set a voltage and the beam diameter was observed. The best focus was achieved with the value written in the table. The voltage offset of x-, and y-plates was not possible to measure directly, since it varies with time to draw the necessary image on the phosphor screen. The given values are the mean of the minimum and maximum measured voltage. The deflection coefficient is summarized in \cref{tab:D14-363GY/123 deflection coefficient}.
+The voltages and currents of the pins to drive the CRT were measured using a \SI{2.5}{\kilo\volt} probe with a voltage divider of 100:1 and are summarized in \cref{tab:D14-363GY/123 tube pin measurements}. It was not possible to measure pin g3 directly. Therefore a HVPS (\cref{sec:HVPS}) was used to set a voltage and the beam diameter was observed. The best focus was achieved with the value written in the table. The voltage offset of x-, and y-plates was not possible to measure directly, since it varies with time to draw the necessary image on the phosphor screen. The given values are the mean of the minimum and maximum measured voltage. The deflection coefficient is summarized in \cref{tab:D14-363GY/123 deflection coefficient}.
 
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=5cm]{./Chapters/e-beam-setup/pin arrangement}
-	\caption{Pin arrangement, bottom view from \autocite{D14363GY123-manual}}
+	\caption{Pin arrangement, bottom view \autocite{D14363GY123-manual}.}
 	\label{fig:pin arrangement}
 \end{figure}
 
 
 \begin{table}[ht]
 	\centering
-	\caption{D14-363GY/123 CRT pin measurements}
+	\caption{D14-363GY/123 CRT pin measurements.}
 	\label{tab:D14-363GY/123 tube pin measurements}
 	\begin{tabular}{S r *{2}{S}}
 		\toprule
@@ -45,7 +45,7 @@ The voltages and currents of the necessary pins to drive the CRT were measured u
 
 \begin{table}[ht]
 	\centering
-	\caption{D14-363GY/123 deflection coefficient from \autocite{D14363GY123-manual}}
+	\caption{D14-363GY/123 deflection coefficients \autocite{D14363GY123-manual}.}
 	\label{tab:D14-363GY/123 deflection coefficient}
 	
 	\begin{tabular}{*{2}{l} l}
@@ -142,9 +142,9 @@ A schematic of the supplied power is shown in \cref{fig:schematics of wiring}. T
 	\todo[inline]{check if really \SI{14}{\ohm} or if it event exists}
 \end{figure}
 
-The heater provides an adjustable ac voltage, which is used to regulate the temperature of the cathode. In the cold state, the heater filament has a an electrical resisitance of approximately \SI{15}{\ohm}, when the filament is hot, this value rises to \SI{90}{\ohm}. The normal heater voltage for the D14-363GY/123 during  operation is \SIrange{6.0}{6.6}{\volt} according to \cite{D14363GY123-manual}. 
-Our ac-power supply (shown in figure \ref{fig:heater_circuit}) consists of an isolation transformer (from grid voltage to 12 V), its primary  and secondary circuits are isolated up to \SI{4}{\kilo\volt} \cite{DS44231-DataSheet}. The power supply has two  banana plug sockets to connect to the heater filament. 
-It is connected to the transformer in series with a \SI{100}{\ohm} potentiometer. Using the full resistance, there is a voltage of approximately \SI{5.7}{\volt} applied to the heater filament, by lowering the resistance this value can goes up to nearly the full voltage of the transformer. 
+The heater provides an adjustable ac voltage, which is used to regulate the temperature of the cathode. In the cold state, the heater filament has a an electrical resistance of approximately \SI{15}{\ohm}. When heated, its value rises to \SI{90}{\ohm}. The normal heater voltage for the D14-363GY/123 during  operation is \SIrange{6.0}{6.6}{\volt} according to \cite{D14363GY123-manual}. 
+Our ac-power supply (shown in figure \ref{fig:heater_circuit}) consists of an isolation transformer (from grid voltage to 12 V). Its primary  and secondary circuits are isolated up to \SI{4}{\kilo\volt} \cite{DS44231-DataSheet}. The power supply has two  banana plug sockets to connect to the heater filament. 
+It is connected to the transformer in series with a \SI{100}{\ohm} potentiometer. Using the full resistance, there is a voltage of approximately \SI{5.7}{\volt} applied to the heater filament, by lowering the resistance this value goes up to nearly the full voltage of the transformer. 
 The current running through the filament is measured with an integrated ampere meter \cite{ACA-20PC-manual}, that measures currents up to  \SI{2}{\ampere} with \si{\milli\ampere} accuracy.
 
 At the beginning of operation it is recommendable to set the maximum resistance and slowly increase the current to the desired value once the filament is heated up. As the resistance of the cold filament is significantly lower, high onset currents could otherwise damage it.  
