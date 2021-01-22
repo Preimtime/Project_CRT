@@ -20,10 +20,9 @@ As previously mentioned, our deflection system simply consists of two pairs of p
 
 \begin{figure}[ht]
 	\centering
-		\includegraphics[width=0.7\linewidth]{Chapters/Deflection/VoltageAspects}
-	\caption{}
+		\includegraphics[width=0.9\textwidth]{Chapters/Deflection/VoltageAspects}
+	\caption{Charactaristics of the generated deflection voltages.}
 	\label{fig:VoltageAspects}
-	\todo[inline]{fr x1 to x2, caption}
 \end{figure}
 
 
@@ -34,7 +33,7 @@ As previously mentioned, our deflection system simply consists of two pairs of p
 		\input{./Chapters/Deflection/fig_Lissajous}
 	\end{tikzpicture}
 	
-	\caption{Lissajous Curves}
+	\caption{Lissajous Curves.}
 	\label{fig:Lissajous Curves}
 \end{figure}
 
@@ -65,7 +64,7 @@ As previously mentioned, our deflection system simply consists of two pairs of p
 		\caption{}
 		\label{fig:PCB_phase}
 	\end{subfigure}
-	\caption{Images of deflection plates}
+	\caption{Images of deflection plates.}
 	\label{fig:PhaseShifter}
 \end{figure}
 
@@ -73,7 +72,7 @@ As previously mentioned, our deflection system simply consists of two pairs of p
 A first setup with which we can try to obtain the desired voltages is depicted in \cref{fig:deflec_circuit}. On the  very left we have a signal generator that is capable of producing the right frequency (\SI{461.7}{\mega\hertz}) this signal is then split up into an x-, and a y-branch. One of the two branches is connected to a phase shifter, which is able to delay the input signal by up to \SI{200}{\degree}, allowing us to set any desired phase shift between x-, and y-deflection and to correct for inadvertent delays from the other electronics. Both the x-, and  y-signal are then amplified using Mini Circuits ZHL amplifiers. In the final step, a center tapped transformer allows us to produce voltages for the plates X1 and X2 (or Y1 and Y2 respectively) with a phase shift of exactly \SI{180}{\degree} between them. By setting the center tap to the desired offset potential, we should get the voltage curves described above. To understand this setup in more detail, it is useful to examine its most important parts more closely:
 
 \begin{description}
-	\item[Amplifier:] Up to now we have used the Mini Circuits ZHL 32A  and the ZHL 1A amplifier, which have a fixed gain of 25 and 16 respectively. Inputs and outputs can simply be connected via BNC cables. The amplifier is powered by a linear power supply with a DC voltage of \SI{24}{\volt} via two banana plugs in the front. Since we want to control the Lissajous curves shapes (as the deflection coefficients for the x- and y- plates differ), it is desirable to be able to adjust the amplifier gain in future versions of the setup. 
+	\item[Amplifier:] Up to now we have used the Mini Circuits ZHL 32A \cite{MiniCircuits2021a}  and the ZHL 1A \cite{MiniCircuits2021} amplifier, which have a fixed gain of 25 and 16 respectively. Inputs and outputs can simply be connected via BNC cables. The amplifier is powered by a linear power supply with a DC voltage of \SI{24}{\volt} via two banana plugs in the front. Since we want to control the Lissajous curves shapes (as the deflection coefficients for the x- and y- plates differ), it is desirable to be able to adjust the amplifier gain in future versions of the setup. 
 	
 	\item[Center Tapped Transformer:] The center tapped transformer we use is the Mini-Circuits TC8-1G2+ (\cite{TC8-1G2}), a transformer for frequencies between \SIrange{2}{500}{\mega\hertz}, with an impedance ratio of 8. \Cref{fig:CTT} shows how the center tapped transformer is implemented. The in- and outputs, as well as the bias voltage can be connected via BNC cables. As usual, the shields of all these cables are connected to ground, furthermore they are connected to each other and to the housing. As a safety feature, both outputs X1 and X2 are directly connected to the bias through an arrangement of diodes: Two connections, each with a normal diode and a Zener diode facing in opposite directions. The breakthrough voltage of the Zener diode is \SI{200}{\volt}, during normal operation the voltage on it stays below this value and none of the connections let any current through as one of the two diodes is always blocking it. However if one of the plates in the CRT accidentally comes in contact with high voltage, the connection with the appropriately oriented Zener diode opens up, preventing a voltage spike on the center tapped transformer and thereby protecting the electronics connected to its primary circuit.
 	At the point of writing there are still some problems with the behavior of the center tapped transformer, the capacitance of the diodes introduces an undesired phase shift between the two signals. \Cref{fig:unbiased2} shows the circuit's behavior at \SI{465}{\mega\hertz} without its diodes, here the signals are shifted by $\SI{120}{\pico\second} \mathrel{\widehat{=}} \SI{20}{\degree} = \SI{0.35}{\radian}$. Additionally, applying a bias voltage leads to differing amplitudes, as can be seen in \cref{fig:biased2}.
@@ -87,14 +86,14 @@ A first setup with which we can try to obtain the desired voltages is depicted i
 	\begin{subfigure}{0.4\textwidth}
 		\centering
 		\includegraphics[width=\textwidth]{Chapters/Deflection/circuit_phase4zu3}
-		\caption{Schematic of phase shifter connections}
+		\caption{Schematic of phase shifter connections.}
 		\label{fig:circuit_phase}
 	\end{subfigure}
 	\hspace{0.1\textwidth}
 	\begin{subfigure}{0.4\textwidth}
 		\centering
 		\includegraphics[width=\textwidth]{Chapters/Deflection/PCB_phase3}
-		\caption{PCB-Layout of the phase shifter}
+		\caption{PCB-Layout of the phase shifter.}
 		\label{fig:PCB_phase}
 	\end{subfigure}
 	\caption{}
@@ -109,14 +108,14 @@ A first setup with which we can try to obtain the desired voltages is depicted i
 	\begin{subfigure}{0.4\textwidth}
 		\centering
 		\includegraphics[width=\textwidth]{Chapters/Deflection/unbiased3}
-		\caption{Signal of center tapped transformer without diodes, unbiased at \SI{465}{\mega\hertz}}
+		\caption{Signal of center tapped transformer without diodes, unbiased at \SI{465}{\mega\hertz}.}
 		\label{fig:unbiased2}
 	\end{subfigure}
 	\hspace{0.1\textwidth}
 	\begin{subfigure}{0.4\textwidth}
 		\centering
 		\includegraphics[width=\textwidth]{Chapters/Deflection/biased3}
-		\caption{Signal of center tapped transformer without diodes, biased at \SI{465}{\mega\hertz}}
+		\caption{Signal of center tapped transformer without diodes, biased at \SI{465}{\mega\hertz}.}
 		\label{fig:biased2}
 	\end{subfigure}
 	\caption{}
@@ -130,14 +129,14 @@ A first setup with which we can try to obtain the desired voltages is depicted i
 	\begin{subfigure}{0.4\textwidth}
 		\centering
 		\includegraphics[width=\textwidth]{Chapters/Deflection/circuit_CTT4zu3}
-		\caption{Schematic of center tapped transformer connections}
+		\caption{Schematic of center tapped transformer connections.}
 		\label{fig:circuit_ctt}
 	\end{subfigure}
 	\hspace{0.1\textwidth}
 	\begin{subfigure}{0.4\textwidth}
 		\centering
 		\includegraphics[width=\textwidth]{Chapters/Deflection/PCB_CTT3}
-		\caption{PCB-Layout for center tapped transformer}
+		\caption{PCB-Layout for center tapped transformer.}
 		\label{fig:PCB_CTT}
 	\end{subfigure}
 	\caption{}
@@ -149,14 +148,14 @@ A first setup with which we can try to obtain the desired voltages is depicted i
 	\begin{subfigure}{0.4\textwidth}
 		\centering
 		\includegraphics[width=\textwidth]{Chapters/Deflection/PS_CTT.JPG}
-		\caption{Finished PCBs }
+		\caption{Finished PCBs.}
 		\label{fig:ctt_ps}
 	\end{subfigure}
 	\hspace{0.1\textwidth}
 	\begin{subfigure}{0.4\textwidth}
 		\centering
 		\includegraphics[width=\textwidth]{Chapters/Deflection/PS_CTT1.JPG}
-		\caption{Finished PCB in housing}
+		\caption{Finished PCB in housing.}
 		\label{fig:ctt_ps_housed}
 	\end{subfigure}
 	\caption{}
