@@ -7,7 +7,7 @@
 \section{Demands on the setup}
 
 For the QuaK experiment it is paramount to be able to deflect a beam of a sufficient current precisely at the right frequency with a sufficiently small bandwidth. 
-As previously mentioned, our deflection system simply consists of two pairs of parallel plates between which a voltage is applied \todo[]{Optional: insert Foto of CRT's deflection plates - fig:DeflectionSetup}. Controlling this voltage allows us to control the deflection of the beam. Various aspects are important here (illustrated in \cref{fig:VoltageAspects}):
+As previously mentioned, our deflection system simply consists of two pairs of parallel plates between which a voltage is applied. Controlling this voltage allows us to control the deflection of the beam. Various aspects are important here (illustrated in \cref{fig:VoltageAspects}):
 
 \begin{description}
 	
@@ -50,10 +50,30 @@ As previously mentioned, our deflection system simply consists of two pairs of p
 	\label{fig:deflec_circuit}
 \end{figure}
 
-A first setup with which we can try to obtain the desired voltages is depicted in \cref{fig:deflec_circuit}. On the  very left we have a signal generator that is capable of producing the right frequency (\SI{461.7}{\mega\hertz}) this signal is then split up into an x-, and a y-branch. One of the two branches is connected to a phase shifter, which is able to delay the input signal by up to \SI{200}{\degree}, allowing us to set any desired phase shift between x-, and y-deflection and to correct for inadvertent delays from the other electronics. Both the x-, and  y-signal are then amplified using (amplifier) \todo[]{Find out which amplifier}. In the final step, a center tapped transformer allows us to produce voltages for the plates X1 and X2 (or Y1 and Y2 respectively) with a phase shift of exactly \SI{180}{\degree} between them. By setting the center tap to the desired offset potential, we should get the voltage curves described above. To understand this setup in more detail, it is useful to examine its most important parts more closely:
+\begin{figure}[ht]
+	\centering
+	\begin{subfigure}{0.4\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Chapters/Deflection/Deflection.JPG}
+		\caption{}
+		\label{fig:circuit_phase}
+	\end{subfigure}
+	\hspace{0.1\textwidth}
+	\begin{subfigure}{0.4\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Chapters/Deflection/Deflection1.JPG}
+		\caption{}
+		\label{fig:PCB_phase}
+	\end{subfigure}
+	\caption{Images of deflection plates}
+	\label{fig:PhaseShifter}
+\end{figure}
+
+
+A first setup with which we can try to obtain the desired voltages is depicted in \cref{fig:deflec_circuit}. On the  very left we have a signal generator that is capable of producing the right frequency (\SI{461.7}{\mega\hertz}) this signal is then split up into an x-, and a y-branch. One of the two branches is connected to a phase shifter, which is able to delay the input signal by up to \SI{200}{\degree}, allowing us to set any desired phase shift between x-, and y-deflection and to correct for inadvertent delays from the other electronics. Both the x-, and  y-signal are then amplified using Mini Circuits ZHL amplifiers. In the final step, a center tapped transformer allows us to produce voltages for the plates X1 and X2 (or Y1 and Y2 respectively) with a phase shift of exactly \SI{180}{\degree} between them. By setting the center tap to the desired offset potential, we should get the voltage curves described above. To understand this setup in more detail, it is useful to examine its most important parts more closely:
 
 \begin{description}
-	\item[Amplifier:] Up to now we have used the XXX \todo[]{which model?} and the YYY \todo[]{which model?} amplifier, which have a fixed gain of (How much?) \todo[]{Check amplifier specifications}. Inputs and outputs can simply be connected via BNC cables. The amplifier is powered by a linear power supply with a DC voltage of \SI{24}{\volt} via two banana plugs in the front. Since we want to control the Lissajous curves shapes (as the deflection coefficients for the x- and y- plates differ), it is desirable to be able to adjust the amplifier gain in future versions of the setup. 
+	\item[Amplifier:] Up to now we have used the Mini Circuits ZHL 32A  and the ZHL 1A amplifier, which have a fixed gain of 25 and 16 respectively. Inputs and outputs can simply be connected via BNC cables. The amplifier is powered by a linear power supply with a DC voltage of \SI{24}{\volt} via two banana plugs in the front. Since we want to control the Lissajous curves shapes (as the deflection coefficients for the x- and y- plates differ), it is desirable to be able to adjust the amplifier gain in future versions of the setup. 
 	
 	\item[Center Tapped Transformer:] The center tapped transformer we use is the Mini-Circuits TC8-1G2+ (\cite{TC8-1G2}), a transformer for frequencies between \SIrange{2}{500}{\mega\hertz}, with an impedance ratio of 8. \Cref{fig:CTT} shows how the center tapped transformer is implemented. The in- and outputs, as well as the bias voltage can be connected via BNC cables. As usual, the shields of all these cables are connected to ground, furthermore they are connected to each other and to the housing. As a safety feature, both outputs X1 and X2 are directly connected to the bias through an arrangement of diodes: Two connections, each with a normal diode and a Zener diode facing in opposite directions. The breakthrough voltage of the Zener diode is \SI{200}{\volt}, during normal operation the voltage on it stays below this value and none of the connections let any current through as one of the two diodes is always blocking it. However if one of the plates in the CRT accidentally comes in contact with high voltage, the connection with the appropriately oriented Zener diode opens up, preventing a voltage spike on the center tapped transformer and thereby protecting the electronics connected to its primary circuit.
 	At the point of writing there are still some problems with the behavior of the center tapped transformer, the capacitance of the diodes introduces an undesired phase shift between the two signals. \Cref{fig:unbiased2} shows the circuit's behavior at \SI{465}{\mega\hertz} without its diodes, here the signals are shifted by $\SI{120}{\pico\second} \mathrel{\widehat{=}} \SI{20}{\degree} = \SI{0.35}{\radian}$. Additionally, applying a bias voltage leads to differing amplitudes, as can be seen in \cref{fig:biased2}.
@@ -61,8 +81,6 @@ A first setup with which we can try to obtain the desired voltages is depicted i
 	\item[Phase Shifter:] To control the phase shift between the x- and y-deflection plates, we use a Mini-Circuits \cite{JSPHS-661} phase shifter. This part was put in a  housing (\cite{Hammond1455D601RD}) on a separate PCB and can be connected via BNC cables. \Cref{fig:circuit_phase} shows how the phase shifter is connected and \cref{fig:PCB_phase} shows the corresponding PCB layout. Note that again the shields of the BNC cables are connected among each other and to the housing. The JSPHS-661+ is designed for frequencies in the range \SIrange{400}{600}{\mega\hertz}. By applying a DC voltage of \SIrange{0}{12}{\volt} to the bias connector, it is possible to introduce a phase shift of up to \SI{200}{\degree} to the signal.
 	
 \end{description}
-
-(figure)\todo[]{Insert fotos of finished circuits in housings}\\
 
 \begin{figure}[ht]
 	\centering
@@ -121,6 +139,25 @@ A first setup with which we can try to obtain the desired voltages is depicted i
 		\includegraphics[width=\textwidth]{Chapters/Deflection/PCB_CTT3}
 		\caption{PCB-Layout for center tapped transformer}
 		\label{fig:PCB_CTT}
+	\end{subfigure}
+	\caption{}
+	\label{fig:CTT}
+\end{figure}
+
+\begin{figure}[ht]
+	\centering
+	\begin{subfigure}{0.4\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Chapters/Deflection/PS_CTT.JPG}
+		\caption{Finished PCBs }
+		\label{fig:ctt_ps}
+	\end{subfigure}
+	\hspace{0.1\textwidth}
+	\begin{subfigure}{0.4\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Chapters/Deflection/PS_CTT1.JPG}
+		\caption{Finished PCB in housing}
+		\label{fig:ctt_ps_housed}
 	\end{subfigure}
 	\caption{}
 	\label{fig:CTT}
