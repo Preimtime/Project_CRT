@@ -18,7 +18,7 @@ to [normal open switch]  ++ (2, 0);
 % right half
 \ctikzset{european resistors}
 \draw (transformer.B1)  to [fuse, label = \SI{200}{\milli\ampere}] (6, 2)
-	to [R=\SI{14}{\ohm}] ++ (2, 0);
+	to [R=\SI{24}{\ohm}] ++ (2, 0);
 	
 \draw (transformer.B2) to [ammeter] (6, 0|-transformer.B2) -- (10, 0|-transformer.B2);
 \node [right] at (10, 0|-transformer.B2) {f};

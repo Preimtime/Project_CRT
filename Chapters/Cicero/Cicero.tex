@@ -16,6 +16,8 @@ After installation of the NI cards, Atticus should be launched for the first tim
 
 \subsection{Configure hardware timing / synchronization}\label{subsec:Cicero, Configure hardware timing / synchronization}
 For synchronization, a \textbf{Shared Sample Clock} was used with \textbf{Dev1} being the master card. The settings are summarized in \cref{tab:settings dev1} and \cref{tab:settings dev2}. \textbf{Dev3} follows the same settings as \textbf{Dev2} except `SampleClockExternalSource' was set to `/Dev3/RTSI7'. The `SampleClockRate' is set to \SI{350}{\kilo\hertz} since this is the fastest rate with all 32 analog channels active. It is possible to raise this to \SI{1}{\mega\hertz} by only using 8 channels (1 channel per bank).
+
+To route the clock signal to the timing bus, under `Connections' the `Destination Terminal' was set to \textbf{/Dev1/RTSI7} and `Source Terminal' to \textbf{/Dev1/DO/SampleClock}.
 \begin{table}[H]
 	\centering
 	\caption{Settings for \textbf{Dev1}.}
