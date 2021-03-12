@@ -9,7 +9,7 @@
 \section{Aluminum foil}
 \label{sec:Aluminum foil}
 
-In \cref{fig:Front view of vacuum chamber} the inside of the 6-way cross of is shown. On one side of the phosphor screen, aluminum foil was attached to simulate the aquadag coating inside the cut CRT. The beam was deflected on the aluminum foil and the BNC output was connected to ground through an ammeter to measure the beam current. As shown in \cref{fig:Difference in filament voltage and beam current between an open and sealed CRT} there is close to no difference in the filament voltage (and therefore heating power) between an opened and sealed CRT while the beam current on the aluminum foil varies widely. One possible reason could be that electrons scatter. Therefore, a Faraday cup (see \cref{sec:Faraday cup}) was used.
+In \cref{fig:Front view of vacuum chamber} the inside of the vacuum chamber is shown. On one side of the phosphor screen, aluminum foil was attached to simulate the aquadag coating inside the cut CRT. The beam was deflected on the aluminum foil and the BNC output was connected to ground through an ammeter to measure the beam current. As shown in \cref{fig:Difference in filament voltage and beam current between an open and sealed CRT} there is nearly no difference in the filament voltage (and therefore heating power) between an opened and sealed CRT. The current going through the aluminum foil is much lower when compared to the current on pin g5 (which is connected to the aquadag coating) of a sealed device. One possible reason could be that electrons scatter. Therefore, a Faraday cup (see \cref{sec:Faraday cup}) was used.
 
 \begin{figure}[h]
 	\centering
@@ -21,6 +21,7 @@ In \cref{fig:Front view of vacuum chamber} the inside of the 6-way cross of is s
 
 \begin{figure}[ht]
 	\centering
+	% data OneNote 2019-10-22
 	
 	\begin{tikzpicture}
 		\input{./Chapters/beam-characterization/fig_aluminum_foil}
@@ -61,9 +62,9 @@ With this improved setup, the beam current was measured again (\cref{fig:Beam cu
 \label{sec:Deflection frequency}
 
 This section describes a few observations that were made when letting the electron beam interact with a short piece of wire which was mounted to the wobble stick. Originally, we hoped to be able to measure the beam waist, using the knife edge method, i.e. observing the current transported by the beam, while slowly moving a razor blade through the beam path. However the beam is bent, when it passes closely to a conductive part. Whenever, we moved our wire close to the beam, the visible spot on the Phosphorous screen below was distorted. This will probably complicate the measurement of the beam waist in the future. 
-When the wire is connected to an oscilloscope, one can see a sharp increase in voltage, when it is moved into the beam. This can be used to see whether our deflection plates work properly and to test how fast we are able to deflect the beam. If the beam oscillates back and forth on a straight line and crosses the wire on the midway point, we should see a spike in voltage on the wire, which repeats with twice the frequency of the beam. If the wire is not on the midway point, the periods between consecutive spikes should sum up to the period of the beam's oscillation (see \cref{fig:spikes}). At low frequencies we have indeed observed this behavior. As the frequency is increased, the magnitude of the signal decreases. This is easily explained by the fact that the remain time close to the wire is inversely proportional to the frequency and the amplitude of beams deflection. It was possible to see the spikes up to a frequency of \SI{100}{\kilo\hertz} before they where obscured by noise and some other periodical, but so far unexplained artifacts.
+When the wire is connected to an oscilloscope, one can see a sharp increase in voltage, when it is moved into the beam. This can be used to see whether our deflection plates work properly and to test how fast we are able to deflect the beam. If the beam oscillates back and forth on a straight line and crosses the wire on the midway point, we should see a spike in voltage on the wire, which repeats with twice the frequency of the beam. If the wire is not on the midway point, the periods between consecutive spikes should sum up to the period of the beam's oscillation (see \cref{fig:spikes}). At low frequencies we have indeed observed this behavior. As the frequency is increased, the magnitude of the signal decreases. This is easily explained by the fact that the remain time close to the wire is inversely proportional to the frequency and the amplitude of beams deflection. To mitigate this, one should position the measurement wire at the maximum of the oscillation amplitude. If this is done, the induced amplitude becomes first order independent from the frequency. It was possible to see the spikes up to a frequency of \SI{100}{\kilo\hertz} before they where obscured by noise and some other periodical, but so far unexplained artifacts.
 At high deflection frequencies, the wire may also pick up some signal form the capacitive charging and discharging of the deflection plates and the corresponding oscillating electromagnetic field.
-In order to be able to see what happens at higher frequencies, a higher beam current and a smaller deflection amplitude would be beneficial. However, the most important factor in order to understand what is happening, is a better focus and a better beam shape.
+In order to be able to see what happens at higher frequencies, a higher beam current and a smaller deflection amplitude would be beneficial.
 
 % TODO: \usepackage{graphicx} required
 \begin{figure}

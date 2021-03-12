@@ -51,7 +51,7 @@ As our CRT uses a hot cathode, more details on this will be added later along wi
 
 Normally the cathode itself is covered in beam direction in a so-called Wehnelt cylinder. This part is a conducting cylinder set to a slightly more negative potential than the cathode. It implements two features; firstly, it condenses the emitted electrons, leading to a smaller spot size, i.e. making the cathode a more point-like electron source. Secondly, it enables us to regulate the beam current, the more negative the Wehnelt potential is, the less electrons are emitted by the electron gun. As we make the Wehnelt potential more positive, the beam current increases and continues to rise even after it is more positive than the cathode itself. However, the spot size gets increased, while the proper beam focus is lost. 
 
-The electrons that leave the electron gun are still divergent and need to be focused. For our electrons with an energy of \SI{2}{\kilo\electronvolt},  an electrostatic lens is used.  In their simplest form these are cylindrically symmetrical pieces of conductor, like a ring or tube, set to an electrical potential. By combining several of them, one can create the same effect as a combination of concave and convex lenses \cite{Demtroeder3}. 
+The electrons that leave the electron gun are still divergent and need to be focused. For our electrons with a kinetic energy of \SI{2}{\kilo\electronvolt}, an electrostatic lens is used.  In their simplest form these are cylindrically symmetrical pieces of conductor, like a ring or tube, set to an electrical potential. By combining several of them, one can create the same effect as a combination of concave and convex lenses \cite{Demtroeder3}. 
 
 The field of this system is simply governed by Laplace's equation in 
 cylindrical coordinates:
@@ -59,7 +59,9 @@ cylindrical coordinates:
 	0=\dfrac{1}{r}\pdv{\phi}{r}+\pdv[2]{\phi}{r}+\pdv[2]{\phi}{z}
 \end{equation}
 
-If we take the axis of the beam to be the $z$-axis, the focal point position in the $x$-$y$-plane can be shifted using the two pairs of deflection plates, one for the $x$- and one for the $y$-direction. The deflection is achieved by applying a voltage between the two parallel plates (see: \cref{fig:deflectionplate2}). By starting with an electron with kinetic energy $e \cdot U_0$ which is accelerated in $x$-direction by a constant force $e\cdot U_x / d$ over the extent of the plates $L$, the deflection angle is approximately \cite{Demtroeder3}:
+If we take the axis of the beam to be the $z$-axis, the focal point position in the $x$-$y$-plane can be shifted using the two pairs of deflection plates, one for the $x$- and one for the $y$-direction.
+
+The deflection is achieved by applying a voltage between the two parallel plates (see: \cref{fig:deflectionplate2}). By starting with an electron with kinetic energy $e \cdot U_0$ which is accelerated in $x$-direction by a constant force $e\cdot U_x / d$ over the extent of the plates $L$, the deflection angle is approximately \cite{Demtroeder3}:
 
 \begin{equation}\label{key}
 	\delta \approx \tan(\delta) \approx \frac{U_x\cdot L}{2 U_0 \cdot d}
@@ -79,8 +81,8 @@ For the measures of our CRT ($ L \approx \SI{5}{\centi\meter}$, $d \approx \SI{5
 \section{Implementation in the Heerlen D14-363GY }
 
 
-This section describes the CRT that is used in this project: PDS/CRT Heerlen D14-363GY. \Cref{fig:FotoCRT} shows an image of said CRT and \cref{fig:SchemeCRT} shows a schematic depiction. The cathode is not visible, as it is fixed inside the Wehnelt cylinder (1), just a few millimeters from the exit of the Wehnelt cylinder the electrons pass through the hole in the anode (2), they gain their full kinetic energy over this short distance. The electrons that go through the hole and enter the electrostatic lens, have \SI{2}{\kilo\electronvolt} and therefore move at a speed of approximately \SI{0.08}{\clight}. 
-The electrostatic lenses are realized using three conducting rings (3), that are set to the same potential but have varying radii: Each consecutive ring has a smaller radius than the previous one. 
+This section describes the CRT that is used in this project: PDS/CRT Heerlen D14-363GY. \Cref{fig:FotoCRT} shows an image of the CRT and \cref{fig:SchemeCRT} shows a schematic depiction. The cathode is not visible, as it is fixed inside the Wehnelt cylinder, just a few millimeters from the exit of the Wehnelt cylinder the electrons pass through the hole in the anode, they gain their full kinetic energy over this short distance. The electrons that go through the hole and enter the electrostatic lens, have \SI{2}{\kilo\electronvolt} and therefore move at a speed of approximately \SI{0.08}{\clight} \todo{f not sure what}. 
+The electrostatic lenses are realized using three conducting rings, that are set to the same potential but have varying radii: Each consecutive ring has a smaller radius than the previous one. 
 
 \begin{figure}
 	\centering
@@ -101,18 +103,15 @@ The electrostatic lenses are realized using three conducting rings (3), that are
 \end{figure}
 
 
-Between the electrostatic lens and the deflection plates, there is another aperture (4), which is internally connected to the anode and is thereby kept at the same potential. In our setup, the deflection plates are not simply parallel but are shaped like funnels (5,7), between the two pairs of deflection plates, we have the final aperture (6). Its potential can be regulated separately (usually it's on the same potential as the anode) 
+Between the electrostatic lens and the deflection plates, there is another aperture, which is internally connected to the anode and is thereby kept at the same potential. In our setup, the deflection plates are not simply parallel but are shaped like funnels, between the two pairs of deflection plates, we have the final aperture. Its potential can be regulated separately (usually it's on the same potential as the anode).
 
-
-Finally the beam hits the phosphorous-coated screen which fluoresces on electron impact.
-
-It is connected to the aquadag \footnote{A conductive coating used in CRTs, it consists of graphite particles dispersed in water.} coating inside the glass envelope and prevents charge building up that could lead to image distortions. 
+It is connected to the aquadag\footnote{A conductive coating used in CRTs, it consists of graphite particles dispersed in water.} coating inside the glass envelope and prevents charge building up that could lead to image distortions. 
 Finally, the beam hits the phosphorous-coated screen, which fluoresces on electron impact.
 
 \subsection{The Cathode}
 
 
-As already mentioned, we are using a hot cathode, where electrons are thermally exited  to leave the material. Compared to cold cathodes which work by field emission, this leads to a broader energy distribution. For electron microscopy, where a high resolution is the goal, this in undesirable, as it leads to some degree of chromatic aberration in the electron optics; for our purposes this should not be a problem. On the other hand, hot cathodes normally allow for higher current densities. This is very important to QUAK because a high current density allows for a high amplitude of the beam's dipole radiation and therefore a strong coupling to the potassium atoms. The  electron current by thermal emission is described by \cite[chp 3.2.3]{Whitaker}:
+As already mentioned, we are using a hot cathode, where electrons are thermally exited  to leave the material. Compared to cold cathodes which work by field emission, this leads to a broader kinetic energy distribution. For electron microscopy, where a high spatial resolution is needed, this is undesirable, as it leads to some degree of chromatic aberration in the electron optics. However, for our purposes this should not be a problem. On the other hand, hot cathodes normally allow for higher current densities. This is very important to QUAK because a high current density allows for a high amplitude of the electric and magnetic nearfield of the electron beam and therefore a strong coupling to the potassium atoms. The  electron current by thermal emission is described by \cite[chp 3.2.3]{Whitaker}:
 
 \begin{equation}\label{eq:thermionic_current}
 I=A\cdot T^2 \cdot e^{-b/T}
@@ -129,16 +128,16 @@ The cathode from one of our Heerlen D14-363GY-tubes has been removed and examine
 	\label{fig:SEM_Cathode}
 \end{figure}
 
-The ``Power Vacuum Tubes Handbook'' \cite[chp 3.5.2.1]{Whitaker} describes a typical oxide cathode as a coating of barium and strontium oxides on a structure made from nickel alloys. Nickel is chosen for its strength and toughness, which it retains even at high temperatures. These cathodes are normally made by coating a case structure with a mixture of barium and strontium carbonates (typically \SI{60}{\percent} Ba and \SI{40}{\percent} Sr), suspended in a binder material and then baking the structure, causing the carbonates to be reduced to oxides. 
+The ``Power Vacuum Tubes Handbook'' \cite[chp 3.5.2.1]{Whitaker} describes a typical oxide cathode as a coating of barium and strontium oxides on a structure made from nickel alloys. Nickel is chosen for its strength and toughness, which it retains even at high temperatures. These cathodes are normally made by coating a support structure with a mixture of barium and strontium carbonates (typically \SI{60}{\percent} Ba and \SI{40}{\percent} Sr), suspended in a binder material and baking the structure, causing the carbonates to be reduced to oxides. 
 
-These metal oxide cathodes normally operate at \SIrange{700}{820}{\celsius} and are capable of average emission densities of \SIrange{100}{500}{\milli\ampere\per\centi\meter\squared}. Higher peak emissions are possible for shorter periods of time. As already mentioned, one of the advantages of this type of cathode is its high emission current capability compared to cathodes made from other materials. Downsides to this cathode type are its greater susceptibility to so-called oxygen poisoning and to ion bombardment. The literature therefore recommends to avoid prolonged exposure to oxygen. Oxygen poisoning is the process in which oxygen adsorbs onto the cathode and increases its work function, effectively reducing the ability to emit electrons. 
+These metal oxide cathodes normally operate at \SIrange{700}{820}{\celsius} and are capable of average emission densities of \SIrange{100}{500}{\milli\ampere\per\centi\meter\squared}. Higher peak emissions are possible for shorter periods of time. One of the advantages of this type of cathode is its high emission current capability compared to cathodes made from other materials. Downsides to this cathode type are its greater susceptibility to so-called oxygen poisoning and to ion bombardment. The literature therefore recommends to avoid prolonged exposure to oxygen. Oxygen poisoning is the process in which oxygen adsorbs onto the cathode and increases its work function, effectively reducing the ability to emit electrons. 
 
 
 Also the material from the oxide cathode will evaporate during the tube's lifetime and will travel to other parts of the tube, adsorbing to electron optics parts and turning them into additional emitters. The literature (\cite[chp 3.5.2.1]{Whitaker}) therefore, also advises against exceeding the design value for the heater voltage, as this reduces the lifetime of the cathode significantly. CRTs are typically designed to operate for ten years or longer. For QUAK however, a shorter lifetime is acceptable. Therefore during the course of our project, we did drive the cathode with higher heater voltages on various occasions in order to increase the available beam current. We still don't know exactly how fast the degradation due to this effect proceeds; further research is necessary.  
 
 \subsection{Cathode Layout}
 
-\Cref{fig:cathodelayout} shows how metal oxide cathodes for CRTs typically look. The depiction agrees very well with the layout of our cathode. On the image we see the cathode cylinder, which corresponds to the nickel support structure mentioned above. It is shaped into a cup, in which the heater filament (shaped into a coil) is inserted. The oxide disk, from where the electrons are emitted, is baked onto the top of the cathode cylinder. The cathode cylinder is mounted on an isolating support structure and inserted into the Wehnelt cylinder, which is called ``grid cup'' in the drawing. 
+\Cref{fig:cathodelayout} shows a typical image of a metal oxide cathode. The depiction agrees very well with the layout of our cathode. On the image we see the cathode cylinder, which corresponds to the nickel support structure mentioned above. It is shaped into a cup, in which the heater filament (shaped into a coil) is inserted. The oxide disk, from where the electrons are emitted, is baked onto the top of the cathode cylinder. The cathode cylinder is mounted on an isolating support structure and inserted into the Wehnelt cylinder, which is called ``grid cup'' in the drawing. 
   
 
 \begin{figure}
